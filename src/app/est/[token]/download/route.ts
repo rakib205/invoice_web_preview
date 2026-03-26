@@ -1,1 +1,3 @@
-export { GET, runtime } from "../../../../inv/[token]/download/route";
+export { GET } from "../../../inv/[token]/download/route";
+
+export const runtime = "nodejs";
