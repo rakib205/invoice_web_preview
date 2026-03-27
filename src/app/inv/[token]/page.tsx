@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { PrintButton } from "@/components/PrintButton";
+import { ViewTracker } from "@/components/ViewTracker";
 import {
   fetchPublicInvoiceByToken,
   type PublicInvoiceBundle,
@@ -120,6 +121,7 @@ export default async function InvoicePublicPage({
 
   return (
     <div className="min-h-screen bg-zinc-100 px-4 py-8 text-zinc-950 print:bg-white">
+      <ViewTracker token={token} />
       <div className="mx-auto w-full max-w-5xl rounded-2xl bg-white p-4 shadow-sm ring-1 ring-zinc-200 print:rounded-none print:p-0 print:shadow-none print:ring-0 sm:p-10">
         <Title bundle={bundle} />
         {!hasPdf ? (
