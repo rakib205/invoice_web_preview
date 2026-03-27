@@ -13,8 +13,10 @@ export async function POST(
   }
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!supabaseUrl || !anonKey) {
+  const apiKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY ??
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!supabaseUrl || !apiKey) {
     return NextResponse.json(
       { error: "Supabase environment is not configured" },
       { status: 500 },
@@ -27,8 +29,8 @@ export async function POST(
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        apikey: anonKey,
-        Authorization: `Bearer ${anonKey}`,
+        apikey: apiKey,
+        Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({ public_token: publicToken }),
       cache: "no-store",

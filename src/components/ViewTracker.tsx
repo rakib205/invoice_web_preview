@@ -14,10 +14,17 @@ export function ViewTracker({ token }: { token: string }) {
         method: "POST",
         cache: "no-store",
         keepalive: true,
-      }).catch(() => {
-        // Best-effort tracking; failures are intentionally silent for public viewers.
-      });
-      sessionStorage.setItem(key, "1");
+      })
+        .then((res) => {
+          // Persist dedupe only after a successful/no-op response.
+          // If tracking fails (500/network), allow retry on next open.
+          if (res.ok || res.status === 404) {
+            sessionStorage.setItem(key, "1");
+          }
+        })
+        .catch(() => {
+          // Best-effort tracking; failures are intentionally silent for public viewers.
+        });
     }, TRACK_DELAY_MS);
 
     return () => window.clearTimeout(handle);
