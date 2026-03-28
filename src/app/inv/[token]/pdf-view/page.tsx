@@ -23,8 +23,10 @@ export default async function PdfViewPage({
   const doc = bundle.invoice.document_type === "estimate" ? "Estimate" : "Invoice";
   const no = bundle.invoice.invoice_number ? ` ${bundle.invoice.invoice_number}` : "";
   const title = `${doc}${no}`;
-  const pdfUrl = `/inv/${bundle.invoice.public_token}/pdf`;
-  const downloadUrl = `/inv/${bundle.invoice.public_token}/pdf?download=1`;
+  const pathPrefix = bundle.invoice.document_type === "estimate" ? "est" : "inv";
+  const tok = bundle.invoice.public_token ?? "";
+  const pdfUrl = `/${pathPrefix}/${tok}/pdf`;
+  const downloadUrl = `/${pathPrefix}/${tok}/pdf?download=1`;
   // Most built-in PDF viewers support these hash flags (Chrome/Edge/Firefox vary).
   // If a browser ignores them, the PDF will still load correctly.
   const iframeUrl = `${pdfUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`;

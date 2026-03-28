@@ -13,6 +13,7 @@ export type PublicInvoiceBundle = {
     discount: string | null;
     total: string | null;
     due_date: string | null;
+    expiry_date: string | null;
     invoice_date: string | null;
     currency: string | null;
     document_type: string | null;

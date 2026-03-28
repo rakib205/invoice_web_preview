@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { EstimateRespond } from "@/components/EstimateRespond";
 import { PrintButton } from "@/components/PrintButton";
 import { ViewTracker } from "@/components/ViewTracker";
 import {
@@ -37,10 +38,17 @@ function joinParts(...parts: Array<string | null | undefined>) {
   return parts.filter((p): p is string => Boolean(p && p.trim())).join(", ");
 }
 
-function Title({ bundle }: { bundle: PublicInvoiceBundle }) {
+function Title({
+  bundle,
+  pathPrefix,
+}: {
+  bundle: PublicInvoiceBundle;
+  pathPrefix: "inv" | "est";
+}) {
   const doc = bundle.invoice.document_type === "estimate" ? "Estimate" : "Invoice";
   const no = bundle.invoice.invoice_number ? ` ${bundle.invoice.invoice_number}` : "";
   const hasPdf = Boolean(bundle.invoice.pdf_storage_path);
+  const tok = bundle.invoice.public_token ?? "";
   return (
     <div className="sticky top-0 z-10 -mx-4 border-b border-zinc-200 bg-white/80 px-4 py-3 backdrop-blur print:hidden sm:-mx-10 sm:px-10">
       <div className="flex items-center justify-between gap-4">
@@ -57,19 +65,19 @@ function Title({ bundle }: { bundle: PublicInvoiceBundle }) {
           {hasPdf ? (
             <>
               <Link
-                href={`/inv/${bundle.invoice.public_token}/pdf?download=1`}
+                href={`/${pathPrefix}/${tok}/pdf?download=1`}
                 className="inline-flex h-10 items-center justify-center rounded-full bg-zinc-900 px-4 text-sm font-medium text-white hover:bg-zinc-800"
               >
                 Download
               </Link>
               <Link
-                href={`/inv/${bundle.invoice.public_token}/pdf`}
+                href={`/${pathPrefix}/${tok}/pdf`}
                 className="inline-flex h-10 items-center justify-center rounded-full border border-zinc-300 px-4 text-sm font-medium hover:bg-zinc-50"
               >
                 View PDF
               </Link>
               <Link
-                href={`/inv/${bundle.invoice.public_token}/pdf-view`}
+                href={`/${pathPrefix}/${tok}/pdf-view`}
                 className="inline-flex h-10 items-center justify-center rounded-full border border-zinc-300 px-4 text-sm font-medium hover:bg-zinc-50"
               >
                 PDF Viewer
@@ -105,6 +113,8 @@ export default async function InvoicePublicPage({
   const b = bundle.business;
   const c = bundle.customer;
   const currency = bundle.invoice.currency ?? b?.currency ?? null;
+  const pathPrefix = bundle.invoice.document_type === "estimate" ? "est" : "inv";
+  const isEstimate = bundle.invoice.document_type === "estimate";
 
   const businessAddress = joinParts(
     b?.address_line1,
@@ -123,13 +133,22 @@ export default async function InvoicePublicPage({
     <div className="min-h-screen bg-zinc-100 px-4 py-8 text-zinc-950 print:bg-white">
       <ViewTracker token={token} />
       <div className="mx-auto w-full max-w-5xl rounded-2xl bg-white p-4 shadow-sm ring-1 ring-zinc-200 print:rounded-none print:p-0 print:shadow-none print:ring-0 sm:p-10">
-        <Title bundle={bundle} />
+        <Title bundle={bundle} pathPrefix={pathPrefix} />
         {!hasPdf ? (
           <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950 print:hidden">
             <div className="font-medium">PDF not available yet</div>
             <div className="mt-1 text-amber-900/90">
-              Ask the sender to open the invoice in the app and tap <span className="font-semibold">Send invoice</span> again to
-              generate and upload the PDF.
+              {isEstimate ? (
+                <>
+                  Ask the sender to open the estimate in the app and tap{" "}
+                  <span className="font-semibold">Send estimate</span> again to generate and upload the PDF.
+                </>
+              ) : (
+                <>
+                  Ask the sender to open the invoice in the app and tap{" "}
+                  <span className="font-semibold">Send invoice</span> again to generate and upload the PDF.
+                </>
+              )}
             </div>
           </div>
         ) : null}
@@ -158,12 +177,18 @@ export default async function InvoicePublicPage({
 
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           <div className="rounded-xl bg-zinc-50 p-4 ring-1 ring-zinc-200">
-            <div className="text-xs font-semibold uppercase tracking-wide text-zinc-500">Invoice date</div>
+            <div className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
+              {isEstimate ? "Estimate date" : "Invoice date"}
+            </div>
             <div className="mt-1 text-sm font-medium text-zinc-900">{fmtDate(bundle.invoice.invoice_date)}</div>
           </div>
           <div className="rounded-xl bg-zinc-50 p-4 ring-1 ring-zinc-200">
-            <div className="text-xs font-semibold uppercase tracking-wide text-zinc-500">Due date</div>
-            <div className="mt-1 text-sm font-medium text-zinc-900">{fmtDate(bundle.invoice.due_date)}</div>
+            <div className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
+              {isEstimate ? "Valid until" : "Due date"}
+            </div>
+            <div className="mt-1 text-sm font-medium text-zinc-900">
+              {isEstimate ? fmtDate(bundle.invoice.expiry_date) || "—" : fmtDate(bundle.invoice.due_date) || "—"}
+            </div>
           </div>
           <div className="rounded-xl bg-zinc-50 p-4 ring-1 ring-zinc-200">
             <div className="text-xs font-semibold uppercase tracking-wide text-zinc-500">Total</div>
@@ -172,6 +197,14 @@ export default async function InvoicePublicPage({
             </div>
           </div>
         </div>
+
+        {isEstimate && bundle.invoice.public_token ? (
+          <EstimateRespond
+            token={bundle.invoice.public_token}
+            initialStatus={bundle.invoice.status}
+            expiryDate={bundle.invoice.expiry_date}
+          />
+        ) : null}
 
         <div className="mt-8 overflow-hidden rounded-xl ring-1 ring-zinc-200">
           <table className="w-full text-sm">
