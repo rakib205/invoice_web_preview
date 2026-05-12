@@ -52,12 +52,17 @@ export type PublicInvoiceBundle = {
   } | null;
   items: Array<{
     id: string;
-    name: string;
+    name: string | null;
     description: string | null;
     quantity: number | null;
-    unit_price: string | null;
-    taxable?: boolean | null;
+    price: string | null;
+    total: string | null;
+    tax?: string | null;
     discount?: string | null;
+    discount_enabled?: boolean | null;
+    discount_amount?: string | null;
+    discount_type?: string | null;
+    taxable?: boolean | null;
     unit_type?: string | null;
     sort_order?: number | null;
   }>;

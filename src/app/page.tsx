@@ -18,11 +18,6 @@ export default function Home() {
             unoptimized
           />
         </a>
-        <nav className="hidden items-center gap-8 text-sm text-zinc-600 md:flex">
-          <a href="#features" className="hover:text-zinc-950">Features</a>
-          <a href="#download" className="hover:text-zinc-950">Download</a>
-          <a href="#faq" className="hover:text-zinc-950">FAQ</a>
-        </nav>
         <a
           href="#download"
           className="rounded-full px-4 py-2 text-sm font-medium text-white hover:opacity-90"
@@ -95,18 +90,6 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            {[
-              { icon: <path d="M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2ZM4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>, label: "Built for freelancers" },
-              { icon: <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>, label: "Free to download" },
-              { icon: <><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" strokeWidth="1.8"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></>, label: "No credit card" },
-            ].map(({ icon, label }) => (
-              <span key={label} className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs font-medium text-zinc-600">
-                <svg viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5">{icon}</svg>
-                {label}
-              </span>
-            ))}
-          </div>
         </div>
 
         {/* Phone frames */}
@@ -124,8 +107,9 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Features */}
-      <section id="features" className="mx-auto w-full max-w-7xl px-6 pb-24">
+      <section className="mx-auto w-full max-w-7xl px-6 pb-24">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
             {
