@@ -61,7 +61,7 @@ export default function ContactPage() {
         </h1>
         <p className="mt-3 text-zinc-600">
           Have a question or just want to say hi? We&apos;d love to hear from you. Fill out the form
-          below and we&apos;ll get back to you within one business day.
+          below and we&apos;ll get back to you soon.
         </p>
 
         {status === "success" ? (
@@ -78,8 +78,7 @@ export default function ContactPage() {
             </svg>
             <h2 className="mt-4 text-lg font-semibold text-green-800">Message sent!</h2>
             <p className="mt-1 text-sm text-green-700">
-              Thanks for reaching out. We&apos;ll reply to <strong>{email}</strong> within one
-              business day.
+              Thanks for reaching out. We&apos;ll reply to <strong>{email}</strong> soon.
             </p>
           </div>
         ) : (
@@ -89,7 +88,7 @@ export default function ContactPage() {
               type="text"
               name="website"
               tabIndex={-1}
-              autoComplete="off"
+              autoComplete="new-password"
               aria-hidden="true"
               className="absolute left-[-9999px] opacity-0"
             />

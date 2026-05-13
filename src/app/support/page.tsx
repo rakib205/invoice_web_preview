@@ -72,7 +72,7 @@ export default function SupportPage() {
         </h1>
         <p className="mt-3 text-zinc-600">
           Running into a problem? Tell us what&apos;s happening and we&apos;ll get you sorted. We
-          respond to all support tickets within one business day.
+          respond to all support tickets as soon as possible.
         </p>
 
         {/* Quick help links */}
@@ -148,8 +148,7 @@ export default function SupportPage() {
             </svg>
             <h2 className="mt-4 text-lg font-semibold text-green-800">Ticket submitted!</h2>
             <p className="mt-1 text-sm text-green-700">
-              We&apos;ve received your request and will reply to <strong>{email}</strong> within one
-              business day.
+              We&apos;ve received your request and will reply to <strong>{email}</strong> soon.
             </p>
           </div>
         ) : (
@@ -159,7 +158,7 @@ export default function SupportPage() {
               type="text"
               name="website"
               tabIndex={-1}
-              autoComplete="off"
+              autoComplete="new-password"
               aria-hidden="true"
               className="absolute left-[-9999px] opacity-0"
             />

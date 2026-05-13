@@ -26,6 +26,7 @@ export async function POST(request: Request) {
   });
 
   if (spam.blocked) {
+    console.warn("Support form blocked by spam check:", spam.reason, "ip:", ip);
     return Response.json({ ok: true });
   }
 
@@ -44,7 +45,7 @@ export async function POST(request: Request) {
   }
 
   const { error } = await resend.emails.send({
-    from: process.env.RESEND_FROM!,
+    from: `InvoiceFlint <${process.env.RESEND_FROM!}>`,
     to: process.env.CONTACT_TO!,
     replyTo: email,
     subject: `Support [${category}] — ${name}`,
@@ -53,7 +54,7 @@ export async function POST(request: Request) {
   });
 
   if (error) {
-    console.error("Resend error (support):", error);
+    console.error("Resend error (support):", JSON.stringify(error));
     return Response.json({ error: "Failed to send. Try again later." }, { status: 500 });
   }
 

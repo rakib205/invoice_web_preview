@@ -25,6 +25,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
           />
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-zinc-900">Privacy</Link>
+            <Link href="/terms" className="hover:text-zinc-900">Terms</Link>
             <Link href="/contact" className="hover:text-zinc-900">Contact</Link>
             <Link href="/support" className="hover:text-zinc-900">Support</Link>
           </div>
