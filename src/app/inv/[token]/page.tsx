@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { EstimateRespond } from "@/components/EstimateRespond";
+import { OpenPdfButton } from "@/components/OpenPdfButton";
 import { PrintButton } from "@/components/PrintButton";
 import { ViewTracker } from "@/components/ViewTracker";
 import {
@@ -146,6 +147,7 @@ function ActionBar({
 }) {
   const hasPdf = Boolean(bundle.invoice.pdf_storage_path);
   const tok = bundle.invoice.public_token ?? "";
+  const pdfUrl = `/${pathPrefix}/${tok}/pdf`;
   if (!hasPdf) {
     return (
       <span
@@ -159,7 +161,7 @@ function ActionBar({
   return (
     <div className="flex items-center gap-1.5 sm:gap-2">
       <Link
-        href={`/${pathPrefix}/${tok}/pdf?download=1`}
+        href={`${pdfUrl}?download=1`}
         aria-label="Download PDF"
         className="inline-flex h-9 items-center justify-center gap-1.5 rounded-full px-3 text-xs font-medium text-white shadow-sm transition hover:opacity-90 sm:h-10 sm:gap-2 sm:px-4 sm:text-sm"
         style={{ backgroundColor: BRAND }}
@@ -168,17 +170,17 @@ function ActionBar({
         <span className="hidden sm:inline">Download</span>
         <span className="sm:hidden">PDF</span>
       </Link>
-      <Link
-        href={`/${pathPrefix}/${tok}/pdf`}
-        aria-label="View PDF"
-        title="View PDF"
-        className="inline-flex h-9 w-9 items-center justify-center gap-2 rounded-full border border-zinc-300 bg-white text-zinc-800 transition hover:bg-zinc-50 sm:h-10 sm:w-auto sm:px-4 sm:text-sm sm:font-medium"
+      <OpenPdfButton
+        href={pdfUrl}
+        aria-label="Open PDF"
+        className="inline-flex h-9 w-9 items-center justify-center gap-2 rounded-full border border-zinc-300 bg-white text-zinc-800 transition hover:bg-zinc-50 disabled:opacity-60 sm:h-10 sm:w-auto sm:px-4 sm:text-sm sm:font-medium"
       >
         <IconEye className="h-4 w-4" />
-        <span className="hidden sm:inline">View</span>
-      </Link>
+        <span className="hidden sm:inline">Open PDF</span>
+      </OpenPdfButton>
       <PrintButton
-        className="hidden h-10 items-center justify-center gap-2 rounded-full border border-zinc-300 bg-white px-4 text-sm font-medium text-zinc-800 transition hover:bg-zinc-50 sm:inline-flex"
+        pdfUrl={pdfUrl}
+        className="hidden h-10 items-center justify-center gap-2 rounded-full border border-zinc-300 bg-white px-4 text-sm font-medium text-zinc-800 transition hover:bg-zinc-50 disabled:opacity-60 sm:inline-flex"
       >
         <IconPrint className="h-4 w-4" />
         Print
@@ -298,6 +300,17 @@ export default async function InvoicePublicPage({
   );
   const balanceNum = Math.max(0, totalNum - paidNum);
   const fullyPaid = paidNum > 0 && balanceNum < 0.005;
+  const isPaid =
+    !isEstimate &&
+    (fullyPaid ||
+      (inv.status ?? "").toLowerCase() === "paid" ||
+      Boolean(inv.paid_at));
+  const effectiveStatus = isPaid ? "paid" : inv.status;
+  const lastPayment = bundle.payments.length > 0
+    ? bundle.payments.reduce((latest, p) =>
+        p.paid_at && (!latest.paid_at || p.paid_at > latest.paid_at) ? p : latest
+      )
+    : null;
 
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-950 print:bg-white">
@@ -346,7 +359,7 @@ export default async function InvoicePublicPage({
                   >
                     {docLabel}
                   </span>
-                  <StatusPill status={inv.status} isEstimate={isEstimate} />
+                  <StatusPill status={effectiveStatus} isEstimate={isEstimate} />
                 </div>
                 <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
                   {inv.invoice_number ? `#${inv.invoice_number}` : docLabel}
@@ -365,19 +378,27 @@ export default async function InvoicePublicPage({
 
               <div className="shrink-0 rounded-2xl bg-white/80 px-5 py-4 ring-1 ring-zinc-200 backdrop-blur sm:min-w-[240px]">
                 <div className="text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
-                  {isEstimate ? "Estimate total" : fullyPaid ? "Amount paid" : "Amount due"}
+                  {isEstimate ? "Estimate total" : isPaid ? "Amount paid" : "Amount due"}
                 </div>
                 <div className="mt-1 text-3xl font-semibold tabular-nums text-zinc-950">
                   {isEstimate
                     ? money(inv.total, currency)
-                    : money(fullyPaid ? totalNum : balanceNum, currency)}
+                    : money(isPaid ? totalNum : balanceNum, currency)}
                 </div>
-                {!isEstimate && paidNum > 0 && !fullyPaid ? (
+                {!isEstimate && paidNum > 0 && !isPaid ? (
                   <div className="mt-1 text-xs text-zinc-600">
                     {money(paidNum, currency)} paid of {money(totalNum, currency)}
                   </div>
                 ) : null}
-                {!isEstimate && inv.due_date ? (
+                {isPaid ? (
+                  <div className="mt-1 text-xs font-medium text-emerald-700">
+                    {lastPayment?.paid_at
+                      ? `Paid on ${fmtDate(lastPayment.paid_at)}`
+                      : inv.paid_at
+                        ? `Paid on ${fmtDate(inv.paid_at)}`
+                        : "Paid in full"}
+                  </div>
+                ) : !isEstimate && inv.due_date ? (
                   <div className="mt-1 text-xs text-zinc-600">
                     Due {fmtDate(inv.due_date)}
                   </div>
@@ -659,20 +680,32 @@ export default async function InvoicePublicPage({
                             − {money(paidNum, currency)}
                           </dd>
                         </div>
-                        <div
-                          className="!mt-3 flex items-center justify-between rounded-xl px-3 py-2"
-                          style={{ backgroundColor: "#fdf4ee" }}
-                        >
-                          <dt className="text-sm font-semibold text-zinc-900">
-                            {fullyPaid ? "Balance" : "Amount due"}
-                          </dt>
-                          <dd
-                            className="text-lg font-semibold tabular-nums"
-                            style={{ color: BRAND }}
+                        {isPaid ? (
+                          <div className="!mt-3 flex items-center justify-between rounded-xl bg-emerald-50 px-3 py-2 ring-1 ring-inset ring-emerald-200">
+                            <dt className="flex items-center gap-1.5 text-sm font-semibold text-emerald-800">
+                              <svg className="h-4 w-4 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd" />
+                              </svg>
+                              Paid in full
+                            </dt>
+                            <dd className="text-lg font-semibold tabular-nums text-emerald-700">
+                              {money(0, currency)}
+                            </dd>
+                          </div>
+                        ) : (
+                          <div
+                            className="!mt-3 flex items-center justify-between rounded-xl px-3 py-2"
+                            style={{ backgroundColor: "#fdf4ee" }}
                           >
-                            {money(balanceNum, currency)}
-                          </dd>
-                        </div>
+                            <dt className="text-sm font-semibold text-zinc-900">Amount due</dt>
+                            <dd
+                              className="text-lg font-semibold tabular-nums"
+                              style={{ color: BRAND }}
+                            >
+                              {money(balanceNum, currency)}
+                            </dd>
+                          </div>
+                        )}
                       </>
                     ) : null}
                   </dl>
