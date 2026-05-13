@@ -147,7 +147,9 @@ function ActionBar({
 }) {
   const hasPdf = Boolean(bundle.invoice.pdf_storage_path);
   const tok = bundle.invoice.public_token ?? "";
-  const pdfUrl = `/${pathPrefix}/${tok}/pdf`;
+  const invoiceNum = bundle.invoice.invoice_number;
+  const pdfFilename = invoiceNum ? `invoice-${invoiceNum}.pdf` : `invoice.pdf`;
+  const pdfUrl = `/${pathPrefix}/${tok}/${pdfFilename}`;
   if (!hasPdf) {
     return (
       <span
@@ -208,13 +210,13 @@ function PartyCard({
 }) {
   return (
     <div className="rounded-2xl border border-zinc-200 bg-white p-5">
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col gap-3">
         {logoUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={logoUrl}
             alt={name}
-            className="h-11 w-11 rounded-xl object-cover ring-1 ring-zinc-200"
+            className="h-auto w-auto max-h-14 max-w-[140px] rounded-xl object-contain"
           />
         ) : (
           <div
@@ -782,9 +784,6 @@ export default async function InvoicePublicPage({
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="hover:text-zinc-700">Privacy</Link>
             <Link href="/support" className="hover:text-zinc-700">Support</Link>
-            <span className="font-mono text-[10px] text-zinc-400">
-              {inv.public_token?.slice(0, 8)}…
-            </span>
           </div>
         </footer>
       </div>

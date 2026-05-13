@@ -12,8 +12,10 @@ export async function GET(
   const bundle = await fetchPublicInvoiceByToken(token);
   if (!bundle) return new NextResponse("Not found", { status: 404 });
   const url = new URL(req.url);
+  const invoiceNum = bundle.invoice.invoice_number;
+  const pdfFilename = invoiceNum ? `invoice-${invoiceNum}.pdf` : `invoice.pdf`;
   return NextResponse.redirect(
-    new URL(`/inv/${bundle.invoice.public_token}/pdf?download=1`, url.origin),
+    new URL(`/inv/${token}/${pdfFilename}?download=1`, url.origin),
     { status: 302 },
   );
 }
