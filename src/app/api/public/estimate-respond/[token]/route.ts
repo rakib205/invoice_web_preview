@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { isValidPublicToken } from "@/lib/invoice/fetchPublicInvoice";
 
 export const runtime = "nodejs";
 
@@ -7,9 +8,9 @@ export async function POST(
   { params }: { params: Promise<{ token: string }> },
 ) {
   const { token } = await params;
-  const publicToken = token?.trim();
-  if (!publicToken) {
-    return NextResponse.json({ error: "Missing token" }, { status: 400 });
+  const publicToken = token?.trim() ?? "";
+  if (!isValidPublicToken(publicToken)) {
+    return NextResponse.json({ error: "Invalid token" }, { status: 400 });
   }
 
   let body: { action?: string };

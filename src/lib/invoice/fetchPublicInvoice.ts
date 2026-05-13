@@ -76,9 +76,17 @@ export type PublicInvoiceBundle = {
   }>;
 };
 
+const PUBLIC_TOKEN_RE = /^[a-f0-9]{24}$/;
+
+export function isValidPublicToken(token: unknown): token is string {
+  return typeof token === "string" && PUBLIC_TOKEN_RE.test(token);
+}
+
 export async function fetchPublicInvoiceByToken(
   token: string,
 ): Promise<PublicInvoiceBundle | null> {
+  if (!isValidPublicToken(token)) return null;
+
   const supabase = createSupabaseAdmin();
 
   const { data: invoice, error: invErr } = await supabase
