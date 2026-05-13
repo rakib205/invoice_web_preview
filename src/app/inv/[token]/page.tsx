@@ -414,6 +414,15 @@ export default async function InvoicePublicPage({
             </div>
           </header>
 
+          {/* Estimate respond — full-width action band, top of document body */}
+          {isEstimate && inv.public_token ? (
+            <EstimateRespond
+              token={inv.public_token}
+              initialStatus={inv.status}
+              expiryDate={inv.expiry_date}
+            />
+          ) : null}
+
           <div className="px-6 pb-10 pt-8 sm:px-10">
             {!hasPdf ? (
               <div className="mb-8 flex gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950 print:hidden">
@@ -486,15 +495,6 @@ export default async function InvoicePublicPage({
                 </div>
               </div>
             </div>
-
-            {/* Estimate respond */}
-            {isEstimate && inv.public_token ? (
-              <EstimateRespond
-                token={inv.public_token}
-                initialStatus={inv.status}
-                expiryDate={inv.expiry_date}
-              />
-            ) : null}
 
             {/* Items */}
             <section className="mt-8">

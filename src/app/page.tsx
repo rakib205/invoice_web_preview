@@ -4,7 +4,7 @@ const RUST = "#b8412a";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f6f7f9] text-zinc-950 overflow-hidden">
+    <main className="min-h-screen bg-[#f6f7f9] text-zinc-950 flex flex-col">
       {/* Nav */}
       <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5">
         <a href="/">
@@ -27,6 +27,7 @@ export default function Home() {
         </a>
       </header>
 
+      <div className="flex-1 overflow-hidden">
       {/* Hero */}
       <section className="relative mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 px-6 pt-10 pb-24 lg:grid-cols-2 lg:gap-8 lg:pt-16">
         {/* Background blob */}
@@ -204,6 +205,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      </div>
 
       {/* Footer */}
       <footer className="border-t border-zinc-200 bg-white">
