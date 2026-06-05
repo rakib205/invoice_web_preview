@@ -10,6 +10,8 @@ export type PublicInvoiceBundle = {
     status: string | null;
     subtotal: string | null;
     tax: string | null;
+    taxes: Array<{ label?: string | null; rate?: number | string | null }> | null;
+    tax_inclusive: boolean | null;
     discount: string | null;
     total: string | null;
     due_date: string | null;

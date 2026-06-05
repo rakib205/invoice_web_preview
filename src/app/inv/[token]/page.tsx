@@ -27,6 +27,47 @@ function money(amount: string | number | null | undefined, currency: string | nu
   }
 }
 
+type TaxLine = { label: string; rate: number };
+
+// Parse the invoice `taxes` jsonb: an array of { label, rate } where rate is a percentage.
+function parseTaxLines(raw: unknown): TaxLine[] {
+  if (!Array.isArray(raw)) return [];
+  const lines: TaxLine[] = [];
+  for (const entry of raw) {
+    if (!entry || typeof entry !== "object") continue;
+    const e = entry as { label?: unknown; rate?: unknown };
+    const rate = Number(e.rate);
+    if (!Number.isFinite(rate)) continue;
+    const label = typeof e.label === "string" ? e.label.trim() : "";
+    lines.push({ label: label || "Tax", rate });
+  }
+  return lines;
+}
+
+// Round to cents.
+function round2(n: number) {
+  return Math.round((n + Number.EPSILON) * 100) / 100;
+}
+
+// Distribute the stored total tax across the tax lines proportionally by rate so
+// the displayed amounts always sum back to the stored tax total.
+function allocateTaxAmounts(lines: TaxLine[], taxTotal: number): number[] {
+  const rateSum = lines.reduce((s, t) => s + t.rate, 0);
+  if (lines.length === 0 || rateSum <= 0 || !Number.isFinite(taxTotal)) {
+    return lines.map(() => 0);
+  }
+  const amounts = lines.map((t) => round2((taxTotal * t.rate) / rateSum));
+  // Push any rounding remainder onto the last line so the column reconciles.
+  const diff = round2(taxTotal - amounts.reduce((s, a) => s + a, 0));
+  if (amounts.length > 0) amounts[amounts.length - 1] = round2(amounts[amounts.length - 1] + diff);
+  return amounts;
+}
+
+// "8.5" -> "8.5", "20" -> "20" (trim trailing zeros without forcing decimals).
+function fmtRate(rate: number) {
+  return String(Number(rate.toFixed(4)));
+}
+
 function fmtDate(d: string | null | undefined) {
   if (!d) return "";
   const dt = new Date(d);
@@ -216,7 +257,7 @@ function PartyCard({
           <img
             src={logoUrl}
             alt={name}
-            className="h-auto w-auto max-h-14 max-w-[140px] rounded-xl object-contain"
+            className="h-auto w-auto max-h-14 max-w-[140px] self-start rounded-xl object-contain"
           />
         ) : (
           <div
@@ -296,6 +337,10 @@ export default async function InvoicePublicPage({
   );
 
   const totalNum = Number(inv.total ?? 0);
+  const taxTotal = Number(inv.tax ?? 0);
+  const taxLines = parseTaxLines(inv.taxes);
+  const taxAmounts = allocateTaxAmounts(taxLines, taxTotal);
+  const taxInclusive = Boolean(inv.tax_inclusive);
   const paidNum = bundle.payments.reduce(
     (sum, p) => sum + (Number.isFinite(Number(p.amount)) ? Number(p.amount) : 0),
     0,
@@ -321,17 +366,19 @@ export default async function InvoicePublicPage({
       {/* Top action bar — sticky, hidden in print */}
       <div className="sticky top-0 z-20 border-b border-zinc-200 bg-white/85 backdrop-blur print:hidden">
         <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-2 px-3 py-2.5 sm:gap-4 sm:px-8 sm:py-3">
-          <Link href="/" className="flex shrink-0 items-center gap-2">
-            <Image
-              src="/logo.png"
-              alt="Invoiceflint"
-              width={140}
-              height={36}
-              className="h-6 w-auto object-contain sm:h-7"
-              priority
-              unoptimized
-            />
-          </Link>
+          <div className="flex min-w-0 items-center gap-2.5">
+            {b?.logo_url ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={b.logo_url}
+                alt={b?.name ?? "Business"}
+                className="h-7 w-auto max-w-[120px] shrink-0 rounded-lg object-contain sm:h-8"
+              />
+            ) : null}
+            <span className="truncate text-sm font-semibold text-zinc-900 sm:text-base">
+              {b?.name ?? "—"}
+            </span>
+          </div>
           <ActionBar bundle={bundle} pathPrefix={pathPrefix} />
         </div>
       </div>
@@ -660,12 +707,41 @@ export default async function InvoicePublicPage({
                         </dd>
                       </div>
                     ) : null}
-                    {inv.tax && Number(inv.tax) > 0 ? (
-                      <div className="flex items-center justify-between">
-                        <dt className="text-zinc-600">Tax</dt>
-                        <dd className="font-medium tabular-nums text-zinc-900">
-                          {money(inv.tax, currency)}
-                        </dd>
+                    {/* Tax lines: one row per applied tax (label + rate), or a single
+                        generic row for legacy invoices that only stored a tax total. */}
+                    {taxLines.length > 0
+                      ? taxLines.map((t, i) => (
+                          <div key={i} className="flex items-center justify-between">
+                            <dt className="text-zinc-600">
+                              {t.label}
+                              {t.rate > 0 ? (
+                                <span className="text-zinc-400"> ({fmtRate(t.rate)}%)</span>
+                              ) : null}
+                              {taxInclusive ? (
+                                <span className="text-zinc-400"> · incl.</span>
+                              ) : null}
+                            </dt>
+                            <dd className="font-medium tabular-nums text-zinc-900">
+                              {money(taxAmounts[i], currency)}
+                            </dd>
+                          </div>
+                        ))
+                      : taxTotal > 0 ? (
+                          <div className="flex items-center justify-between">
+                            <dt className="text-zinc-600">
+                              Tax
+                              {taxInclusive ? (
+                                <span className="text-zinc-400"> · incl.</span>
+                              ) : null}
+                            </dt>
+                            <dd className="font-medium tabular-nums text-zinc-900">
+                              {money(taxTotal, currency)}
+                            </dd>
+                          </div>
+                        ) : null}
+                    {taxInclusive && taxTotal > 0 ? (
+                      <div className="text-xs text-zinc-500">
+                        Tax included in total
                       </div>
                     ) : null}
                     <div className="!mt-4 flex items-center justify-between border-t border-zinc-200 pt-3">
