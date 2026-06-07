@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import SiteShell from "@/components/SiteShell";
 
 export const metadata: Metadata = {
-  title: "Terms of Use — Invoiceflint",
+  title: "Terms of Use",
   description: "The terms and conditions governing your use of Invoiceflint.",
+  alternates: { canonical: "/terms" },
+  robots: { index: true, follow: true },
 };
 
 const LAST_UPDATED = "May 14, 2026";

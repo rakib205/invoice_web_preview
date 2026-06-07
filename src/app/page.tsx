@@ -1,13 +1,59 @@
 import Image from "next/image";
+import Link from "next/link";
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  APP_STORE_URL,
+  PLAY_STORE_URL,
+} from "@/lib/site";
 
 const RUST = "#b8412a";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: `${SITE_URL}/logo.png`,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      publisher: { "@id": `${SITE_URL}/#organization` },
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: SITE_NAME,
+      description: SITE_DESCRIPTION,
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "iOS, Android",
+      url: SITE_URL,
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      downloadUrl: [APP_STORE_URL, PLAY_STORE_URL],
+    },
+  ],
+};
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f6f7f9] text-zinc-950 flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Nav */}
       <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5">
-        <a href="/">
+        <Link href="/">
           <Image
             src="/logo.png"
             alt="InvoiceFlint"
@@ -17,7 +63,7 @@ export default function Home() {
             priority
             unoptimized
           />
-        </a>
+        </Link>
         <a
           href="#download"
           className="rounded-full px-4 py-2 text-sm font-medium text-white hover:opacity-90"
@@ -98,10 +144,12 @@ export default function Home() {
           <div className="relative h-[620px] w-full max-w-[560px]">
             <PhoneFrame
               src="/screenshots/screen-2.png"
+              alt="Invoiceflint app showing invoice payment status tracking"
               className="absolute right-0 top-6 rotate-[6deg] sm:right-2"
             />
             <PhoneFrame
               src="/screenshots/screen-1.png"
+              alt="Invoiceflint app showing the create invoice screen"
               className="absolute left-0 top-0 -rotate-[4deg] sm:left-4"
             />
           </div>
@@ -231,7 +279,15 @@ export default function Home() {
   );
 }
 
-function PhoneFrame({ src, className = "" }: { src: string; className?: string }) {
+function PhoneFrame({
+  src,
+  alt,
+  className = "",
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+}) {
   return (
     <div
       className={`relative h-[600px] w-[290px] rounded-[44px] bg-[#0a1729] p-3 shadow-[0_30px_80px_-20px_rgba(10,23,41,0.45)] ring-1 ring-black/5 ${className}`}
@@ -240,7 +296,7 @@ function PhoneFrame({ src, className = "" }: { src: string; className?: string }
         <div className="absolute left-1/2 top-2 z-10 h-6 w-28 -translate-x-1/2 rounded-full bg-[#0a1729]" />
         <Image
           src={src}
-          alt="App screenshot"
+          alt={alt}
           fill
           sizes="290px"
           className="object-cover object-top"

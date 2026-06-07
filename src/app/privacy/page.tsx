@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import SiteShell from "@/components/SiteShell";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Invoiceflint",
+  title: "Privacy Policy",
   description: "How Invoiceflint collects, uses, and protects your data.",
+  alternates: { canonical: "/privacy" },
+  robots: { index: true, follow: true },
 };
 
 const LAST_UPDATED = "May 11, 2026";
