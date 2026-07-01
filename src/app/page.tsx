@@ -1,56 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  SITE_URL,
-  SITE_NAME,
-  SITE_DESCRIPTION,
-  APP_STORE_URL,
-  PLAY_STORE_URL,
-} from "@/lib/site";
+  graph,
+  jsonLdScript,
+  organizationLd,
+  websiteLd,
+  softwareApplicationLd,
+  faqLd,
+} from "@/lib/jsonLd";
+import { FAQS } from "@/lib/faq";
 
 const RUST = "#b8412a";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${SITE_URL}/#organization`,
-      name: SITE_NAME,
-      url: SITE_URL,
-      logo: `${SITE_URL}/logo.png`,
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
-      url: SITE_URL,
-      name: SITE_NAME,
-      publisher: { "@id": `${SITE_URL}/#organization` },
-    },
-    {
-      "@type": "SoftwareApplication",
-      name: SITE_NAME,
-      description: SITE_DESCRIPTION,
-      applicationCategory: "BusinessApplication",
-      operatingSystem: "iOS, Android",
-      url: SITE_URL,
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-      },
-      downloadUrl: [APP_STORE_URL, PLAY_STORE_URL],
-    },
-  ],
-};
+const jsonLd = graph(
+  organizationLd(),
+  websiteLd(),
+  softwareApplicationLd(),
+  faqLd(FAQS),
+);
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f6f7f9] text-zinc-950 flex flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script {...jsonLdScript(jsonLd)} />
       {/* Nav */}
       <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5">
         <Link href="/">
@@ -210,6 +182,105 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How it works */}
+      <section className="mx-auto w-full max-w-7xl px-6 pb-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-semibold tracking-tight text-[#0a1729] sm:text-4xl">
+            How Invoiceflint works
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-zinc-600 sm:text-lg">
+            Invoiceflint turns invoicing into a few taps on your phone. Create a
+            professional invoice or estimate, send it to your client, and watch its
+            status update in real time — so you always know when to follow up and
+            when to expect payment.
+          </p>
+        </div>
+        <ol className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
+          {[
+            {
+              step: "1",
+              title: "Create",
+              body: "Build an invoice or estimate from a clean, mobile-first form. Add line items, quantities, rates, and tax — the totals calculate themselves.",
+            },
+            {
+              step: "2",
+              title: "Send",
+              body: "Send a secure link to your client in seconds. They open it in any browser — no app or account required to view, download, or respond.",
+            },
+            {
+              step: "3",
+              title: "Get paid",
+              body: "See the moment the invoice is viewed, track status from Draft to Paid, and send a friendly reminder if the due date passes.",
+            },
+          ].map((s) => (
+            <li
+              key={s.step}
+              className="rounded-2xl border border-zinc-200 bg-white p-6"
+            >
+              <div
+                className="flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold text-white"
+                style={{ backgroundColor: RUST }}
+              >
+                {s.step}
+              </div>
+              <h3 className="mt-4 text-base font-semibold text-[#0a1729]">
+                {s.title}
+              </h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-zinc-600">
+                {s.body}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* Who it's for */}
+      <section className="mx-auto w-full max-w-7xl px-6 pb-24">
+        <div className="rounded-3xl border border-zinc-200 bg-white px-8 py-12 sm:px-14">
+          <h2 className="text-3xl font-semibold tracking-tight text-[#0a1729] sm:text-4xl">
+            Built for freelancers and small businesses
+          </h2>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-600 sm:text-lg">
+            Invoiceflint is made for people who do the work and bill for it
+            themselves — freelancers, contractors, tradespeople, and small business
+            owners. If you&rsquo;ve ever finished a job and wondered whether your
+            client even saw the invoice, Invoiceflint gives you that answer. No
+            accounting degree, no desktop software, and no monthly fee to get
+            started.
+          </p>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-600 sm:text-lg">
+            Send an estimate to win the job, convert it to an invoice with one tap
+            when it&rsquo;s approved, and keep every document organized in one place
+            on your phone. New to invoicing? Start with our{" "}
+            <Link href="/guides" className="font-medium text-[#b8412a] hover:underline">
+              step-by-step guides
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="mx-auto w-full max-w-7xl px-6 pb-24">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-center text-3xl font-semibold tracking-tight text-[#0a1729] sm:text-4xl">
+            Frequently asked questions
+          </h2>
+          <dl className="mt-10 divide-y divide-zinc-200 rounded-2xl border border-zinc-200 bg-white">
+            {FAQS.map((f) => (
+              <div key={f.question} className="px-6 py-5">
+                <dt className="text-base font-semibold text-[#0a1729]">
+                  {f.question}
+                </dt>
+                <dd className="mt-2 text-sm leading-relaxed text-zinc-600">
+                  {f.answer}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
       {/* CTA band */}
       <section className="mx-auto w-full max-w-7xl px-6 pb-24">
         <div className="relative overflow-hidden rounded-3xl bg-[#0a1729] px-8 py-14 text-white sm:px-14">
@@ -267,10 +338,13 @@ export default function Home() {
             className="h-7 w-auto object-contain opacity-70"
             unoptimized
           />
-          <div className="flex gap-6">
-            <a href="/privacy" className="hover:text-zinc-900">Privacy</a>
-            <a href="/contact" className="hover:text-zinc-900">Contact</a>
-            <a href="/support" className="hover:text-zinc-900">Support</a>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            <Link href="/features" className="hover:text-zinc-900">Features</Link>
+            <Link href="/pricing" className="hover:text-zinc-900">Pricing</Link>
+            <Link href="/guides" className="hover:text-zinc-900">Guides</Link>
+            <Link href="/privacy" className="hover:text-zinc-900">Privacy</Link>
+            <Link href="/contact" className="hover:text-zinc-900">Contact</Link>
+            <Link href="/support" className="hover:text-zinc-900">Support</Link>
           </div>
           <div>© {new Date().getFullYear()} Invoiceflint</div>
         </div>
