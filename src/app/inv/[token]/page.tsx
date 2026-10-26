@@ -850,8 +850,8 @@ export default async function InvoicePublicPage({
               <Image
                 src="/logo.png"
                 alt="Invoiceflint"
-                width={90}
-                height={24}
+                width={96}
+                height={16}
                 className="h-4 w-auto object-contain opacity-80"
                 unoptimized
               />

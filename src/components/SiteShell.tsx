@@ -18,8 +18,8 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
           <Image
             src="/logo.png"
             alt="Invoiceflint"
-            width={140}
-            height={36}
+            width={168}
+            height={28}
             className="h-7 w-auto object-contain opacity-70"
             unoptimized
           />

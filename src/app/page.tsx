@@ -29,8 +29,8 @@ export default function Home() {
           <Image
             src="/logo.png"
             alt="InvoiceFlint"
-            width={200}
-            height={52}
+            width={240}
+            height={40}
             className="h-10 w-auto object-contain"
             priority
             unoptimized
@@ -333,8 +333,8 @@ export default function Home() {
           <Image
             src="/logo.png"
             alt="Invoiceflint"
-            width={140}
-            height={36}
+            width={168}
+            height={28}
             className="h-7 w-auto object-contain opacity-70"
             unoptimized
           />

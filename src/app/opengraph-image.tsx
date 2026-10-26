@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 export const alt =
@@ -8,7 +10,12 @@ export const contentType = "image/png";
 const RUST = "#b8412a";
 const INK = "#0a1729";
 
-export default function Image() {
+export default async function Image() {
+  const icon = `data:image/png;base64,${await readFile(
+    join(process.cwd(), "public/icon-192.png"),
+    "base64",
+  )}`;
+
   return new ImageResponse(
     (
       <div
@@ -36,22 +43,8 @@ export default function Image() {
           }}
         />
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <div
-            style={{
-              width: 56,
-              height: 56,
-              borderRadius: 16,
-              background: RUST,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "white",
-              fontSize: 34,
-              fontWeight: 700,
-            }}
-          >
-            I
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={icon} width={56} height={56} alt="" />
           <div style={{ fontSize: 34, fontWeight: 600, color: INK }}>
             Invoiceflint
           </div>

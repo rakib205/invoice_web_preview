@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 const TITLE = "Invoiceflint — Invoices that get paid faster";
+
+export const viewport: Viewport = {
+  themeColor: "#1E2850",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
