@@ -3,20 +3,13 @@ import Link from "next/link";
 import SiteShell from "@/components/SiteShell";
 import StoreBadges from "@/components/StoreBadges";
 import { FREE_PLAN, PRO_PLAN } from "@/lib/product";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Pricing",
-  description:
-    "Invoiceflint is free to download. Create unlimited invoices and estimates for free, and upgrade to Pro — with a free trial — for unlimited sending, 14 templates, and automatic reminders.",
-  alternates: { canonical: "/pricing" },
-  openGraph: {
-    title: "Pricing — Invoiceflint",
-    description:
-      "Free to download on iOS and Android. Invoiceflint Pro starts with a free trial and unlocks unlimited sending, templates, and payment reminders.",
-    url: "/pricing",
-    type: "website",
-  },
-};
+  description: "Invoiceflint is free to download, with unlimited invoice and estimate drafts. Pro adds unlimited sending, 14 templates, and automatic reminders.",
+  path: "/pricing",
+});
 
 const NOTES = [
   {

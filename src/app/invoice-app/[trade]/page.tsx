@@ -18,6 +18,7 @@ import {
   faqLd,
   softwareApplicationLd,
 } from "@/lib/jsonLd";
+import { pageMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -35,17 +36,8 @@ export async function generateMetadata({
   if (!trade) return {};
 
   const url = `/invoice-app/${trade.slug}`;
-  return {
-    title: trade.metaTitle,
-    description: trade.description,
-    alternates: { canonical: url },
-    openGraph: {
-      title: `${trade.metaTitle} — Invoiceflint`,
-      description: trade.description,
-      url,
-      type: "website",
-    },
-  };
+  return pageMetadata({ title: trade.metaTitle, description: trade.description, path: url, ownImage: true });
+
 }
 
 export default async function TradePage({
@@ -110,7 +102,7 @@ export default async function TradePage({
               {trade.headline}
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-zinc-600 sm:text-lg">{trade.intro}</p>
-            <StoreBadges className="mt-8" />
+            <StoreBadges className="mt-8" placement="hero" />
             <p className="mt-5 text-sm text-zinc-500">
               Free to download for iPhone and Android ·{" "}
               <Link href="/pricing" className="font-medium text-rust hover:underline">Pro free trial</Link>
@@ -119,7 +111,10 @@ export default async function TradePage({
           <div>
             <SampleInvoice trade={trade} />
             <p className="mt-3 text-center text-xs text-zinc-500">
-              Example {trade.invoiceName} made with Invoiceflint
+              Example {trade.invoiceName} made with Invoiceflint ·{" "}
+              <Link href={`/invoice-templates/${trade.slug}`} className="font-medium text-rust hover:underline">
+                Use it as a free template
+              </Link>
             </p>
           </div>
         </div>

@@ -8,7 +8,8 @@ export const SITE_NAME = "Invoiceflint";
 export const SITE_DESCRIPTION =
   "Invoice and estimate maker app for iPhone and Android. Send invoices from your phone by email or WhatsApp, see when clients open them, and get paid faster.";
 
-export const APP_STORE_URL = "https://apps.apple.com/app/id6761787578";
+export const APP_STORE_ID = "6761787578";
+export const APP_STORE_URL = `https://apps.apple.com/app/id${APP_STORE_ID}`;
 export const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.mrblab.invoice";
 

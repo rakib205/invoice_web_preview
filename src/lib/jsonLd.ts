@@ -143,6 +143,24 @@ export function webPageLd(opts: {
   };
 }
 
+/** A free in-browser tool (invoice generator, calculators). */
+export function webAppLd(opts: { url: string; name: string; description: string; inLanguage?: string }) {
+  return {
+    "@type": "WebApplication",
+    "@id": `${opts.url}#tool`,
+    url: opts.url,
+    name: opts.name,
+    description: opts.description,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Any (web browser)",
+    browserRequirements: "Requires JavaScript",
+    isAccessibleForFree: true,
+    inLanguage: opts.inLanguage ?? "en",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    publisher: { "@id": ORG_ID },
+  };
+}
+
 export function itemListLd(items: Array<{ name: string; url: string }>) {
   return {
     "@type": "ItemList",

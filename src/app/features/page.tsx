@@ -4,20 +4,13 @@ import SiteShell from "@/components/SiteShell";
 import StoreBadges from "@/components/StoreBadges";
 import FeatureIcon from "@/components/FeatureIcon";
 import { FEATURES, LANGUAGES } from "@/lib/product";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Features",
-  description:
-    "Everything Invoiceflint does: create invoices and estimates on your phone, send by email or WhatsApp, get notified when clients open them, track payments, and send automatic reminders.",
-  alternates: { canonical: "/features" },
-  openGraph: {
-    title: "Features — Invoiceflint",
-    description:
-      "Create invoices and estimates from your phone, see when clients open them, and track payment status from Draft to Paid.",
-    url: "/features",
-    type: "website",
-  },
-};
+  description: "Everything Invoiceflint does: create invoices and estimates on your phone, send them by email or WhatsApp, see when clients open them, and track payments.",
+  path: "/features",
+});
 
 export default function FeaturesPage() {
   return (

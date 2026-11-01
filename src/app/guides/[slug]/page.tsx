@@ -7,6 +7,7 @@ import { GUIDES, getGuide, type Block } from "@/lib/guides/content";
 import { TRADES, audienceOf, getTrade } from "@/lib/trades/content";
 import { SITE_URL } from "@/lib/site";
 import { graph, jsonLdScript, articleLd, breadcrumbLd } from "@/lib/jsonLd";
+import { pageMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -24,19 +25,16 @@ export async function generateMetadata({
   if (!guide) return {};
 
   const url = `/guides/${guide.slug}`;
-  return {
+  return pageMetadata({
     title: guide.title,
     description: guide.description,
-    alternates: { canonical: url },
-    openGraph: {
-      title: `${guide.title} — Invoiceflint`,
-      description: guide.description,
-      url,
-      type: "article",
-      publishedTime: guide.datePublished,
-      modifiedTime: guide.dateModified,
-    },
-  };
+    path: url,
+    type: "article",
+    published: guide.datePublished,
+    modified: guide.dateModified,
+    ownImage: true,
+  });
+
 }
 
 const dateFormat = new Intl.DateTimeFormat("en-US", {
@@ -114,7 +112,7 @@ export default async function GuidePage({
             Create, send, and track invoices and estimates — and see the moment a client
             opens them. Free to download on iOS and Android.
           </p>
-          <StoreBadges tone="light" className="mt-5" />
+          <StoreBadges tone="light" className="mt-5" placement="guide-cta" />
         </aside>
 
         {trades.length > 0 && (

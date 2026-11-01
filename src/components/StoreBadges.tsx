@@ -3,13 +3,16 @@ import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/site";
 /**
  * App Store + Google Play download buttons. `tone="dark"` is for light
  * backgrounds (ink buttons); `tone="light"` is for dark backgrounds.
+ * `placement` labels clicks in analytics (see StoreClickTracker).
  */
 export default function StoreBadges({
   tone = "dark",
   className = "",
+  placement = "inline",
 }: {
   tone?: "dark" | "light";
   className?: string;
+  placement?: string;
 }) {
   const button =
     tone === "dark"
@@ -18,7 +21,7 @@ export default function StoreBadges({
   const overline = tone === "dark" ? "text-zinc-300" : "text-zinc-500";
 
   return (
-    <div className={`flex flex-wrap items-center gap-3 ${className}`}>
+    <div data-placement={placement} className={`flex flex-wrap items-center gap-3 ${className}`}>
       <a
         href={APP_STORE_URL}
         target="_blank"

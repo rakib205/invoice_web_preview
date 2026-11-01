@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import SiteShell from "@/components/SiteShell";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
-  description: "How Invoiceflint collects, uses, and protects your data.",
-  alternates: { canonical: "/privacy" },
-  robots: { index: true, follow: true },
-};
+  description: "How Invoiceflint collects, uses, stores, and protects your data, and the choices you have about your information in the app and on this website.",
+  path: "/privacy",
+});
 
 const LAST_UPDATED = "May 11, 2026";
 

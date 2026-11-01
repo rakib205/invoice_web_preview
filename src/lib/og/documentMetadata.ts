@@ -4,13 +4,16 @@ import { fetchPublicInvoiceByToken } from "@/lib/invoice/fetchPublicInvoice";
 
 // Private, token-gated client documents — must never be indexed.
 const ROBOTS: Metadata["robots"] = { index: false, follow: false, nocache: true };
+// These pages are opened by our users' clients to view and pay a bill, so no
+// "get the Invoiceflint app" Safari banner on top of someone else's invoice.
+const NO_APP_BANNER: Metadata["itunes"] = null;
 
 // Link-preview text for a shared invoice/estimate. Like the OG image, this is
 // identity only — no amount, client name, or paid status — because unfurl
 // scrapers read it unauthenticated and it shows to everyone the link reaches.
 export async function buildDocumentMetadata(token: string): Promise<Metadata> {
   const bundle = await fetchPublicInvoiceByToken(token);
-  if (!bundle) return { robots: ROBOTS };
+  if (!bundle) return { robots: ROBOTS, itunes: NO_APP_BANNER };
 
   const isEstimate = bundle.invoice.document_type === "estimate";
   const docLabel = isEstimate ? "Estimate" : "Invoice";
@@ -26,6 +29,7 @@ export async function buildDocumentMetadata(token: string): Promise<Metadata> {
     title,
     description,
     robots: ROBOTS,
+    itunes: NO_APP_BANNER,
     openGraph: { type: "website", title, description, siteName: "Invoiceflint" },
     twitter: { card: "summary_large_image", title, description },
   };

@@ -8,7 +8,8 @@ import {
 } from "@/lib/site";
 import { GUIDES } from "@/lib/guides/content";
 import { FAQS } from "@/lib/faq";
-import { TRADES, audienceOf } from "@/lib/trades/content";
+import { TRADES, audienceOf, templateName } from "@/lib/trades/content";
+import { COMPETITORS } from "@/lib/compare/content";
 import {
   AUDIENCES,
   FEATURES,
@@ -37,6 +38,14 @@ export function GET() {
 
   const tradeLines = TRADES.map(
     (t) => `- [Invoice app for ${audienceOf(t)}](${SITE_URL}/invoice-app/${t.slug}): ${t.description}`,
+  ).join("\n");
+
+  const compareLines = COMPETITORS.map(
+    (c) => `- [Invoiceflint vs. ${c.name}](${SITE_URL}/compare/${c.slug}): ${c.summary}`,
+  ).join("\n");
+
+  const templateLines = TRADES.map(
+    (t) => `- [${templateName(t)}](${SITE_URL}/invoice-templates/${t.slug})`,
   ).join("\n");
 
   const faqLines = FAQS.map((f) => `### ${f.question}\n\n${f.answer}`).join("\n\n");
@@ -89,12 +98,25 @@ ${faqLines}
 - [Features](${SITE_URL}/features): Full feature list, with Pro features marked.
 - [Pricing](${SITE_URL}/pricing): Free vs. Pro.
 - [Invoice app by trade](${SITE_URL}/invoice-app): Example invoices and billing advice for ${TRADES.length} trades, including plumbers, electricians, contractors, roofers, auto mechanics, cleaners, movers, tutors, caterers, photographers, web developers, and freelancers.
+- [Free invoice generator](${SITE_URL}/invoice-generator): Make a PDF invoice in the browser for free — no sign-up, nothing uploaded. Spanish version: ${SITE_URL}/es/generador-de-facturas
+- [Invoice templates](${SITE_URL}/invoice-templates): Free, editable invoice templates for ${TRADES.length} trades.
+- [Free tools](${SITE_URL}/tools): Late fee, markup and margin, and invoice due date calculators.
+- [Compare](${SITE_URL}/compare): Honest comparisons with other invoice apps.
+- [Español](${SITE_URL}/es): Spanish overview of the app.
 - [Guides](${SITE_URL}/guides): Practical invoicing guides.
 - [Support](${SITE_URL}/support): Help and contact form.
 
 ## By trade
 
 ${tradeLines}
+
+## Comparisons with other invoice apps
+
+${compareLines}
+
+## Free invoice templates
+
+${templateLines}
 
 ## Guides
 

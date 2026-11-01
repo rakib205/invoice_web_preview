@@ -558,7 +558,7 @@ export const TRADES: Trade[] = [
     invoiceName: "landscaping invoice",
     metaTitle: "Invoice App for Landscapers & Lawn Care Businesses",
     description:
-      "Invoice lawn care and landscaping jobs from your phone. Bill weekly mowing, seasonal cleanups, and mulch by the yard, and quote installs customers approve online.",
+      "Invoice lawn care and landscaping jobs from your phone. Bill weekly mowing, cleanups, and mulch by the yard, and quote installs customers approve online.",
     headline: "The invoice app for landscapers and lawn care",
     intro:
       "Lawn care runs on routes and repeat visits; landscaping runs on quotes and materials. Invoiceflint handles both from your phone — invoice a month of mowing in seconds, quote a planting project on site, and bill mulch and stone by the yard.",
@@ -848,7 +848,7 @@ export const TRADES: Trade[] = [
     invoiceName: "photography invoice",
     metaTitle: "Invoice App for Photographers: Photography Invoices",
     description:
-      "Invoice photography sessions, weddings, and commercial shoots from your phone. Take retainers, bill packages and prints, and send balance reminders automatically.",
+      "Invoice photo sessions, weddings, and commercial shoots from your phone. Take retainers, bill packages and prints, and send balance reminders automatically.",
     headline: "The invoice app for photographers",
     intro:
       "Photography is booked months ahead and paid in parts — a retainer to hold the date, a balance before the shoot, extras afterwards. Invoiceflint lets photographers send polished, on-brand invoices from their phone and keeps every payment on track.",
@@ -1130,7 +1130,7 @@ export const TRADES: Trade[] = [
     invoiceName: "freelance invoice",
     metaTitle: "Invoice App for Freelancers: Create & Send Invoices",
     description:
-      "A simple invoice app for freelancers. Create professional invoices on your phone, send them by email or WhatsApp, see when clients open them, and get paid faster.",
+      "A simple invoice app for freelancers. Create invoices on your phone, send them by email or WhatsApp, see when clients open them, and get paid faster.",
     headline: "The invoice app for freelancers",
     intro:
       "Freelancing means doing the work and then chasing the money. Invoiceflint takes care of the second part: create a professional invoice in a minute, send it from your phone, see the moment your client opens it, and let automatic reminders do the chasing.",
@@ -2206,4 +2206,10 @@ export function sampleTotals(sample: Trade["sample"]) {
     .reduce((sum, l) => sum + l.qty * l.rate, 0);
   const tax = sample.taxRate ? Math.round(taxable * sample.taxRate * 100) / 100 : 0;
   return { subtotal, tax, total: subtotal + tax };
+}
+
+/** "Plumbing Invoice Template", "HVAC Invoice Template" — the trade's template page name. */
+export function templateName(trade: Trade): string {
+  const name = trade.invoiceName.replace(/\b[a-z]/g, (c) => c.toUpperCase());
+  return `${name} Template`;
 }

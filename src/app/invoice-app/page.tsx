@@ -5,22 +5,17 @@ import CtaBand from "@/components/CtaBand";
 import { TRADES, TRADE_GROUPS, audienceOf } from "@/lib/trades/content";
 import { SITE_URL } from "@/lib/site";
 import { graph, jsonLdScript, webPageLd, breadcrumbLd, itemListLd } from "@/lib/jsonLd";
+import { pageMetadata } from "@/lib/seo";
 
 const TITLE = "Invoice App for Trades, Contractors & Freelancers";
 const DESCRIPTION =
   "Invoice and estimate app for plumbers, electricians, contractors, mechanics, cleaners, movers, tutors, caterers, designers, and freelancers.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: "/invoice-app" },
-  openGraph: {
-    title: `${TITLE} — Invoiceflint`,
-    description: DESCRIPTION,
-    url: "/invoice-app",
-    type: "website",
-  },
-};
+  path: "/invoice-app",
+});
 
 export default function TradesHubPage() {
   const url = `${SITE_URL}/invoice-app`;

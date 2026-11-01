@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import SiteShell from "@/components/SiteShell";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Terms of Use",
-  description: "The terms and conditions governing your use of Invoiceflint.",
-  alternates: { canonical: "/terms" },
-  robots: { index: true, follow: true },
-};
+  description: "The terms that apply to using the Invoiceflint invoice and estimate app and the invoiceflint.com website, including subscriptions and acceptable use.",
+  path: "/terms",
+});
 
 const LAST_UPDATED = "May 14, 2026";
 

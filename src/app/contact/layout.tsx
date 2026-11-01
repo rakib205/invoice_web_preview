@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
-  description:
-    "Get in touch with the Invoiceflint team. Questions about the app, billing, or partnerships — we'll get back to you.",
-  alternates: { canonical: "/contact" },
-  openGraph: {
-    title: "Contact — Invoiceflint",
-    description: "Get in touch with the Invoiceflint team.",
-    url: "/contact",
-    type: "website",
-  },
-};
+  description: "Get in touch with the Invoiceflint team. Questions about the app, billing, or partnerships — we'll get back to you.",
+  path: "/contact",
+});
 
 export default function ContactLayout({
   children,

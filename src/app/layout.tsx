@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, APP_STORE_ID } from "@/lib/site";
 import { Analytics } from "@vercel/analytics/next";
+import StoreClickTracker from "@/components/StoreClickTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -67,6 +68,9 @@ export const metadata: Metadata = {
     },
   },
   category: "business",
+  // Safari on iPhone/iPad shows its native "Open / Get" app banner on every page.
+  // Client-facing invoice and estimate pages switch it off (see documentMetadata).
+  itunes: { appId: APP_STORE_ID },
 };
 
 export default function RootLayout({
@@ -85,6 +89,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {children}
         <Analytics />
+        <StoreClickTracker />
       </body>
     </html>
   );

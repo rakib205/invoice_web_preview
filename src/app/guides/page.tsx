@@ -3,20 +3,13 @@ import Link from "next/link";
 import SiteShell from "@/components/SiteShell";
 import { GUIDES } from "@/lib/guides/content";
 import { TRADES, audienceOf } from "@/lib/trades/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Invoicing Guides",
-  description:
-    "Free guides on invoicing, estimates, payment terms, deposits, late fees, and getting paid faster — for freelancers, contractors, and small businesses.",
-  alternates: { canonical: "/guides" },
-  openGraph: {
-    title: "Invoicing Guides — Invoiceflint",
-    description:
-      "How to invoice clients, the difference between estimates and invoices, and how to get paid faster.",
-    url: "/guides",
-    type: "website",
-  },
-};
+  description: "Free guides on invoicing, estimates, payment terms, deposits, late fees, and getting paid faster — for freelancers, contractors, and small businesses.",
+  path: "/guides",
+});
 
 export default function GuidesPage() {
   return (

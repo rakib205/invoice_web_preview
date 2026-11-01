@@ -171,7 +171,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "free-invoice-template-vs-app",
-    title: "Free Invoice Template vs. an Invoice App: Which Should You Use?",
+    title: "Free Invoice Template vs. Invoice App: Which Should You Use?",
     description:
       "A free invoice template is fine to start, but an invoice app saves time and shows when clients pay. Here's how to choose.",
     datePublished: "2026-06-01",
@@ -215,7 +215,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "invoice-payment-terms",
-    title: "Invoice Payment Terms Explained: Net 30, Due on Receipt, and More",
+    title: "Invoice Payment Terms Explained: Net 30, Due on Receipt & More",
     description:
       "What Net 7, Net 30, due on receipt, and other invoice payment terms mean — and which terms get you paid fastest.",
     datePublished: "2026-10-31",

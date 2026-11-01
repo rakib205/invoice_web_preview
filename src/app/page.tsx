@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
@@ -26,6 +27,10 @@ import {
   PRODUCT_SUMMARY,
   SHARE_CHANNELS,
 } from "@/lib/product";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/", languages: { en: "/", es: "/es", "x-default": "/" } },
+};
 
 const jsonLd = graph(
   organizationLd(),
@@ -172,7 +177,7 @@ export default function Home() {
             </p>
 
             <div id="download" className="scroll-mt-24">
-              <StoreBadges className="mt-8" />
+              <StoreBadges className="mt-8" placement="hero" />
             </div>
             <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-zinc-500">
               {["Free to download", "Free trial of Pro", "Clients need no app"].map((t) => (

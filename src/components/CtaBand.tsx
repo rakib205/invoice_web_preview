@@ -11,7 +11,7 @@ export default function CtaBand({ title, body }: { title: string; body: string }
             <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{title}</h2>
             <p className="mt-3 text-zinc-300">{body}</p>
           </div>
-          <StoreBadges tone="light" />
+          <StoreBadges tone="light" placement="cta-band" />
         </div>
       </div>
     </section>
