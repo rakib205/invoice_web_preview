@@ -3,10 +3,19 @@ import { isValidPublicToken } from "@/lib/invoice/fetchPublicInvoice";
 
 export const runtime = "nodejs";
 
+// Crawlers, link unfurlers, and audit tools that render JS must not mark an
+// invoice "Viewed" or push a notification to its owner.
+const BOT_UA =
+  /bot|crawl|spider|slurp|facebookexternalhit|embedly|preview|lighthouse|headlesschrome|google-inspectiontool/i;
+
 export async function POST(
-  _req: Request,
+  req: Request,
   { params }: { params: Promise<{ token: string }> },
 ) {
+  if (BOT_UA.test(req.headers.get("user-agent") ?? "")) {
+    return NextResponse.json({ skipped: "bot" });
+  }
+
   const { token } = await params;
   const publicToken = token?.trim() ?? "";
   if (!isValidPublicToken(publicToken)) {

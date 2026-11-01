@@ -1,8 +1,12 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 
-// Private, token-gated client documents and internal endpoints — never index.
-const DISALLOW = ["/inv/", "/est/", "/api/"];
+// Internal endpoints — never crawl. Private client documents (/inv/, /est/)
+// are intentionally NOT listed: a blocked URL can still be indexed from
+// external links, and the crawler would never see its noindex. They're kept
+// out of search by an X-Robots-Tag header (next.config.ts) and <meta robots>.
+// /api/ stays blocked so rendering crawlers can't fire the "viewed" tracker.
+const DISALLOW = ["/api/"];
 
 // AI / answer-engine crawlers we explicitly welcome to public pages. They're
 // already covered by the "*" rule, but naming them signals intent and guards
