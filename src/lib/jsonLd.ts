@@ -15,6 +15,7 @@ import {
   APP_STORE_URL,
   PLAY_STORE_URL,
 } from "@/lib/site";
+import { FEATURES, LANGUAGES, PRODUCT_SUMMARY } from "@/lib/product";
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -47,18 +48,36 @@ export function websiteLd() {
 
 export function softwareApplicationLd() {
   return {
-    "@type": "SoftwareApplication",
+    "@type": "MobileApplication",
+    "@id": `${SITE_URL}/#app`,
     name: SITE_NAME,
-    description: SITE_DESCRIPTION,
+    description: PRODUCT_SUMMARY,
+    abstract: SITE_DESCRIPTION,
     applicationCategory: "BusinessApplication",
+    applicationSubCategory: "Invoicing",
     operatingSystem: "iOS, Android",
     url: SITE_URL,
+    image: `${SITE_URL}/icon-512.png`,
+    screenshot: ["make", "status", "send", "estimate", "notify"].map(
+      (name) => `${SITE_URL}/screenshots/store/${name}.jpg`,
+    ),
+    featureList: FEATURES.map((f) => (f.pro ? `${f.title} (Pro)` : f.title)),
+    inLanguage: LANGUAGES,
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Freelancers, contractors, and small businesses",
+    },
+    // Free download; Pro is an in-app subscription whose price varies by store
+    // and region, so it's described rather than given a fixed price.
     offers: {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
+      description:
+        "Free to download. Invoiceflint Pro is an optional in-app subscription with a free trial.",
     },
     downloadUrl: [APP_STORE_URL, PLAY_STORE_URL],
+    installUrl: [APP_STORE_URL, PLAY_STORE_URL],
     sameAs: SAME_AS,
     publisher: { "@id": ORG_ID },
     // TODO: add real `aggregateRating` (ratingValue + ratingCount) once we have
@@ -101,6 +120,38 @@ export function articleLd(opts: {
     dateModified: opts.dateModified,
     author: { "@id": ORG_ID },
     publisher: { "@id": ORG_ID },
+  };
+}
+
+/** A page about the app (e.g. a trade landing page), linked to the app node. */
+export function webPageLd(opts: {
+  url: string;
+  name: string;
+  description: string;
+  dateModified?: string;
+}) {
+  return {
+    "@type": "WebPage",
+    "@id": `${opts.url}#webpage`,
+    url: opts.url,
+    name: opts.name,
+    description: opts.description,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": `${SITE_URL}/#app` },
+    publisher: { "@id": ORG_ID },
+    ...(opts.dateModified ? { dateModified: opts.dateModified } : {}),
+  };
+}
+
+export function itemListLd(items: Array<{ name: string; url: string }>) {
+  return {
+    "@type": "ItemList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      url: item.url,
+    })),
   };
 }
 

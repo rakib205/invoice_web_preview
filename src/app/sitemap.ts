@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { GUIDES } from "@/lib/guides/content";
+import { TRADES } from "@/lib/trades/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -13,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/features", changeFrequency: "monthly", priority: 0.8 },
     { path: "/pricing", changeFrequency: "monthly", priority: 0.8 },
     { path: "/guides", changeFrequency: "weekly", priority: 0.7 },
+    { path: "/invoice-app", changeFrequency: "monthly", priority: 0.8 },
     { path: "/contact", changeFrequency: "yearly", priority: 0.5 },
     { path: "/support", changeFrequency: "yearly", priority: 0.5 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
@@ -36,5 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...guideEntries];
+  const tradeEntries: MetadataRoute.Sitemap = TRADES.map((trade) => ({
+    url: `${SITE_URL}/invoice-app/${trade.slug}`,
+    lastModified: new Date(trade.dateModified),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...tradeEntries, ...guideEntries];
 }

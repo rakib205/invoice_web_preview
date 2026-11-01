@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteShell from "@/components/SiteShell";
-import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/site";
+import StoreBadges from "@/components/StoreBadges";
+import FeatureIcon from "@/components/FeatureIcon";
+import { FEATURES, LANGUAGES } from "@/lib/product";
 
 export const metadata: Metadata = {
   title: "Features",
   description:
-    "Everything Invoiceflint does: create invoices and estimates from your phone, live read receipts, payment status tracking, and one-tap estimate-to-invoice conversion.",
+    "Everything Invoiceflint does: create invoices and estimates on your phone, send by email or WhatsApp, get notified when clients open them, track payments, and send automatic reminders.",
   alternates: { canonical: "/features" },
   openGraph: {
     title: "Features — Invoiceflint",
@@ -17,40 +19,11 @@ export const metadata: Metadata = {
   },
 };
 
-const RUST = "#b8412a";
-
-const FEATURES = [
-  {
-    title: "Create invoices and estimates from your phone",
-    body: "Build professional invoices and estimates from a clean, mobile-first form. Add line items, quantities, rates, and tax — Invoiceflint handles the math and formatting so every document looks polished.",
-  },
-  {
-    title: "Live read receipts",
-    body: "See the exact moment a client opens your invoice. No more wondering whether it landed — a read receipt tells you when to follow up and when to sit tight.",
-  },
-  {
-    title: "Payment status tracking",
-    body: "Every invoice moves through clear stages: Draft → Sent → Viewed → Paid. A glance tells you which invoices are outstanding and which are done.",
-  },
-  {
-    title: "Estimates that become invoices in one tap",
-    body: "Send an estimate to win the job. When the client approves it, convert it into an invoice with a single tap — line items, client details, and totals carry over automatically.",
-  },
-  {
-    title: "Share a secure link — no app required for clients",
-    body: "Clients open your invoice or estimate through a secure link in any web browser. They can view, download a PDF, or respond to an estimate without installing anything or creating an account.",
-  },
-  {
-    title: "Works on iPhone and Android",
-    body: "Invoiceflint is available on the Apple App Store and Google Play, so you can invoice from whichever phone you carry.",
-  },
-];
-
 export default function FeaturesPage() {
   return (
     <SiteShell>
-      <article className="mx-auto w-full max-w-4xl px-6 py-16">
-        <h1 className="text-3xl font-semibold tracking-tight text-[#0a1729] sm:text-4xl">
+      <article className="mx-auto w-full max-w-4xl px-4 py-16 sm:px-6">
+        <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
           Everything you need to invoice and get paid
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
@@ -59,40 +32,30 @@ export default function FeaturesPage() {
           what happens after you hit send.
         </p>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <ul className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2">
           {FEATURES.map((f) => (
-            <section
-              key={f.title}
-              className="rounded-2xl border border-zinc-200 bg-white p-6"
-            >
-              <h2 className="text-lg font-semibold text-[#0a1729]">{f.title}</h2>
+            <li key={f.id} id={f.id} className="scroll-mt-8 rounded-2xl border border-zinc-200 bg-white p-6">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-rust-soft text-rust">
+                <FeatureIcon id={f.id} />
+              </span>
+              <h2 className="mt-4 text-lg font-semibold text-ink">{f.title}</h2>
               <p className="mt-2 text-sm leading-relaxed text-zinc-600">{f.body}</p>
-            </section>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        <div className="mt-14 flex flex-wrap items-center gap-4">
-          <a
-            href={APP_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full px-5 py-2.5 text-sm font-medium text-white hover:opacity-90"
-            style={{ backgroundColor: RUST }}
-          >
-            Download on the App Store
-          </a>
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border border-zinc-300 px-5 py-2.5 text-sm font-medium text-[#0a1729] hover:bg-zinc-50"
-          >
-            Get it on Google Play
-          </a>
-          <Link
-            href="/guides"
-            className="text-sm font-medium text-[#b8412a] hover:underline"
-          >
+        <p className="mt-10 text-sm leading-relaxed text-zinc-600">
+          Invoiceflint runs on iPhone, iPad, and Android, works offline, and is available
+          in {LANGUAGES.join(", ")}. Some features are part of{" "}
+          <Link href="/pricing" className="font-medium text-rust hover:underline">
+            Invoiceflint Pro
+          </Link>
+          , which starts with a free trial.
+        </p>
+
+        <div className="mt-10 flex flex-wrap items-center gap-6">
+          <StoreBadges />
+          <Link href="/guides" className="text-sm font-medium text-rust hover:underline">
             Read the guides →
           </Link>
         </div>

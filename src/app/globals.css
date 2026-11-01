@@ -10,6 +10,131 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Brand palette, matching the mobile app. */
+  --color-ink: #0a1729;
+  --color-rust: #b8412a;
+  --color-rust-soft: #fdf3f1;
+  --color-rust-line: #e8c4bc;
+  --color-paper: #f6f7f9;
+
+  --animate-toast: toast-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s both;
+  /* Duration is the app tour's time per step (AppShowcase). */
+  --animate-showcase-progress: showcase-progress 6s linear both;
+  --animate-showcase-float: showcase-float 7s ease-in-out infinite;
+  /* Screen animations in ShowcaseScreens; delays are set inline per element. */
+  --animate-showcase-in: showcase-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-showcase-pop: showcase-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-showcase-drop: showcase-drop 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-showcase-sheet: showcase-sheet 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-showcase-fade: showcase-fade 0.5s ease-out both;
+  --animate-showcase-out: showcase-out 0.25s ease-in both;
+  --animate-showcase-grow: showcase-grow 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-showcase-grow-x: showcase-grow-x 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-showcase-draw: showcase-draw 1.2s ease-in-out both;
+  --animate-showcase-tap: showcase-tap 0.9s ease-out both;
+
+  @keyframes showcase-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }
+
+  @keyframes showcase-pop {
+    from {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+  }
+
+  @keyframes showcase-drop {
+    from {
+      opacity: 0;
+      transform: translateY(-18px) scale(0.96);
+    }
+  }
+
+  @keyframes showcase-sheet {
+    from {
+      transform: translateY(100%);
+    }
+  }
+
+  @keyframes showcase-fade {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes showcase-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes showcase-grow {
+    from {
+      transform: scaleY(0);
+    }
+  }
+
+  @keyframes showcase-grow-x {
+    from {
+      transform: scaleX(0);
+    }
+  }
+
+  @keyframes showcase-draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes showcase-tap {
+    from {
+      box-shadow: 0 0 0 0 rgba(184, 65, 42, 0.45);
+    }
+    to {
+      box-shadow: 0 0 0 14px rgba(184, 65, 42, 0);
+    }
+  }
+
+  @keyframes showcase-progress {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes showcase-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,7 +147,13 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @media print {

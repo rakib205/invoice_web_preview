@@ -6,7 +6,7 @@ export const SITE_URL = (
 export const SITE_NAME = "Invoiceflint";
 
 export const SITE_DESCRIPTION =
-  "Create, send, and track professional invoices and estimates from your phone. See the moment a client opens your invoice and get paid faster. Free on iOS and Android.";
+  "Invoice and estimate maker app for iPhone and Android. Send invoices from your phone by email or WhatsApp, see when clients open them, and get paid faster.";
 
 export const APP_STORE_URL = "https://apps.apple.com/app/id6761787578";
 export const PLAY_STORE_URL =

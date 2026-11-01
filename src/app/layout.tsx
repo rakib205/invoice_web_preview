@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const TITLE = "Invoiceflint — Invoices that get paid faster";
+const TITLE = "Invoiceflint — Invoice Maker App for iPhone & Android";
 
 export const viewport: Viewport = {
   themeColor: "#1E2850",
@@ -30,10 +30,13 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   keywords: [
     "invoice app",
-    "free invoice maker",
-    "invoice generator",
+    "invoice maker",
+    "invoice maker app",
     "estimate app",
-    "billing app",
+    "estimate maker",
+    "quote app",
+    "invoice app for contractors",
+    "invoice app for freelancers",
     "send invoices from phone",
     "invoice tracker",
     "small business invoicing",
