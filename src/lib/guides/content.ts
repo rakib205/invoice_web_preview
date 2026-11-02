@@ -369,7 +369,7 @@ export const GUIDES: Guide[] = [
       "What to include in a job estimate, how to price it, and how to send it so clients say yes — with an example estimate.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
-    related: ["estimate-vs-invoice", "how-to-ask-for-a-deposit", "how-to-invoice-labor-and-materials"],
+    related: ["estimate-vs-invoice", "how-to-ask-for-a-deposit", "how-much-to-charge-for-house-cleaning", "how-to-invoice-labor-and-materials"],
     trades: ["painters", "contractors", "roofers", "movers"],
     body: [
       {
@@ -447,7 +447,7 @@ export const GUIDES: Guide[] = [
       "When to ask clients for a deposit, how much to charge, what to say, and how to show the deposit on the final invoice.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
-    related: ["how-to-write-an-estimate", "invoice-payment-terms", "estimate-vs-invoice"],
+    related: ["how-to-write-an-estimate", "invoice-payment-terms", "how-much-to-charge-for-house-cleaning", "estimate-vs-invoice"],
     trades: ["contractors", "roofers", "caterers", "web-developers"],
     body: [
       {
@@ -937,6 +937,161 @@ export const GUIDES: Guide[] = [
       {
         type: "p",
         text: "Invoiceflint doesn't process payments, so it never takes a cut — your clients pay you directly by Zelle, Venmo, Cash App, or however you prefer. You create the invoice on your phone, add your payment details in the notes, and send it as a link, by email, on WhatsApp, or as a PDF. The client opens it in any browser without installing anything, you get a notification when they view it, and when the money lands you mark the invoice paid so every client's balance stays up to date.",
+      },
+    ],
+  },
+  {
+    slug: "how-much-to-charge-for-house-cleaning",
+    title: "How Much to Charge for House Cleaning (2026 Prices)",
+    description:
+      "Most US house cleaners charge $25–$50 an hour or $118–$238 a visit. See 2026 prices by home size, add-on rates, and how to work out your own rate.",
+    datePublished: "2026-11-02",
+    dateModified: "2026-11-02",
+    related: ["how-to-write-an-estimate", "how-to-ask-for-a-deposit", "invoice-payment-terms"],
+    trades: ["cleaners", "handymen"],
+    body: [
+      {
+        type: "p",
+        text: "Most house cleaners in the US charge $25 to $50 per hour per cleaner, or about $118 to $238 per visit for a standard clean, according to Angi's 2026 cost data. Angi puts the national average at $176 per visit, based on 98,643 projects, with deep cleans and move-out cleans costing more.",
+      },
+      {
+        type: "p",
+        text: "Those are averages, not your price. What you should charge depends on your costs, how fast you work, your local market, and the type of clean. Below are the 2026 price ranges by home size, typical add-on prices, a step-by-step way to work out your own rate, and an example invoice you can copy.",
+      },
+      { type: "h2", text: "How much do house cleaners charge by home size?" },
+      {
+        type: "p",
+        text: "Many cleaning businesses quote by the number of bedrooms because it's easy for clients to understand. These are Angi's 2026 national ranges per visit:",
+      },
+      {
+        type: "table",
+        head: ["Home size", "Standard clean", "Deep clean"],
+        rows: [
+          ["1 bedroom", "$75–$110", "$90–$130"],
+          ["2 bedrooms", "$100–$150", "$120–$200"],
+          ["3 bedrooms", "$130–$200", "$150–$300"],
+          ["4 bedrooms", "$150–$210", "$200–$420"],
+        ],
+      },
+      {
+        type: "p",
+        text: "Angi notes that many companies add $25 to $35 for each extra bedroom on a standard clean, and that move-out cleaning — the most thorough option — can cost up to $500. Prices vary a lot by city: Angi's local guides show a 2-bedroom standard clean at $60–$160 in Los Angeles and $110–$200 in Houston, so check what cleaners near you actually charge.",
+      },
+      { type: "h2", text: "Should I charge by the hour, per clean, or per square foot?" },
+      {
+        type: "table",
+        head: ["Pricing method", "Typical 2026 rate", "Best for", "Watch out for"],
+        rows: [
+          ["Hourly", "$25–$50 per cleaner (Angi)", "First visits, deep cleans, homes you haven't seen", "Clients worry about the clock; you earn less as you get faster"],
+          ["Flat rate per clean", "$118–$238 per visit (Angi)", "Recurring clients and standard cleans", "Underquoting a messy home — do a walkthrough or ask for photos"],
+          ["Per square foot", "$0.10–$0.17 regular, $0.11–$0.30 deep, $0.22–$0.33 move-out (HomeGuide)", "Large homes, empty move-out units", "Square footage ignores clutter, pets, and bathrooms"],
+        ],
+      },
+      {
+        type: "p",
+        text: "A common approach is to work out an hourly rate for yourself, then turn it into a flat price per home by estimating how long each clean takes. Clients get a predictable price, and you get paid for your time.",
+      },
+      { type: "h2", text: "How do I work out my own hourly rate?" },
+      {
+        type: "p",
+        text: "Start from what you need to earn, not from what the cleaner down the street charges. Here's the math, with example numbers for a solo cleaner — swap in your own:",
+      },
+      {
+        type: "ol",
+        items: [
+          "Set a yearly profit goal. Example: $46,000 before income tax.",
+          "Add your yearly business costs: supplies, gas and vehicle costs, insurance, phone, and software. Example: $4,800.",
+          "Estimate billable hours, not working hours. Travel, quoting, and admin aren't billable. Example: 25 cleaning hours a week × 48 weeks = 1,200 hours.",
+          "Divide: ($46,000 + $4,800) ÷ 1,200 hours = $42.33 per hour. Round up to $45.",
+          "Remember self-employment tax. The IRS rate is 15.3% (12.4% Social Security plus 2.9% Medicare) on 92.35% of your net profit. On $46,000 of profit that's about $6,500, which is why your rate has to be well above what an employee would earn per hour.",
+          "Sanity-check against your market. $45 sits near the top of Angi's $25–$50 range, which is reasonable if you're insured, reliable, and bring your own supplies. If it's far above local prices, look for ways to cut travel time or costs before cutting your rate.",
+        ],
+      },
+      { type: "h2", text: "How do I turn my hourly rate into a flat price?" },
+      {
+        type: "p",
+        text: "Time a few cleans of each type, then multiply by your hourly rate. With a $45 rate and these example times for a solo cleaner:",
+      },
+      {
+        type: "table",
+        head: ["Job (3-bed, 2-bath home)", "Your time", "× $45/hour", "Angi 2026 range"],
+        rows: [
+          ["Recurring standard clean", "3 hours", "$135", "$130–$200"],
+          ["First-time deep clean", "5 hours", "$225", "$150–$300"],
+          ["Move-out clean (empty home)", "7 hours", "$315", "Up to $500"],
+        ],
+      },
+      {
+        type: "tip",
+        text: "Price the first visit as a deep clean, even if the client wants regular service. The first clean almost always takes longer, and once the home is in good shape your recurring price holds up.",
+      },
+      { type: "h2", text: "How much should I charge for add-ons?" },
+      {
+        type: "p",
+        text: "Extras that aren't part of a standard clean should be priced and invoiced separately, so they don't quietly become 'included.' HomeGuide's typical ranges:",
+      },
+      {
+        type: "table",
+        head: ["Add-on", "Typical price"],
+        rows: [
+          ["Inside the oven", "$15–$35"],
+          ["Inside the fridge", "$12–$50"],
+          ["Interior windows", "$4–$7 per window"],
+          ["Laundry", "$5–$20 per load"],
+        ],
+      },
+      { type: "h2", text: "Should I give a discount for recurring cleaning?" },
+      {
+        type: "p",
+        text: "Many cleaning companies do, because a weekly or biweekly client fills your calendar and their home is quicker to clean. Angi's Phoenix cost guide, for example, says most companies there offer 10% to 20% off recurring service, with bigger discounts for more frequent visits. If you offer one, show it on the invoice — either as a lower rate or as a separate discount line — so the client sees what they're saving.",
+      },
+      { type: "h2", text: "What does a house cleaning invoice look like?" },
+      {
+        type: "p",
+        text: "Here's a monthly invoice for a new client in a 3-bedroom home: a first-time deep clean, then two biweekly standard cleans at $135 with a 10% recurring discount, plus add-ons.",
+      },
+      {
+        type: "table",
+        head: ["Item", "Qty", "Rate", "Amount"],
+        rows: [
+          ["Initial deep clean – Oct 3", "1", "$225.00", "$225.00"],
+          ["Biweekly standard clean – Oct 17, Oct 31 (10% recurring rate)", "2", "$121.50", "$243.00"],
+          ["Inside oven – Oct 3", "1", "$30.00", "$30.00"],
+          ["Interior windows – Oct 3", "10", "$5.00", "$50.00"],
+          ["Total due by Nov 14, 2026", "", "", "$548.00"],
+        ],
+      },
+      {
+        type: "p",
+        text: "Some states charge sales tax on cleaning services, so check with your state's tax agency and add a tax line before the total if it applies. Keep the visit dates on each line — they answer most 'what is this charge for?' questions before the client asks.",
+      },
+      { type: "h2", text: "How do I send a quote to a new cleaning client?" },
+      {
+        type: "p",
+        text: "Send the price in writing before the first visit, with what's included and what costs extra. A short message plus an estimate works well:",
+      },
+      {
+        type: "template",
+        label: "Quote message for a new cleaning client",
+        text: "Hi [Name], thanks for showing me around today! Here's my quote for your [3-bed, 2-bath] home:\n- First visit (deep clean): [$225]\n- Biweekly standard clean after that: [$121.50] per visit (includes my 10% recurring discount)\n- Optional extras: inside oven [$30], inside fridge [$30], interior windows [$5] each\nI bring all supplies. I invoice at the end of each month, payable within 14 days. You can review and accept the estimate here: [link]. Let me know if you have any questions!",
+      },
+      { type: "h2", text: "What should I include on a cleaning invoice?" },
+      {
+        type: "ul",
+        items: [
+          "Your business name, contact details, and a unique invoice number.",
+          "The client's name and the property address.",
+          "Each visit's date and type of clean: standard, deep, or move-out.",
+          "Add-ons as separate lines with quantities.",
+          "Any recurring discount, and sales tax if your state requires it.",
+          "A clear due date and how to pay.",
+          "Your cancellation or lockout policy, if you charge one.",
+        ],
+      },
+      { type: "h2", text: "How Invoiceflint helps you price and invoice cleaning jobs" },
+      {
+        type: "p",
+        text: "In Invoiceflint, you save your standard clean, deep clean, and add-ons as items with your rates, so a quote or invoice takes a few taps on your phone. Send the estimate as a link; the client can accept it in any browser without installing an app, and you convert the accepted estimate into an invoice with one tap. You'll get a notification when the client opens it, and Invoiceflint Pro can send automatic email reminders if a payment runs late.",
       },
     ],
   },
