@@ -220,7 +220,7 @@ export const GUIDES: Guide[] = [
       "What Net 7, Net 30, due on receipt, and other invoice payment terms mean — and which terms get you paid fastest.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
-    related: ["how-to-charge-late-fees", "how-to-follow-up-on-unpaid-invoice", "how-to-ask-for-a-deposit"],
+    related: ["how-to-charge-late-fees", "how-to-follow-up-on-unpaid-invoice", "how-to-ask-for-a-deposit", "can-i-send-an-invoice-through-zelle"],
     trades: ["consultants", "freelancers", "contractors"],
     body: [
       {
@@ -447,7 +447,7 @@ export const GUIDES: Guide[] = [
       "When to ask clients for a deposit, how much to charge, what to say, and how to show the deposit on the final invoice.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
-    related: ["how-to-write-an-estimate", "invoice-payment-terms", "estimate-vs-invoice"],
+    related: ["how-to-write-an-estimate", "invoice-payment-terms", "estimate-vs-invoice", "can-i-send-an-invoice-through-zelle"],
     trades: ["contractors", "roofers", "caterers", "web-developers"],
     body: [
       {
@@ -797,7 +797,7 @@ export const GUIDES: Guide[] = [
       "Zelle, Cash App, and Chime can't send invoices, and Venmo only can from a business profile. Here's how to invoice clients who pay with these apps.",
     datePublished: "2026-11-02",
     dateModified: "2026-11-02",
-    related: ["how-to-invoice-a-client", "get-paid-faster-as-a-freelancer", "how-to-send-an-invoice-on-whatsapp"],
+    related: ["how-to-invoice-a-client", "get-paid-faster-as-a-freelancer", "how-to-send-an-invoice-on-whatsapp", "can-i-send-an-invoice-through-zelle"],
     trades: ["cleaners", "handymen", "tutors"],
     body: [
       {
@@ -937,6 +937,145 @@ export const GUIDES: Guide[] = [
       {
         type: "p",
         text: "Invoiceflint doesn't process payments, so it never takes a cut — your clients pay you directly by Zelle, Venmo, Cash App, or however you prefer. You create the invoice on your phone, add your payment details in the notes, and send it as a link, by email, on WhatsApp, or as a PDF. The client opens it in any browser without installing anything, you get a notification when they view it, and when the money lands you mark the invoice paid so every client's balance stays up to date.",
+      },
+    ],
+  },
+  {
+    slug: "can-i-send-an-invoice-through-zelle",
+    title: "Can I Send an Invoice Through Zelle? (2026 Answer)",
+    description:
+      "No — Zelle can't send invoices, only payment requests. See how to invoice a client who pays by Zelle, with a copyable payment block and example invoice.",
+    datePublished: "2026-11-02",
+    dateModified: "2026-11-02",
+    related: ["can-you-send-an-invoice-through-zelle-venmo-cash-app", "how-to-invoice-a-client", "invoice-payment-terms"],
+    trades: ["handymen", "cleaners", "contractors"],
+    body: [
+      {
+        type: "p",
+        text: "No. As of November 2026, Zelle has no invoicing feature: you can send money and request money from people enrolled in Zelle, but you can't create or send an invoice with line items, an invoice number, or a due date. To bill a client who pays by Zelle, send them a regular invoice with your Zelle email, phone number, or Zelle tag in the payment instructions, and they pay it from their own banking app.",
+      },
+      {
+        type: "p",
+        text: "That's actually a good setup for many small businesses: Zelle says there are typically no fees for consumers to send or receive money, and the money usually lands in your bank account within minutes. This guide covers what a Zelle request can and can't do, how to use Zelle as a business, what to put on the invoice, and a worked example you can copy.",
+      },
+      { type: "h2", text: "What's the difference between a Zelle request and an invoice?" },
+      {
+        type: "p",
+        text: "A Zelle request is a message that says \"please send me $X.\" An invoice is a business document that explains what the money is for. Clients, accountants, and the IRS care about the second one.",
+      },
+      {
+        type: "table",
+        head: ["", "Zelle payment request", "Invoice with Zelle instructions"],
+        rows: [
+          ["Who can receive it", "Only people already enrolled in Zelle", "Anyone — by email, text, WhatsApp, or link"],
+          ["Line items and quantities", "No", "Yes"],
+          ["Invoice number and due date", "No", "Yes"],
+          ["Sales tax shown separately", "No", "Yes"],
+          ["Works as a record for bookkeeping", "Weak — just an amount and a memo", "Yes"],
+          ["How the client pays", "From their banking app", "From their banking app, using the details on the invoice"],
+          ["Fees", "Typically none for consumers; business fees depend on your bank", "Same — the invoice doesn't change Zelle's fees"],
+        ],
+      },
+      {
+        type: "p",
+        text: "You can use both: send the invoice first so the client knows exactly what they're paying for, then follow up with a Zelle request for the same amount if your client prefers to tap \"approve\" in their banking app.",
+      },
+      { type: "h2", text: "Can I use Zelle for my business?" },
+      {
+        type: "p",
+        text: "Yes, if your bank or credit union offers Zelle for small business accounts. Not every bank that offers Zelle to consumers offers it for business accounts, so check with yours first. A few things worth knowing before you put Zelle on your invoices:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Zelle only works inside banking apps now. Its standalone app stopped sending and receiving payments on April 1, 2025, so clients pay you from their own bank's app or website.",
+          "Clients pay you using your business email, U.S. mobile number, or Zelle tag — a custom handle that only eligible small business account holders can create, if their bank supports it.",
+          "Some banks support Zelle QR codes. If yours does, you can print the code on your invoice or job paperwork so clients can scan and pay.",
+          "Sending limits are set by each bank, not by Zelle, and new business enrollments often start lower. If a client is paying a large invoice, they may hit their bank's daily limit and need to split the payment over two days.",
+          "Zelle's network user agreement describes the service as intended for personal use, while allowing eligible small businesses to enroll through participating banks. If you take business payments, use a business account at a bank that supports it.",
+        ],
+      },
+      { type: "h2", text: "How do I invoice a client who pays by Zelle?" },
+      {
+        type: "ol",
+        items: [
+          "Confirm your Zelle details. Open your banking app and check the exact email, phone number, or Zelle tag your business receives with, and the name clients will see when they send.",
+          "Create the invoice. Include your business name and contact details, the client's name, a unique invoice number, the invoice date, and a specific due date such as \"due November 16, 2026\" rather than \"due on receipt.\"",
+          "List the work as line items. Separate labor, materials, and any trip or disposal charges, with quantities and rates, so the client can check the total.",
+          "Add a payment section. Write \"Pay by Zelle to …\" with your exact details, and ask the client to put the invoice number in the memo.",
+          "Send it where the client will see it. Email works for most clients; for homeowners, a text or WhatsApp message often gets opened faster.",
+          "Match the payment. When the Zelle notification arrives, check the amount and memo against the invoice and mark it paid.",
+          "Send a receipt if asked. Some clients need one for their records or for reimbursement.",
+        ],
+      },
+      { type: "h2", text: "What should I write in the Zelle payment section?" },
+      {
+        type: "p",
+        text: "Vague instructions cause most Zelle problems: a client sends to an old phone number, or to a personal account with a similar name, and once the recipient is enrolled the payment can't be cancelled. Spell it out. Copy this into the notes or payment terms of your invoice:",
+      },
+      {
+        type: "template",
+        label: "Zelle payment instructions for an invoice",
+        text: "How to pay: Zelle\nSend to: [billing@yourbusiness.com] (or Zelle tag: [YourBusiness])\nName shown in Zelle: [Your Business LLC]\nAmount: [$407.00]\nDue: [November 16, 2026]\nPlease include invoice number [INV-0107] in the memo.\nZelle payments can't be cancelled once sent — please double-check the name before you confirm.",
+      },
+      { type: "h2", text: "Example: a handyman invoice paid by Zelle" },
+      {
+        type: "p",
+        text: "Here's a complete invoice for a half-day handyman job. The labor, materials, and trip charge are listed separately, and the Zelle instructions sit in the notes right below the total.",
+      },
+      {
+        type: "table",
+        head: ["Item", "Qty", "Rate", "Amount"],
+        rows: [
+          ["Labor – install two ceiling fans", "3 hrs", "$75.00", "$225.00"],
+          ["Mount 65\" TV on drywall", "1", "$120.00", "$120.00"],
+          ["Fan-rated mounting brace", "2", "$18.50", "$37.00"],
+          ["Trip charge", "1", "$25.00", "$25.00"],
+          ["Total due by Nov 16, 2026", "", "", "$407.00"],
+        ],
+      },
+      {
+        type: "p",
+        text: "If your state taxes materials or certain services, add a sales tax line before the total. When the client sends $407.00 with \"INV-0107\" in the memo, you can match it to this invoice in seconds — and if your bank doesn't charge business Zelle fees, you keep the full $407.00. For comparison, PayPal Invoicing's US card rate of 2.99% + $0.49 would cost about $12.66 on the same invoice.",
+      },
+      { type: "h2", text: "What message should I send with the invoice?" },
+      {
+        type: "template",
+        label: "Text, WhatsApp, or email message",
+        text: "Hi [Name], thanks again for today. Here's your invoice [INV-0107] for [$407.00], due [Nov 16]: [link]. The easiest way to pay is Zelle to [billing@yourbusiness.com] — it should show as [Your Business LLC]. Please add the invoice number in the memo. Let me know if you have any questions!",
+      },
+      { type: "h2", text: "Is it safe to accept Zelle payments for a business?" },
+      {
+        type: "p",
+        text: "For the business receiving money, Zelle is low-risk in one important way: once an enrolled client sends a payment, Zelle says it can't be reversed, so there's no card-style chargeback weeks later. The flip side is that clients have no purchase protection. Zelle states that it doesn't offer a protection program for authorized payments, which is why some new clients hesitate to pay a business they don't know. A clear, professional invoice with your business name and contact details goes a long way toward earning that trust.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Never accept an \"overpayment\" and send back the difference. It's a common scam pattern.",
+          "Don't start large jobs on a promise to pay later. Ask for a deposit by Zelle, then invoice the balance when the work is done.",
+          "Keep your Zelle details identical on every invoice so clients never send to an old account.",
+        ],
+      },
+      { type: "h2", text: "Does Zelle report payments to the IRS?" },
+      {
+        type: "p",
+        text: "No. Zelle says it does not report transactions on its network to the IRS, including payments for goods and services, so you won't get a Form 1099-K from Zelle. That doesn't make the income tax-free: you still have to report it yourself. Sending an invoice for every Zelle payment gives you the record you need to do that — what the job was, who paid, and when.",
+      },
+      { type: "h2", text: "What if the client says Zelle isn't working?" },
+      {
+        type: "ul",
+        items: [
+          "\"I can't find you\": the client may be searching a different email or phone number. Send them the exact one from your invoice.",
+          "\"The payment is pending\": if the email or phone number isn't enrolled in Zelle yet, the money waits for the recipient to enroll and expires after 14 days, returning to the sender. Make sure the details on your invoice are the ones you've enrolled.",
+          "\"It's over my limit\": banks set their own daily and monthly limits. The client can split the payment across two days, or pay part by Zelle and the rest another way.",
+          "\"My bank doesn't have Zelle\": list a second payment method on the invoice, such as a check or another payment app.",
+        ],
+      },
+      { type: "h2", text: "How Invoiceflint handles Zelle invoices" },
+      {
+        type: "p",
+        text: "Invoiceflint doesn't process payments, so it never takes a cut of a Zelle payment — the money goes straight from your client's bank to yours. You create the invoice on your phone, add your Zelle details in the notes, and send it as a link, by email, on WhatsApp, or as a PDF. The client opens it in any browser without installing an app, you get a notification when they view it, and when the Zelle payment arrives you mark the invoice paid so each client's balance stays accurate.",
       },
     ],
   },
