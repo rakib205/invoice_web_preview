@@ -42,7 +42,7 @@ export const GUIDES: Guide[] = [
       "Learn how to invoice a client the right way — what to include, how to send it, and how to follow up so you get paid on time.",
     datePublished: "2026-06-01",
     dateModified: "2026-06-01",
-    related: ["how-to-number-invoices", "invoice-payment-terms", "how-to-follow-up-on-unpaid-invoice"],
+    related: ["invoice-payment-terms", "how-to-follow-up-on-unpaid-invoice", "can-you-send-an-invoice-through-zelle-venmo-cash-app", "how-to-number-invoices"],
     trades: ["freelancers", "handymen", "consultants"],
     body: [
       {
@@ -136,7 +136,7 @@ export const GUIDES: Guide[] = [
       "Practical, proven ways freelancers can shorten payment times — from clear terms to read receipts and timely follow-ups.",
     datePublished: "2026-06-01",
     dateModified: "2026-06-01",
-    related: ["how-to-follow-up-on-unpaid-invoice", "invoice-payment-terms", "how-to-charge-late-fees"],
+    related: ["how-to-follow-up-on-unpaid-invoice", "invoice-payment-terms", "can-you-send-an-invoice-through-zelle-venmo-cash-app", "how-to-charge-late-fees"],
     trades: ["freelancers", "graphic-designers", "web-developers", "photographers"],
     body: [
       {
@@ -620,7 +620,7 @@ export const GUIDES: Guide[] = [
       "Step by step: how to send a professional invoice to a client on WhatsApp — as a link or a PDF — and what to write in the message.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
-    related: ["how-to-follow-up-on-unpaid-invoice", "how-to-invoice-a-client", "get-paid-faster-as-a-freelancer"],
+    related: ["how-to-follow-up-on-unpaid-invoice", "how-to-invoice-a-client", "can-you-send-an-invoice-through-zelle-venmo-cash-app", "get-paid-faster-as-a-freelancer"],
     trades: ["tutors", "personal-trainers", "cleaners", "pet-groomers"],
     body: [
       {
@@ -787,6 +787,156 @@ export const GUIDES: Guide[] = [
           "If it has been sent, don't delete it and reuse the number. Void or cancel it and issue a new invoice with the next number.",
           "If the client has already paid and you need to reduce the amount, issue a credit note that references the original invoice.",
         ],
+      },
+    ],
+  },
+  {
+    slug: "can-you-send-an-invoice-through-zelle-venmo-cash-app",
+    title: "Can You Send an Invoice Through Zelle, Venmo, or Cash App?",
+    description:
+      "Zelle, Cash App, and Chime can't send invoices, and Venmo only can from a business profile. Here's how to invoice clients who pay with these apps.",
+    datePublished: "2026-11-02",
+    dateModified: "2026-11-02",
+    related: ["how-to-invoice-a-client", "get-paid-faster-as-a-freelancer", "how-to-send-an-invoice-on-whatsapp"],
+    trades: ["cleaners", "handymen", "tutors"],
+    body: [
+      {
+        type: "p",
+        text: "Mostly no: as of November 2026, Zelle, Cash App, and Chime have no invoicing feature, and Venmo only lets you send invoices from a Venmo business profile. The reliable way to bill clients who pay with these apps is to send your own invoice — with the amount, the due date, and exact payment instructions for each app — and let the client pay through the app they already use.",
+      },
+      {
+        type: "p",
+        text: "That approach gives you a proper record for taxes and bookkeeping, gives the client something to approve or forward to whoever pays the bills, and keeps you free of card processing fees when clients pay through Zelle. Below is what each app can and can't do today, a ready-to-copy payment section, and an example invoice.",
+      },
+      { type: "h2", text: "Which payment apps can send an invoice?" },
+      {
+        type: "p",
+        text: "Payment apps are built to move money between people, not to bill customers. Here's how the four most-searched apps compare, based on their own websites and terms as of November 2026.",
+      },
+      {
+        type: "table",
+        head: ["App", "Sends invoices?", "Can you request money?", "Business use"],
+        rows: [
+          ["Zelle", "No", "Yes, from people already enrolled in Zelle", "Only if your bank offers Zelle for your business account"],
+          ["Venmo", "Business profiles only, in the app", "Yes", "Business profile: 1.9% + $0.10 per payment received"],
+          ["Cash App", "No", "Yes", "Cash App offers a separate Business Account for goods and services payments"],
+          ["Chime", "No", "Yes, from other Chime members", "Chime checking is a personal account and not designed for business use"],
+        ],
+      },
+      { type: "h2", text: "Can you send an invoice through Zelle?" },
+      {
+        type: "p",
+        text: "No. Zelle sends and requests money, but it has no invoice feature, and a payment request can only go to someone already enrolled in Zelle. Zelle now runs inside banking apps — it announced in October 2024 that it was phasing out payments in its standalone app — so your client pays from their own bank's app.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Business accounts: your bank or credit union has to offer Zelle for your business account type, and not every bank that offers Zelle to consumers does.",
+          "Fees: Zelle says there are typically no fees for consumers; for small businesses, fees depend on your bank.",
+          "No undo: Zelle payments can't be reversed, so put the exact email or phone number you receive with on the invoice.",
+        ],
+      },
+      { type: "h2", text: "Can you send an invoice on Venmo?" },
+      {
+        type: "p",
+        text: "Yes, but only from a Venmo business profile, and only in the Venmo app. A business profile has no monthly or setup fee; Venmo charges the seller 1.9% + $0.10 per payment received. On a personal profile there's no invoice option — you can request money, and if the client marks a payment as goods and services, you pay a 2.99% seller fee.",
+      },
+      {
+        type: "p",
+        text: "If you already invoice through PayPal, US clients can pay a PayPal invoice with Venmo. PayPal charges 3.49% + $0.49 for those payments.",
+      },
+      { type: "h2", text: "Can you send an invoice through Cash App?" },
+      {
+        type: "p",
+        text: "No. Cash App lets you send and request money, and its terms describe a separate Cash App Business Account for receiving payment for goods and services, but there's no invoice feature in the app. If you want a true invoice that clients can pay with Cash App, Square Invoices (from the same parent company, Block) accepts Cash App Pay at 2.9% + 30¢ per invoice on its free plan. Otherwise, send your own invoice and put your $Cashtag in the payment section.",
+      },
+      { type: "h2", text: "Can you send an invoice through Chime?" },
+      {
+        type: "p",
+        text: "No. Chime's Pay Anyone feature is peer-to-peer: you can send money, and request money from other Chime members, with no fees to send, receive, or cash out. But Chime's deposit account agreements say the checking account is not designed for business use and that Chime may close it if it's being used for business purposes. If clients pay you regularly, a business bank account is the safer place to receive it.",
+      },
+      { type: "h2", text: "How do you invoice a client who pays by Zelle, Venmo, or Cash App?" },
+      {
+        type: "ol",
+        items: [
+          "Create an invoice with your business details, the client's name, a unique invoice number, the date, and a specific due date.",
+          "List the work as line items with quantities and rates, so the total is easy to check.",
+          "Add a payment section that names each app you accept and the exact handle, email, or phone number to send to.",
+          "Ask the client to put the invoice number in the payment memo, so you can match the payment to the invoice.",
+          "Send the invoice by text, WhatsApp, or email — wherever the client actually reads messages.",
+          "When the money arrives, check the amount and memo, mark the invoice paid, and send a receipt if the client wants one.",
+        ],
+      },
+      { type: "h2", text: "What should the payment section say?" },
+      {
+        type: "p",
+        text: "Most payment-app mix-ups come from vague instructions: the client sends to an old number, picks the wrong Venmo account, or leaves the memo blank. Spell everything out. Copy this into your invoice notes and fill in your details:",
+      },
+      {
+        type: "template",
+        label: "Payment instructions for your invoice",
+        text: "How to pay — please include invoice number [INV-0042] in the memo.\nZelle: [billing@yourbusiness.com] (shows as [Your Business LLC])\nVenmo: [@YourBusiness] (business profile)\nCash App: [$YourBusiness]\nPayment is due by [November 16, 2026]. Please check the name before you send — Zelle payments can't be reversed.",
+      },
+      { type: "h2", text: "Example: a cleaning invoice paid by payment app" },
+      {
+        type: "p",
+        text: "Here's what a complete invoice looks like for a house cleaner whose clients pay by Zelle or Venmo. The line items show exactly what was done, and the payment section sits in the notes right below the total.",
+      },
+      {
+        type: "table",
+        head: ["Item", "Qty", "Rate", "Amount"],
+        rows: [
+          ["Deep clean – 3-bed, 2-bath home", "1", "$240.00", "$240.00"],
+          ["Inside oven", "1", "$35.00", "$35.00"],
+          ["Inside fridge", "1", "$30.00", "$30.00"],
+          ["Interior windows", "8", "$5.00", "$40.00"],
+          ["Total due by Nov 16, 2026", "", "", "$345.00"],
+        ],
+      },
+      {
+        type: "p",
+        text: "If the client pays $345 by Zelle with 'INV-0042' in the memo, you can match it in seconds. If you'd received the same $345 through a Venmo business profile instead, Venmo's 1.9% + $0.10 fee would be about $6.66, leaving about $338.34.",
+      },
+      { type: "h2", text: "What should you text the client?" },
+      {
+        type: "template",
+        label: "Text or WhatsApp message",
+        text: "Hi [Name], thanks for having us today! Here's your invoice [INV-0042] for [$345], due [Nov 16]: [link]. You can pay by Zelle, Venmo, or Cash App — the details are at the bottom of the invoice. Please add the invoice number in the memo. Thank you!",
+      },
+      { type: "h2", text: "Should you use PayPal or Square invoices instead?" },
+      {
+        type: "p",
+        text: "If clients want to pay by card, a payment processor's invoices make sense. If most clients already pay you by Zelle or Venmo, you may not need one. US fees as of November 2026:",
+      },
+      {
+        type: "table",
+        head: ["Option", "Real invoices?", "Fee on a paid invoice"],
+        rows: [
+          ["Zelle", "No", "Typically none for consumers; business fees depend on your bank"],
+          ["Venmo business profile", "Yes, in the app", "1.9% + $0.10"],
+          ["PayPal Invoicing", "Yes", "3.49% + $0.49 paid with PayPal or Venmo; 2.99% + $0.49 by card"],
+          ["Square Invoices (free plan)", "Yes", "3.3% + 30¢ by card; 2.9% + 30¢ with Cash App Pay; 1% (min $1) by ACH"],
+        ],
+      },
+      {
+        type: "p",
+        text: "On a $345 job, PayPal's card rate would cost you about $10.81 and Square's card rate about $11.69. That's worth paying if card payment gets you paid days sooner; it's money left on the table if your client would happily have sent a Zelle.",
+      },
+      { type: "h2", text: "Tips for getting paid through payment apps" },
+      {
+        type: "ul",
+        items: [
+          "Always send an invoice first, even for small jobs. A payment with no invoice is hard to explain at tax time.",
+          "Use one handle per app and keep it the same on every invoice, so clients never send money to an old account.",
+          "Never accept an 'overpayment' and refund the difference — it's a common scam pattern on payment apps.",
+          "For larger jobs, ask for a deposit before you start and invoice the balance at the end.",
+          "Keep your records in one place: the invoice, the payment confirmation, and the date it arrived.",
+        ],
+      },
+      { type: "h2", text: "How Invoiceflint handles payment-app invoices" },
+      {
+        type: "p",
+        text: "Invoiceflint doesn't process payments, so it never takes a cut — your clients pay you directly by Zelle, Venmo, Cash App, or however you prefer. You create the invoice on your phone, add your payment details in the notes, and send it as a link, by email, on WhatsApp, or as a PDF. The client opens it in any browser without installing anything, you get a notification when they view it, and when the money lands you mark the invoice paid so every client's balance stays up to date.",
       },
     ],
   },
