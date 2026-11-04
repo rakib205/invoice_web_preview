@@ -39,7 +39,7 @@ export const GUIDES: Guide[] = [
     slug: "how-to-invoice-a-client",
     title: "How to Invoice a Client: A Step-by-Step Guide",
     description:
-      "Learn how to invoice a client the right way — what to include, how to send it, and how to follow up so you get paid on time.",
+      "Learn how to invoice a client step by step: what to include, how to send it from your phone, and how to follow up so you get paid on time.",
     datePublished: "2026-06-01",
     dateModified: "2026-06-01",
     related: ["invoice-payment-terms", "how-to-follow-up-on-unpaid-invoice", "can-you-send-an-invoice-through-zelle-venmo-cash-app", "how-to-number-invoices"],
@@ -133,7 +133,7 @@ export const GUIDES: Guide[] = [
     slug: "get-paid-faster-as-a-freelancer",
     title: "How to Get Paid Faster as a Freelancer",
     description:
-      "Practical, proven ways freelancers can shorten payment times — from clear terms to read receipts and timely follow-ups.",
+      "Practical ways freelancers can get paid faster: clear payment terms, deposits, read receipts, and a simple follow-up routine that shortens payment times.",
     datePublished: "2026-06-01",
     dateModified: "2026-06-01",
     related: ["how-to-follow-up-on-unpaid-invoice", "invoice-payment-terms", "can-you-send-an-invoice-through-zelle-venmo-cash-app", "how-to-charge-late-fees"],
@@ -321,9 +321,9 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "invoice-payment-terms",
-    title: "Invoice Payment Terms Explained: Net 30, Due on Receipt & More",
+    title: "Invoice Payment Terms Explained: Net 30, Due on Receipt",
     description:
-      "What Net 7, Net 30, due on receipt, and other invoice payment terms mean — and which terms get you paid fastest.",
+      "What Net 7, Net 30, due on receipt, and other invoice payment terms mean, which get you paid fastest, and the exact wording to put on your invoice.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
     related: ["how-to-charge-late-fees", "how-to-follow-up-on-unpaid-invoice", "how-to-ask-for-a-deposit"],
@@ -390,9 +390,9 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "how-to-follow-up-on-unpaid-invoice",
-    title: "How to Follow Up on an Unpaid Invoice (With Message Templates)",
+    title: "How to Follow Up on an Unpaid Invoice (With Templates)",
     description:
-      "A simple follow-up schedule for unpaid invoices, plus copy-and-paste reminder messages that stay polite and get results.",
+      "A simple follow-up schedule for unpaid invoices, plus copy-and-paste reminder messages for email, text, and WhatsApp that stay polite and get results.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
     related: ["invoice-payment-terms", "how-to-charge-late-fees", "get-paid-faster-as-a-freelancer"],
@@ -472,7 +472,7 @@ export const GUIDES: Guide[] = [
     slug: "how-to-write-an-estimate",
     title: "How to Write an Estimate for a Job (That Clients Approve)",
     description:
-      "What to include in a job estimate, how to price it, and how to send it so clients say yes — with an example estimate.",
+      "What to include in a job estimate, how to price the work, and how to send it so clients say yes. Includes a worked example estimate you can copy.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
     related: ["estimate-vs-invoice", "how-to-ask-for-a-deposit", "how-much-to-charge-for-house-cleaning", "how-to-invoice-labor-and-materials"],
@@ -550,7 +550,7 @@ export const GUIDES: Guide[] = [
     slug: "how-to-ask-for-a-deposit",
     title: "How to Ask for a Deposit (and Invoice It Properly)",
     description:
-      "When to ask clients for a deposit, how much to charge, what to say, and how to show the deposit on the final invoice.",
+      "When to ask clients for a deposit, how much to charge, what to say, and exactly how to show the deposit as a credit on the final invoice.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
     related: ["how-to-write-an-estimate", "invoice-payment-terms", "how-much-to-charge-for-house-cleaning", "estimate-vs-invoice"],
@@ -612,7 +612,7 @@ export const GUIDES: Guide[] = [
     slug: "how-to-charge-late-fees",
     title: "How to Charge Late Fees on Invoices",
     description:
-      "How to add a late payment fee to your invoices, how much to charge, and how to enforce it without losing the client.",
+      "How to add a late payment fee to your invoices, how much to charge, the wording to use, and how to enforce it without losing the client.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
     related: ["invoice-payment-terms", "how-to-follow-up-on-unpaid-invoice", "get-paid-faster-as-a-freelancer"],
@@ -663,7 +663,7 @@ export const GUIDES: Guide[] = [
     slug: "invoice-vs-receipt",
     title: "Invoice vs. Receipt: What's the Difference?",
     description:
-      "An invoice asks for payment; a receipt confirms it. Here's what each one includes, when to send it, and whether you need both.",
+      "An invoice asks for payment; a receipt confirms it. See what each one includes, when to send it, and whether your business needs both documents.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
     related: ["estimate-vs-invoice", "how-to-number-invoices", "how-to-invoice-a-client"],
@@ -723,7 +723,7 @@ export const GUIDES: Guide[] = [
     slug: "how-to-send-an-invoice-on-whatsapp",
     title: "How to Send an Invoice on WhatsApp",
     description:
-      "Step by step: how to send a professional invoice to a client on WhatsApp — as a link or a PDF — and what to write in the message.",
+      "Step by step: how to send a professional invoice to a client on WhatsApp, as a link or a PDF, plus a ready-to-send message you can copy and paste.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
     related: ["how-to-follow-up-on-unpaid-invoice", "how-to-invoice-a-client", "can-you-send-an-invoice-through-zelle-venmo-cash-app", "get-paid-faster-as-a-freelancer"],
@@ -768,7 +768,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "how-to-invoice-labor-and-materials",
-    title: "How to Invoice for Labor and Materials (and Mark Up Materials)",
+    title: "How to Invoice for Labor and Materials (Plus Markup)",
     description:
       "How trades and contractors should list labor and materials on an invoice, how to calculate materials markup, and how to handle tax.",
     datePublished: "2026-10-31",
@@ -844,7 +844,7 @@ export const GUIDES: Guide[] = [
     slug: "how-to-number-invoices",
     title: "How to Number Invoices: Simple Systems and Examples",
     description:
-      "Why invoice numbers matter, the most common invoice numbering systems with examples, and what to do if you make a mistake.",
+      "Why invoice numbers matter, the most common invoice numbering systems with examples, and how to fix a mistake or a skipped number without any trouble.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
     related: ["how-to-invoice-a-client", "invoice-vs-receipt", "invoice-payment-terms", "free-invoice-template-vs-app"],
