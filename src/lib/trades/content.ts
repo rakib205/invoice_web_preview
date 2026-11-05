@@ -66,6 +66,20 @@ export type Trade = {
   faqs: FaqItem[];
   guides: string[];
   dateModified: string;
+  /**
+   * Optional trade-specific detail rendered on /invoice-templates/<slug> only
+   * when present. Rolled out one trade at a time; rate figures must be sourced.
+   */
+  templateDetail?: TemplateDetail;
+};
+
+export type TemplateDetail = {
+  /** Typical line items for this trade's invoices. */
+  lineItems: Array<{ item: string; note: string }>;
+  /** Typical rates, with the month they were checked ("as of …"). */
+  rates: { summary: string; asOf: string; source: { label: string; url: string } };
+  /** Things this trade should make obvious on the invoice. */
+  mustShow: string[];
 };
 
 export const TRADES: Trade[] = [
@@ -166,6 +180,27 @@ export const TRADES: Trade[] = [
     ],
     guides: ["how-to-invoice-labor-and-materials", "how-to-write-an-estimate", "how-to-send-an-invoice-on-whatsapp"],
     dateModified: "2026-10-31",
+    templateDetail: {
+      lineItems: [
+        { item: "Service call / trip fee", note: "Covers travel and diagnosis. Say whether it is credited if the customer approves the repair." },
+        { item: "Labor", note: "Hours × hourly rate, or one flat price for standard jobs such as a water heater swap." },
+        { item: "Fixtures and parts", note: "One line each (faucet, valve, expansion tank) with quantity and unit price." },
+        { item: "After-hours surcharge", note: "Show it as its own line so the customer sees what the emergency rate added." },
+        { item: "Permit and disposal fees", note: "List pass-through costs separately from your labor." },
+      ],
+      rates: {
+        summary:
+          "One industry guide puts typical US residential plumbing labor at about $75 to $150 per hour, with a service call fee of $50 to $250 and emergency or after-hours calls at 1.5 to 3 times the standard rate. Local rates vary widely, so treat these as a starting point and use your own.",
+        asOf: "November 2026",
+        source: { label: "Housecall Pro: how to price plumbing jobs", url: "https://www.housecallpro.com/resources/how-to-price-plumbing-jobs/" },
+      },
+      mustShow: [
+        "The service address, which often differs from the billing address.",
+        "Your license number where your state or city requires it on paperwork.",
+        "Warranty terms for parts and for labor, stated separately.",
+        "Whether the call-out fee was waived or credited toward the repair.",
+      ],
+    },
   },
   {
     slug: "electricians",
