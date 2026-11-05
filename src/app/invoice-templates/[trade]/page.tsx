@@ -126,6 +126,38 @@ export default async function TemplatePage({ params }: { params: Promise<{ trade
         </div>
       </section>
 
+      {trade.templateDetail && (
+        <section className="mx-auto w-full max-w-3xl px-4 py-20 sm:px-6">
+          <h2 className="text-3xl font-semibold tracking-tight text-ink">
+            Typical line items on {invoiceNameWithArticle(trade)}
+          </h2>
+          <ul className="mt-6 space-y-3">
+            {trade.templateDetail.lineItems.map((l) => (
+              <li key={l.item} className="text-sm leading-relaxed text-zinc-700 sm:text-base">
+                <strong className="font-semibold text-ink">{l.item}.</strong> {l.note}
+              </li>
+            ))}
+          </ul>
+          <h2 className="mt-12 text-2xl font-semibold tracking-tight text-ink">What {audienceOf(trade)} typically charge</h2>
+          <p className="mt-3 text-sm leading-relaxed text-zinc-700 sm:text-base">
+            {trade.templateDetail.rates.summary} (As of {trade.templateDetail.rates.asOf}. Source:{" "}
+            <a href={trade.templateDetail.rates.source.url} rel="noopener noreferrer" className="font-semibold text-rust hover:underline">
+              {trade.templateDetail.rates.source.label}
+            </a>
+            .)
+          </p>
+          <h2 className="mt-12 text-2xl font-semibold tracking-tight text-ink">Make these obvious on the invoice</h2>
+          <ul className="mt-4 space-y-3">
+            {trade.templateDetail.mustShow.map((m) => (
+              <li key={m} className="flex gap-3 text-sm leading-relaxed text-zinc-700 sm:text-base">
+                <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-rust" />
+                {m}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <section className="mx-auto w-full max-w-3xl px-4 py-20 sm:px-6">
         <h2 className="text-3xl font-semibold tracking-tight text-ink">Questions</h2>
         <div className="mt-8">
