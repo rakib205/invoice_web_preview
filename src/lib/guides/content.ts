@@ -553,7 +553,7 @@ export const GUIDES: Guide[] = [
       "When to ask clients for a deposit, how much to charge, what to say, and exactly how to show the deposit as a credit on the final invoice.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
-    related: ["how-to-write-an-estimate", "invoice-payment-terms", "how-much-to-charge-for-house-cleaning", "estimate-vs-invoice"],
+    related: ["how-to-write-an-estimate", "invoice-payment-terms", "how-much-to-charge-for-house-cleaning", "how-much-to-charge-for-pressure-washing"],
     trades: ["contractors", "roofers", "caterers", "web-developers"],
     body: [
       {
@@ -773,7 +773,7 @@ export const GUIDES: Guide[] = [
       "How trades and contractors should list labor and materials on an invoice, how to calculate materials markup, and how to handle tax.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
-    related: ["how-to-write-an-estimate", "how-to-ask-for-a-deposit", "how-to-invoice-a-client"],
+    related: ["how-to-write-an-estimate", "how-to-ask-for-a-deposit", "how-to-invoice-a-client", "how-much-to-charge-for-pressure-washing"],
     trades: ["plumbers", "electricians", "auto-mechanics", "carpenters"],
     body: [
       {
@@ -1053,7 +1053,7 @@ export const GUIDES: Guide[] = [
       "Most US house cleaners charge $25–$50 an hour or $118–$238 a visit. See 2026 prices by home size, add-on rates, and how to work out your own rate.",
     datePublished: "2026-11-02",
     dateModified: "2026-11-02",
-    related: ["how-to-write-an-estimate", "how-to-ask-for-a-deposit", "invoice-payment-terms"],
+    related: ["how-to-write-an-estimate", "how-to-ask-for-a-deposit", "invoice-payment-terms", "how-much-to-charge-for-pressure-washing"],
     trades: ["cleaners", "handymen"],
     body: [
       {
@@ -1198,6 +1198,147 @@ export const GUIDES: Guide[] = [
       {
         type: "p",
         text: "In Invoiceflint, you save your standard clean, deep clean, and add-ons as items with your rates, so a quote or invoice takes a few taps on your phone. Send the estimate as a link; the client can accept it in any browser without installing an app, and you convert the accepted estimate into an invoice with one tap. You'll get a notification when the client opens it, and Invoiceflint Pro can send automatic email reminders if a payment runs late.",
+      },
+    ],
+  },
+  {
+    slug: "how-much-to-charge-for-pressure-washing",
+    title: "How Much to Charge for Pressure Washing (2026 Prices)",
+    description:
+      "Pressure washing costs about $0.10–$0.50 per sq ft, or $312 for an average house. See 2026 prices, how to set your own rate, and a sample invoice.",
+    datePublished: "2026-11-06",
+    dateModified: "2026-11-06",
+    related: ["how-to-write-an-estimate", "how-much-to-charge-for-house-cleaning", "how-to-invoice-labor-and-materials"],
+    trades: ["landscapers", "handymen", "cleaners"],
+    body: [
+      {
+        type: "p",
+        text: "Most pressure washing in the US is priced at about $0.10 to $0.50 per square foot, and Angi's 2026 data puts the national average for washing a whole house at $312, based on 51,092 projects reported by Angi pros. A driveway typically runs $100 to $350, and some companies bill $60 to $125 per hour instead.",
+      },
+      {
+        type: "p",
+        text: "Those figures are a starting point, not your price. Below are the 2026 price ranges for houses and driveways, how to choose between per-square-foot, hourly, and flat pricing, a way to work out a rate that covers your costs, and a sample invoice you can copy. Prices are as of November 2026 and vary a lot by city.",
+      },
+      { type: "h2", text: "How much do pressure washing companies charge for a house?" },
+      {
+        type: "p",
+        text: "Angi's 2026 house-washing data gives these ranges by the number of stories, which is the easiest way to quote a house over the phone:",
+      },
+      {
+        type: "table",
+        head: ["House size", "Typical price range (Angi, 2026)"],
+        rows: [
+          ["One story", "$150–$750"],
+          ["Two stories", "$400–$1,400"],
+          ["Three stories", "$700–$1,800"],
+          ["National average, all houses", "$312"],
+        ],
+      },
+      {
+        type: "p",
+        text: "The ranges are wide because siding material, how dirty the house is, and local demand all move the price. Angi's city pages show the same spread: a 2,000-square-foot house is estimated at $166–$829 in Atlanta and $225–$1,123 in Washington, D.C. Look up what competitors near you charge before you commit to a number.",
+      },
+      { type: "h2", text: "How much do you charge to pressure wash a driveway?" },
+      {
+        type: "table",
+        head: ["Source", "Driveway price", "Per square foot"],
+        rows: [
+          ["Angi (2026)", "$100–$350, average $210", "$0.20–$0.40 in Angi's house-washing guide"],
+          ["HomeGuide (2026)", "$100–$350 for a standard two-car driveway", "$0.08–$0.35 for basic cleaning"],
+        ],
+      },
+      {
+        type: "p",
+        text: "Both sources agree on the same $100 to $350 band. Angi adds that heavy oil stains need extra work, such as a cleaning solution on top of the wash, so a badly stained driveway can cost more than a clean one of the same size. Larger or dirtier driveways can reach $500.",
+      },
+      { type: "h2", text: "Should I charge per square foot, by the hour, or a flat rate?" },
+      {
+        type: "table",
+        head: ["Method", "Typical rate", "Best for", "Watch out for"],
+        rows: [
+          ["Per square foot", "$0.10–$0.50 (Angi, 2026)", "Driveways, patios, fences, and other flat surfaces you can measure", "Stains, steep slopes, and hard-to-reach areas take longer than the area suggests"],
+          ["Hourly", "$60–$125 per hour (Angi); HomeGuide cites $50–$160", "Odd jobs, mixed surfaces, and small add-ons", "Clients may feel the clock is running, and you earn less as you get faster"],
+          ["Flat rate per job", "Whole-house averages around $312 (Angi)", "Houses and repeat customers", "Underquoting a dirty or multi-story job; look at photos or visit first"],
+        ],
+      },
+      {
+        type: "p",
+        text: "A practical approach: measure the area, price it per square foot, then check the result against how long the job should take at your hourly rate. If the two numbers are far apart, adjust before you send the quote.",
+      },
+      { type: "h2", text: "How do I work out a rate that covers my costs?" },
+      {
+        type: "p",
+        text: "Market averages ignore your equipment, fuel, and insurance. Here's a simple way to price from your own costs, with example numbers you should replace with yours:",
+      },
+      {
+        type: "ol",
+        items: [
+          "Estimate the job time, including driving and setup. Example: a two-story house wash takes 3 hours on site plus 1 hour of travel and setup, so 4 hours.",
+          "Add your labor at the hourly rate you want to earn. Example: 4 hours × $45 = $180.",
+          "Add direct costs for the job: fuel, cleaning solution, and your share of equipment wear. Example: $35.",
+          "That is your break-even cost: $215.",
+          "Add your profit margin. To get a 30% margin, divide by 0.70 instead of multiplying by 1.30: $215 ÷ 0.70 = $307.",
+          "Compare with local prices. $307 is right at Angi's $312 national average for a house, so the quote is realistic. If your number is far above local prices, look for ways to cut travel time before cutting your rate.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Set a minimum job charge so a small driveway or a single set of steps still pays for your travel and setup time. Pick a number that covers at least an hour of travel and setup, and say it in your quote.",
+      },
+      { type: "h2", text: "What factors change a pressure washing price?" },
+      {
+        type: "ul",
+        items: [
+          "Surface and material: concrete and asphalt are usually cheaper to clean than pavers or gravel, which are more delicate or harder to work on.",
+          "Condition: heavy oil stains, mold, or years of buildup mean extra passes or a pre-treatment.",
+          "Size and height: two- and three-story houses cost more because of ladder work and extra time.",
+          "Access and water: long hoses, steep drives, or no water spigot nearby add time.",
+          "Your location: Angi's city pages show prices in places like Seattle and Los Angeles that differ from the national average.",
+          "Extras: sealing, stain removal, or gutter brightening should be quoted as separate lines.",
+        ],
+      },
+      { type: "h2", text: "What does a pressure washing invoice look like?" },
+      {
+        type: "p",
+        text: "Here's an example invoice for a two-story house and a driveway, using the example rates above. The line items are illustrative, so use your own prices:",
+      },
+      {
+        type: "table",
+        head: ["Item", "Qty", "Rate", "Amount"],
+        rows: [
+          ["House wash – two-story, vinyl siding", "1", "$310.00", "$310.00"],
+          ["Driveway wash – 500 sq ft concrete", "500", "$0.30", "$150.00"],
+          ["Oil stain pre-treatment – 2 spots", "2", "$20.00", "$40.00"],
+          ["Total due within 14 days", "", "", "$500.00"],
+        ],
+      },
+      {
+        type: "p",
+        text: "Add a sales tax line if your state taxes pressure washing services; rules differ by state, so check with your state's tax agency. Putting the surface type and square footage on each line shows the client how you got the price.",
+      },
+      { type: "h2", text: "How do I send a pressure washing quote?" },
+      {
+        type: "template",
+        label: "Pressure washing quote message",
+        text: "Hi [Name], thanks for having me take a look at your home today. Here's my quote:\n- House wash ([two-story], [vinyl siding]): [$310]\n- Driveway wash ([500] sq ft): [$150]\n- Oil stain pre-treatment: [$20] per spot\nTotal: [$460], plus any stain treatment you'd like. I bring my own equipment and water supply. I invoice when the job is finished, payable within [14] days. You can review and accept the quote here: [link]. Let me know if you have any questions!",
+      },
+      { type: "h2", text: "What should a pressure washing invoice include?" },
+      {
+        type: "ul",
+        items: [
+          "Your business name, contact details, and a unique invoice number.",
+          "The client's name and the property address.",
+          "The date of service and each surface cleaned.",
+          "Square footage or a clear description for each line.",
+          "Extras such as stain treatment or sealing on separate lines.",
+          "Sales tax if your state requires it.",
+          "A due date and how the client can pay.",
+        ],
+      },
+      { type: "h2", text: "How Invoiceflint helps you quote and invoice pressure washing jobs" },
+      {
+        type: "p",
+        text: "In Invoiceflint, you can save your house wash, driveway wash, and extras as items with your own rates, so a quote or invoice takes a few taps on your phone. Send the estimate as a link; the client can accept it in a web browser without installing an app, and you can convert an accepted estimate into an invoice with one tap. You get a notification when the client opens it, and Invoiceflint Pro can send automatic email reminders if a payment runs late.",
       },
     ],
   },
