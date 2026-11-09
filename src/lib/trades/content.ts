@@ -299,6 +299,28 @@ export const TRADES: Trade[] = [
     ],
     guides: ["how-to-invoice-labor-and-materials", "how-to-ask-for-a-deposit", "how-to-write-an-estimate"],
     dateModified: "2026-10-31",
+    templateDetail: {
+      lineItems: [
+        { item: "Service call / dispatch fee", note: "Covers travel, setup, and diagnosis. State whether the first hour is included." },
+        { item: "Labor", note: "Hours × hourly rate, or a flat price for repeatable jobs such as swapping a switch or outlet." },
+        { item: "Materials and fixtures", note: "Breakers, wire, outlets, and fixtures as separate lines with quantity and unit price." },
+        { item: "Panel or circuit work", note: "Itemize by circuit or panel so the customer sees what each upgrade cost." },
+        { item: "Permit and inspection fees", note: "List pass-through costs separately from your labor." },
+        { item: "After-hours surcharge", note: "Show emergency pricing as its own line so the premium is visible." },
+      ],
+      rates: {
+        summary:
+          "Housecall Pro's guide puts typical US electrician rates at about $50 to $130 per hour, plus a service call fee of $100 to $200. Local rates, licensing, and job type shift these numbers a lot, so treat them as a starting point and use your own.",
+        asOf: "November 2026",
+        source: { label: "Housecall Pro: how to price electrical work", url: "https://www.housecallpro.com/resources/how-to-price-electrical-work/" },
+      },
+      mustShow: [
+        "Your contractor or electrical license number where your state or city requires it.",
+        "The service address, which often differs from the billing address.",
+        "Permit and inspection numbers when the work required them.",
+        "Warranty terms for labor and for parts, stated separately.",
+      ],
+    },
   },
   {
     slug: "contractors",
