@@ -416,6 +416,28 @@ export const TRADES: Trade[] = [
     ],
     guides: ["how-to-ask-for-a-deposit", "how-to-write-an-estimate", "how-to-invoice-labor-and-materials"],
     dateModified: "2026-10-31",
+    templateDetail: {
+      lineItems: [
+        { item: "Deposit", note: "A first invoice due before work starts. Reference the signed estimate or contract." },
+        { item: "Milestone or progress payment", note: "Name the stage, such as rough-in complete, and show 'progress invoice 2 of 3'." },
+        { item: "Labor", note: "Separate from materials, as hours × rate or a stage price from your estimate." },
+        { item: "Materials and subcontractors", note: "List cabinets, lumber, and subcontractor work on their own lines." },
+        { item: "Change orders", note: "One numbered line per approved change, such as 'Change order #1 – relocate sink'." },
+        { item: "Payments received", note: "Negative lines for the deposit and earlier invoices, with their invoice numbers." },
+      ],
+      rates: {
+        summary:
+          "Angi's 2026 guide puts general contractor hourly rates at about $50 to $150, and says most general contractors instead charge a fee of roughly 10% to 20% of the project cost. Angi's own articles give slightly different percentages, so use your own overhead and profit numbers.",
+        asOf: "November 2026",
+        source: { label: "Angi: how much contractors charge", url: "https://www.angi.com/articles/how-much-do-general-contractors-charge-hourly-rates.htm" },
+      },
+      mustShow: [
+        "Your contractor license number where your state or city requires one.",
+        "The project name and job site address, plus the estimate or contract number.",
+        "Which milestone this invoice covers and what remains to bill.",
+        "Retainage held back, if your contract includes it, and when it will be released.",
+      ],
+    },
   },
   {
     slug: "handymen",
