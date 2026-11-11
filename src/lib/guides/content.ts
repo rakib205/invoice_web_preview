@@ -96,7 +96,7 @@ export const GUIDES: Guide[] = [
       "Estimate vs. invoice: an estimate proposes a price before work starts, an invoice asks for payment. See a side-by-side example and when to send each.",
     datePublished: "2026-06-01",
     dateModified: "2026-11-07",
-    related: ["how-to-write-an-estimate", "how-to-ask-for-a-deposit", "invoice-vs-receipt"],
+    related: ["how-to-write-an-estimate", "how-to-ask-for-a-deposit", "invoice-vs-receipt", "invoice-vs-bill"],
     trades: ["contractors", "painters", "electricians"],
     body: [
       {
@@ -748,7 +748,7 @@ export const GUIDES: Guide[] = [
       "An invoice asks for payment; a receipt confirms it. See what each one includes, when to send it, and whether your business needs both documents.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
-    related: ["estimate-vs-invoice", "how-to-number-invoices", "how-to-invoice-a-client"],
+    related: ["estimate-vs-invoice", "invoice-vs-bill", "how-to-number-invoices", "how-to-invoice-a-client"],
     trades: ["cleaners", "handymen", "pet-groomers", "auto-mechanics"],
     body: [
       {
@@ -929,7 +929,7 @@ export const GUIDES: Guide[] = [
       "Why invoice numbers matter, the most common invoice numbering systems with examples, and how to fix a mistake or a skipped number without any trouble.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
-    related: ["how-to-invoice-a-client", "invoice-vs-receipt", "invoice-payment-terms", "free-invoice-template-vs-app"],
+    related: ["how-to-invoice-a-client", "invoice-vs-receipt", "invoice-payment-terms", "invoice-vs-bill"],
     trades: ["freelancers", "consultants", "contractors", "pest-control"],
     body: [
       {
@@ -1421,6 +1421,161 @@ export const GUIDES: Guide[] = [
       {
         type: "p",
         text: "In Invoiceflint, you can save your house wash, driveway wash, and extras as items with your own rates, so a quote or invoice takes a few taps on your phone. Send the estimate as a link; the client can accept it in a web browser without installing an app, and you can convert an accepted estimate into an invoice with one tap. You get a notification when the client opens it, and Invoiceflint Pro can send automatic email reminders if a payment runs late.",
+      },
+    ],
+  },
+  {
+    slug: "invoice-vs-bill",
+    title: "Invoice vs. Bill: What's the Difference?",
+    description:
+      "Invoice vs. bill: same request for payment, seen from two sides. Learn how bills, statements, and purchase orders differ, with an example of each.",
+    datePublished: "2026-11-11",
+    dateModified: "2026-11-11",
+    related: ["invoice-vs-receipt", "estimate-vs-invoice", "how-to-invoice-a-client"],
+    trades: ["freelancers", "contractors", "consultants"],
+    body: [
+      {
+        type: "p",
+        text: "An invoice and a bill are usually the same document seen from opposite sides: the seller sends an invoice, and the buyer records it as a bill to pay. In everyday speech, \"bill\" is also used for any payment request, such as a utility or credit card bill, while \"invoice\" is the word businesses use for a formal, itemized request for payment.",
+      },
+      {
+        type: "p",
+        text: "The terms overlap, and sources do not always agree on exact definitions. This guide explains how they are commonly used, how statements and purchase orders fit in, and which document you should send as a freelancer or small business.",
+      },
+      { type: "h2", text: "What is the difference between an invoice and a bill?" },
+      {
+        type: "p",
+        text: "The difference is mostly about who is talking. If you are the seller, you send an invoice. If you are the buyer, the same document lands in your accounts payable as a bill. Accounting software often uses this wording: you create invoices for money coming in and enter bills for money going out.",
+      },
+      {
+        type: "table",
+        head: ["", "Invoice", "Bill"],
+        rows: [
+          ["Who uses the word", "The seller or service provider", "The buyer, or consumers in general"],
+          ["Direction of money", "Money you are owed", "Money you owe"],
+          ["Typical detail", "Itemized lines, quantities, rates, tax, due date", "Often a single amount, but can be itemized"],
+          ["Typical examples", "A contractor's invoice for a kitchen repair", "An electric bill, a phone bill, a vendor bill you enter to pay"],
+          ["Which to put on your document", "\"Invoice\" is the standard title", "Rarely used as a title for business-to-business work"],
+        ],
+      },
+      { type: "h2", text: "Should I title my document \"invoice\" or \"bill\"?" },
+      {
+        type: "p",
+        text: "Title it \"Invoice\". It is the standard word for itemized work billed to a client, accountants and bookkeepers recognize it, and clients know it means a payment is expected. \"Bill\" is fine in casual conversation (\"I'll send you the bill\"), but the document itself should say Invoice, carry an invoice number, and show a due date.",
+      },
+      { type: "h2", text: "What is the difference between an invoice and a statement?" },
+      {
+        type: "p",
+        text: "An invoice covers one sale or job. A statement summarizes an account over a period, usually a month, listing every invoice, payment, and the balance still due. Credit card statements and monthly account summaries are the familiar examples.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Send an invoice when a job is done or a milestone is reached.",
+          "Send a statement when a repeat client has several open invoices and you want a single overview of what is owed.",
+          "A statement is not a replacement for invoices. The client still needs the itemized invoice for each job.",
+        ],
+      },
+      { type: "h2", text: "What is the difference between an invoice and a purchase order?" },
+      {
+        type: "p",
+        text: "A purchase order (PO) comes from the buyer before the work starts. It says what the buyer wants to purchase and often sets a PO number. Your invoice comes after delivery and asks for payment. Larger clients and government or institutional buyers often require the PO number on your invoice so their accounts team can match the two.",
+      },
+      {
+        type: "p",
+        text: "How binding a PO is depends on the contract and the jurisdiction, so check your agreement if it matters. For most small jobs, treat the PO as the client's authorization to proceed and quote its number on your invoice.",
+      },
+      { type: "h2", text: "How do the documents fit together in one job?" },
+      {
+        type: "p",
+        text: "Here is the usual order for a job, with the document each side handles at each step.",
+      },
+      {
+        type: "table",
+        head: ["Step", "Document", "Who sends it", "Purpose"],
+        rows: [
+          ["1", "Estimate or quote", "Seller", "Proposes the price before work begins"],
+          ["2", "Purchase order", "Buyer", "Authorizes the purchase (mainly larger clients)"],
+          ["3", "Invoice", "Seller", "Requests payment after the work"],
+          ["4", "Bill", "Buyer's side", "The same invoice, entered by the buyer to be paid"],
+          ["5", "Statement", "Seller", "Summarizes open invoices over a period"],
+          ["6", "Receipt", "Seller", "Confirms payment was received"],
+        ],
+      },
+      {
+        type: "p",
+        text: "For more on the first and last steps, see our guides on estimates versus invoices and invoices versus receipts.",
+      },
+      { type: "h2", text: "What does a proper invoice include?" },
+      {
+        type: "ol",
+        items: [
+          "The word \"Invoice\" and a unique invoice number.",
+          "Your business name and contact details, and the client's name and address.",
+          "The invoice date and the due date.",
+          "The client's PO number, if they gave you one.",
+          "Itemized lines with description, quantity, rate, and amount.",
+          "Subtotal, any discount, tax, and the total due.",
+          "How to pay, plus your payment terms.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Here is a short worked example of an invoice for a small repair job.",
+      },
+      {
+        type: "table",
+        head: ["Line item", "Qty", "Rate", "Amount"],
+        rows: [
+          ["Replace kitchen faucet (labor)", "2 hrs", "$75.00", "$150.00"],
+          ["Faucet and supply lines (materials)", "1", "$89.00", "$89.00"],
+          ["Subtotal", "", "", "$239.00"],
+          ["Sales tax (if applicable in your state)", "", "", "Varies"],
+          ["Total due by the due date", "", "", "$239.00 plus tax"],
+        ],
+      },
+      { type: "h2", text: "Which document should I send for common situations?" },
+      {
+        type: "table",
+        head: ["Situation", "Send this", "Why"],
+        rows: [
+          ["You finished a one-off job", "Invoice", "It itemizes the work and sets a due date."],
+          ["The client wants a price before you start", "Estimate or quote", "Nothing is owed yet. See our estimate vs. invoice guide."],
+          ["A repeat client has three unpaid jobs", "Statement, plus the invoices", "The statement shows the total balance; the invoices hold the detail."],
+          ["A large client sends you a PO number", "Invoice with the PO number on it", "Their accounts team can match it to the order and pay faster."],
+          ["The client has paid", "Receipt", "It confirms payment. See our invoice vs. receipt guide."],
+          ["A client asks you to \"send the bill\"", "Invoice", "It is the same request in the format their accountant expects."],
+        ],
+      },
+      { type: "h2", text: "What mistakes do people make with these documents?" },
+      {
+        type: "ul",
+        items: [
+          "Sending a bare amount with no description. Clients question totals they cannot trace, which delays payment.",
+          "Skipping the invoice number. Without one, you and your client cannot refer to a specific document, and duplicates are easy to miss.",
+          "Leaving off the due date. \"Payable on receipt\" or \"Net 14\" gives the client a clear deadline.",
+          "Treating a statement as the only record. Keep the original invoices for each job; your accountant will want them.",
+          "Forgetting the PO number when a client requires one. Their accounts team may reject or hold an invoice that cannot be matched to an order.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Whatever you call it, keep one consistent system: estimate first, invoice after the work, receipt after payment. Clients quickly learn what to expect from you.",
+      },
+      { type: "h2", text: "Can I send a bill instead of an invoice?" },
+      {
+        type: "p",
+        text: "You can, and a client will still understand it. But an itemized invoice with a number and due date is easier for you to track, easier for the client to file, and easier to follow up on if payment is late. If a client asks you to \"just send a bill\", send an invoice. It is the same request, in the format their accountant expects.",
+      },
+      {
+        type: "template",
+        label: "Message to send with the invoice",
+        text: "Hi [Client name], thanks again for having me out. Your invoice [INV-0042] for $[total] is attached. It's due on [date]. If your accounts team needs a PO number on it, let me know and I'll reissue it. Thank you!",
+      },
+      { type: "h2", text: "How Invoiceflint helps with invoices and estimates" },
+      {
+        type: "p",
+        text: "Invoiceflint creates the two documents most small businesses need: estimates and invoices. Build either on your phone, send it as a link, by email, by WhatsApp, or as a PDF, and get a notification when the client opens it. Clients can accept an estimate online, and you can convert it to an invoice with one tap. Each invoice moves through Draft, Sent, Viewed, and Paid so you can see what is still owed. Invoiceflint Pro can export client statements as CSV or PDF for your accountant.",
       },
     ],
   },
