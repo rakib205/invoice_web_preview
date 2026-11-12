@@ -534,7 +534,29 @@ export const TRADES: Trade[] = [
       },
     ],
     guides: ["how-to-invoice-labor-and-materials", "how-to-send-an-invoice-on-whatsapp", "invoice-vs-receipt"],
-    dateModified: "2026-10-31",
+    dateModified: "2026-11-12",
+    templateDetail: {
+      lineItems: [
+        { item: "Each task as its own line", note: "TV mount, door adjustment, and fan swap are three lines, not one lump sum for the visit." },
+        { item: "Labor (hourly or flat)", note: "Hours × rate for open-ended repairs, or a set price for standard tasks you do every week." },
+        { item: "Materials and parts", note: "List significant items with quantity and price; group screws, anchors, and caulk into one supplies line." },
+        { item: "Trip charge or minimum service charge", note: "Show it separately so a short job still makes sense to the customer." },
+        { item: "Disposal or haul-away", note: "Charge old fixtures, drywall scraps, and packaging removal as its own line." },
+        { item: "Second-visit or return trip", note: "If you had to come back for a part, say so on the invoice instead of absorbing the cost." },
+      ],
+      rates: {
+        summary:
+          "Housecall Pro's 2026 handyman pricing guide puts most US handymen at about $50 to $150 per hour (self-employed pros mostly $50 to $80, companies $75 to $125) and suggests a minimum service charge of $125 to $200 for small jobs. Other sources quote lower minimums, so check your local market before you set yours.",
+        asOf: "November 2026",
+        source: { label: "Housecall Pro: how to price handyman jobs", url: "https://www.housecallpro.com/resources/how-to-price-handyman-jobs/" },
+      },
+      mustShow: [
+        "A short description of every task completed, written the way the customer would describe it.",
+        "Your trip or minimum service charge, stated the same way as on your estimate.",
+        "Whether the materials are billed at cost or with a markup, applied consistently.",
+        "Your contractor or handyman license number where your state or city requires one for the work performed.",
+      ],
+    },
   },
   {
     slug: "cleaners",
