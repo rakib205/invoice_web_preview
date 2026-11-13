@@ -649,7 +649,29 @@ export const TRADES: Trade[] = [
       },
     ],
     guides: ["how-to-send-an-invoice-on-whatsapp", "how-to-charge-late-fees", "invoice-vs-receipt"],
-    dateModified: "2026-10-31",
+    dateModified: "2026-11-13",
+    templateDetail: {
+      lineItems: [
+        { item: "Each visit or clean, by date", note: "List every visit with its date so a monthly invoice matches your calendar and the client's." },
+        { item: "Clean type", note: "Standard, deep, move-out, and turnover cleans are different jobs at different prices; name the type on each line." },
+        { item: "Add-ons as separate lines", note: "Inside the oven or fridge, interior windows, and laundry each get their own line instead of being folded into the base price." },
+        { item: "Supplies or equipment fee", note: "If you charge for products or equipment, show it as one clear line (or say supplies are included)." },
+        { item: "Lockout or late-cancellation fee", note: "Name the date and refer to the policy the client agreed to." },
+        { item: "Recurring-plan discount", note: "Show a weekly or biweekly discount as a negative line so the client sees the saving." },
+      ],
+      rates: {
+        summary:
+          "Angi's city cost pages list average house cleaning rates of roughly $35 an hour in Orlando, $45 in Denver, $54 in Atlanta, and $85 in San Francisco, with flat per-visit averages around $176 in Denver and $187 in Atlanta. Rates swing a lot by city, so check what cleaners near you charge.",
+        asOf: "November 2026",
+        source: { label: "Angi: house cleaning cost in Atlanta, GA", url: "https://www.angi.com/articles/how-much-does-it-cost-hire-house-cleaner/ga/atlanta" },
+      },
+      mustShow: [
+        "The date of every visit and, for property managers, the unit or address of each one.",
+        "The type of clean performed, matching the scope on your quote.",
+        "Add-ons and extra charges on their own lines, so the base price stays recognizable.",
+        "Your cancellation and lockout policy in a short line near the payment terms.",
+      ],
+    },
   },
   {
     slug: "landscapers",
