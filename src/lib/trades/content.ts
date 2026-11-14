@@ -767,7 +767,29 @@ export const TRADES: Trade[] = [
       },
     ],
     guides: ["how-to-write-an-estimate", "how-to-invoice-labor-and-materials", "invoice-payment-terms"],
-    dateModified: "2026-10-31",
+    dateModified: "2026-11-14",
+    templateDetail: {
+      lineItems: [
+        { item: "Recurring mowing as a per-visit line", note: "Show the number of visits and the price per visit (for example, 4 visits at $45) so a monthly invoice matches your route." },
+        { item: "Edging, trimming, and blowing", note: "Say whether these are included in the visit price or billed separately, and keep it consistent from month to month." },
+        { item: "Seasonal and one-off jobs", note: "Spring and fall cleanups, aeration, overseeding, and shrub trimming each get their own line with a flat price." },
+        { item: "Materials by the unit", note: "Mulch, topsoil, and stone by the cubic yard, and plants by the each, so the customer can see what was delivered." },
+        { item: "Installation labor", note: "Bill labor for installs on its own line, by the hour or as a flat amount, apart from materials." },
+        { item: "Disposal or dump fee", note: "If you haul away debris, show the fee as a separate line rather than raising other prices." },
+      ],
+      rates: {
+        summary:
+          "Lawn Love reports that lawn mowing typically costs about $45 to $75 per visit in the U.S., with most homeowners paying around $60. Lot size, how often you mow, and local labor costs move prices a lot, so check what competitors near you charge before setting yours.",
+        asOf: "November 2026",
+        source: { label: "Lawn Love: how much does lawn mowing cost?", url: "https://lawnlove.com/blog/lawn-mowing-cost/" },
+      },
+      mustShow: [
+        "The service period and the date or count of each visit, matching your route log.",
+        "The property address, for customers with more than one site.",
+        "Materials in the unit you sold them in, such as cubic yards of mulch, separate from labor.",
+        "Whether sales tax applies to materials, shown on its own line if you charge it.",
+      ],
+    },
   },
   {
     slug: "painters",
