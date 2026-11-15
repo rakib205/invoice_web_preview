@@ -886,7 +886,29 @@ export const TRADES: Trade[] = [
       },
     ],
     guides: ["how-to-write-an-estimate", "how-to-ask-for-a-deposit", "estimate-vs-invoice"],
-    dateModified: "2026-10-31",
+    dateModified: "2026-11-15",
+    templateDetail: {
+      lineItems: [
+        { item: "Interior walls by room or square foot", note: "List each room or area with its coat count (for example, 2 coats) so the customer can see what was covered." },
+        { item: "Ceilings", note: "Bill ceilings on their own line; they are often priced differently from walls." },
+        { item: "Trim, baseboards, doors, and windows", note: "Price these separately from walls, by the item or as a flat amount, since they take more detail work." },
+        { item: "Surface prep and repairs", note: "Patching, sanding, caulking, and priming each get a line, by the hour or flat, so prep isn't hidden in the paint price." },
+        { item: "Paint and primer by the gallon", note: "Show brand, quantity, and unit price as a materials line, apart from labor." },
+        { item: "Deposit received", note: "Subtract any deposit as a negative line, with the invoice number it was billed on, so the balance due is clear." },
+      ],
+      rates: {
+        summary:
+          "NerdWallet puts interior painting at roughly $2 to $6 per square foot in the U.S., depending on which surfaces are included. Labor is usually the biggest share of a quote, so your local hourly rates and the amount of prep matter more than the paint itself.",
+        asOf: "November 2026",
+        source: { label: "NerdWallet: cost to paint a house", url: "https://www.nerdwallet.com/home-ownership/home-improvement/learn/save-on-cost-to-paint-a-house" },
+      },
+      mustShow: [
+        "The rooms and surfaces painted, and the number of coats on each.",
+        "Paint brand, color name, and sheen for every surface, for future touch-ups.",
+        "Prep and repair work as separate lines from painting.",
+        "Any deposit received and the remaining balance due.",
+      ],
+    },
   },
   {
     slug: "hvac-technicians",
