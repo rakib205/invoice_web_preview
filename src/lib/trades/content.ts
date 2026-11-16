@@ -983,7 +983,29 @@ export const TRADES: Trade[] = [
       },
     ],
     guides: ["how-to-write-an-estimate", "how-to-invoice-labor-and-materials", "how-to-ask-for-a-deposit"],
-    dateModified: "2026-10-31",
+    dateModified: "2026-11-16",
+    templateDetail: {
+      lineItems: [
+        { item: "Diagnostic or service-call fee", note: "Bill it as its own line. If your policy applies it to the repair, add a matching credit line so the customer sees it was applied." },
+        { item: "Labor by the hour or flat rate", note: "State the hours and rate, or the flat price, and say what the labor covered (for example, replace capacitor)." },
+        { item: "Parts with part numbers", note: "List each part with its number or spec, quantity, and unit price, apart from labor." },
+        { item: "Refrigerant by type and pound", note: "Show the type (such as R-410A), the pounds added, and the per-pound price." },
+        { item: "Tune-up or maintenance plan", note: "Seasonal tune-ups and annual plans go on their own line so repeat customers can see what the plan covers." },
+        { item: "After-hours or emergency premium", note: "If you charge extra for nights, weekends, or holidays, show it as a separate line so the surcharge is not a surprise." },
+      ],
+      rates: {
+        summary:
+          "HomeGuide's 2026 cost guide puts typical HVAC labor at $75 to $150 per hour, with emergency rates of $140 to $250 per hour, and diagnostic or service-call fees around $75 to $200. Rates vary by region, so check what local companies charge before setting your own.",
+        asOf: "November 2026",
+        source: { label: "HomeGuide: HVAC repair cost", url: "https://homeguide.com/costs/hvac-repair-cost" },
+      },
+      mustShow: [
+        "Equipment make, model, and serial number for the unit serviced.",
+        "Refrigerant type and pounds added, billed on its own line.",
+        "Findings and any recommended follow-up work.",
+        "Warranty terms for parts and labor, and the payment due date.",
+      ],
+    },
   },
   {
     slug: "photographers",
