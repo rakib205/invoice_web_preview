@@ -1458,7 +1458,29 @@ export const TRADES: Trade[] = [
       },
     ],
     guides: ["how-to-write-an-estimate", "how-to-invoice-labor-and-materials", "invoice-vs-receipt"],
-    dateModified: "2026-10-31",
+    dateModified: "2026-11-17",
+    templateDetail: {
+      lineItems: [
+        { item: "Diagnostic fee", note: "Bill diagnosis as its own line. If you credit it toward the repair, add a matching credit line so the customer sees it applied." },
+        { item: "Labor by the hour or book time", note: "State the hours and your rate, and say what the labor covered (for example, replace front brake pads and rotors)." },
+        { item: "Parts with part numbers", note: "List each part with its number, quantity, and unit price, and say whether it is new, remanufactured, or used." },
+        { item: "Fluids and shop supplies", note: "Oil, coolant, and brake fluid by quantity. If you charge a shop-supplies fee, show it as a line rather than folding it into labor." },
+        { item: "Tire or part disposal fee", note: "Old tires, batteries, and fluids often carry a disposal charge. Show it separately so it is not a surprise." },
+        { item: "Mobile service or travel fee", note: "Mobile mechanics should show the trip charge on its own line, apart from labor." },
+      ],
+      rates: {
+        summary:
+          "Tekmetric's 2026 guide puts the average U.S. auto repair labor rate at about $132 per hour, with state averages running from roughly $85 to $197. Rates differ by region and by shop type, so check what shops near you charge before setting your own.",
+        asOf: "November 2026",
+        source: { label: "Tekmetric: average auto repair labor rates by state", url: "https://www.tekmetric.com/post/average-auto-repair-labor-rates-by-state" },
+      },
+      mustShow: [
+        "Year, make, model, VIN, and odometer reading at drop-off.",
+        "The work the customer approved, and any extra work with the date and how they approved it.",
+        "Parts and labor on separate lines, with parts condition (new, remanufactured, used).",
+        "Warranty terms for parts and labor, and the payment due date.",
+      ],
+    },
   },
   {
     slug: "roofers",
