@@ -1135,7 +1135,7 @@ export const GUIDES: Guide[] = [
       "Most US house cleaners charge $25–$50 an hour or $118–$238 a visit. See 2026 prices by home size, add-on rates, and how to work out your own rate.",
     datePublished: "2026-11-02",
     dateModified: "2026-11-02",
-    related: ["how-to-write-an-estimate", "how-to-ask-for-a-deposit", "invoice-payment-terms", "how-much-to-charge-for-pressure-washing"],
+    related: ["how-to-write-an-estimate", "how-to-ask-for-a-deposit", "how-much-to-charge-for-lawn-mowing", "how-much-to-charge-for-pressure-washing"],
     trades: ["cleaners", "handymen"],
     body: [
       {
@@ -1290,7 +1290,7 @@ export const GUIDES: Guide[] = [
       "Pressure washing costs about $0.10–$0.50 per sq ft, or $312 for an average house. See 2026 prices, how to set your own rate, and a sample invoice.",
     datePublished: "2026-11-06",
     dateModified: "2026-11-06",
-    related: ["how-to-write-an-estimate", "how-much-to-charge-for-house-cleaning", "how-to-invoice-labor-and-materials"],
+    related: ["how-to-write-an-estimate", "how-much-to-charge-for-house-cleaning", "how-to-invoice-labor-and-materials", "how-much-to-charge-for-lawn-mowing"],
     trades: ["landscapers", "handymen", "cleaners"],
     body: [
       {
@@ -1576,6 +1576,145 @@ export const GUIDES: Guide[] = [
       {
         type: "p",
         text: "Invoiceflint creates the two documents most small businesses need: estimates and invoices. Build either on your phone, send it as a link, by email, by WhatsApp, or as a PDF, and get a notification when the client opens it. Clients can accept an estimate online, and you can convert it to an invoice with one tap. Each invoice moves through Draft, Sent, Viewed, and Paid so you can see what is still owed. Invoiceflint Pro can export client statements as CSV or PDF for your accountant.",
+      },
+    ],
+  },
+  {
+    slug: "how-much-to-charge-for-lawn-mowing",
+    title: "How Much to Charge for Lawn Mowing (2026 Rates)",
+    description:
+      "Lawn mowing typically costs $43–$70 per visit, or $32–$68 per hour. See 2026 rates by lot size, how to set your price, and a sample invoice.",
+    datePublished: "2026-11-18",
+    dateModified: "2026-11-18",
+    related: ["how-to-write-an-estimate", "how-much-to-charge-for-pressure-washing", "how-to-invoice-labor-and-materials"],
+    trades: ["landscapers", "handymen", "contractors"],
+    body: [
+      {
+        type: "p",
+        text: "Most lawn mowing pros charge about $43 to $70 per visit for a standard residential lawn, or $32 to $68 per hour, according to LawnStarter's 2026 pricing guide. Housecall Pro puts the typical per-visit range for a standard property at $45 to $90, including edging, trimming, and blowing clippings off hard surfaces.",
+      },
+      {
+        type: "p",
+        text: "Those numbers are national benchmarks, not your price. Below are 2026 rates by lot size, the three ways to price a lawn, a simple formula that covers your own costs, a sample invoice, and a message you can send to a new customer. Figures are as of November 2026 and vary a lot by city and season.",
+      },
+      { type: "h2", text: "How much do you charge to mow a lawn?" },
+      {
+        type: "p",
+        text: "Here is what published 2026 sources report. The sources are pricing-software and marketplace companies, so treat them as directional and compare with what competitors near you actually charge.",
+      },
+      {
+        type: "table",
+        head: ["Source (2026)", "What it reports"],
+        rows: [
+          ["LawnStarter", "$43–$70 per visit; $32–$68 per hour; $0.01–$0.06 per square foot"],
+          ["Housecall Pro", "$45–$90 per visit for standard residential lawns; $35–$68 per hour for unpredictable or overgrown jobs"],
+          ["Lawn Love", "About $45–$75 per visit, with most people paying around $60"],
+        ],
+      },
+      { type: "h2", text: "How much should I charge by lot size?" },
+      {
+        type: "p",
+        text: "Lot size is the easiest way to quote a weekly mow. Housecall Pro lists these per-visit ranges for weekly service:",
+      },
+      {
+        type: "table",
+        head: ["Lot size", "Typical price per visit"],
+        rows: [
+          ["Under 1/4 acre", "$41–$65"],
+          ["1/4 to 1/2 acre", "$49–$95"],
+          ["1/2 to 1 acre", "$59–$130"],
+        ],
+      },
+      {
+        type: "p",
+        text: "For larger properties, Jobber's guide cites roughly $150 to $200 per acre and notes that the per-acre rate usually drops as the lawn gets bigger. Region matters as much as size: one source notes that the same quarter-acre lawn can cost $45 to $55 in San Antonio and $80 to $90 in Seattle or Boston.",
+      },
+      { type: "h2", text: "Should I charge per visit, by the hour, or by square foot?" },
+      {
+        type: "table",
+        head: ["Method", "Typical rate", "Best for", "Watch out for"],
+        rows: [
+          ["Flat rate per visit", "$43–$70 (LawnStarter)", "Weekly or biweekly customers with a regular lawn", "Underquoting a lawn with slopes, gates, or lots of obstacles"],
+          ["Hourly", "$32–$68", "First cuts, overgrown lawns, and one-time jobs", "Customers may watch the clock; you earn less as you get faster"],
+          ["Per square foot", "$0.01–$0.06", "Large open lawns where you can measure the area", "Tiny numbers make it easy to misprice; check against your hourly math"],
+        ],
+      },
+      {
+        type: "p",
+        text: "Many pros use a flat rate for recurring customers and switch to hourly for an overgrown first cut, since the time it takes is hard to predict.",
+      },
+      { type: "h2", text: "How do I work out a price that covers my costs?" },
+      {
+        type: "p",
+        text: "Benchmarks ignore your fuel, equipment, and insurance. Price from your own numbers instead. The figures below are examples; replace them with yours:",
+      },
+      {
+        type: "ol",
+        items: [
+          "Estimate time per visit, including driving and loading. Example: 35 minutes mowing, edging, and blowing, plus 15 minutes of travel, so about 50 minutes.",
+          "Multiply by the hourly rate you want to earn. Example: 50 minutes at $40 per hour is about $33.",
+          "Add direct costs per visit: fuel, trimmer line, blade wear, and your share of equipment and insurance. Example: $8.",
+          "Your break-even is $41.",
+          "Add profit. For a 30% margin, divide by 0.70: $41 ÷ 0.70 = about $59.",
+          "Compare with local prices. $59 sits inside the $49–$95 range for a 1/4 to 1/2 acre lot, so the quote is realistic.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Set a minimum charge per stop so a tiny yard still pays for your drive and setup. Route density matters: five lawns on one street earn more per hour than five lawns across town at the same price.",
+      },
+      { type: "h2", text: "What factors change what I should charge?" },
+      {
+        type: "ul",
+        items: [
+          "Lot size and shape: open rectangles are fast; many beds, trees, and fences slow you down.",
+          "Slopes and obstacles: hills, uneven ground, and decorative hardscaping all add time.",
+          "Grass condition: tall or overgrown grass is usually a custom quote or an hourly job, not the standard visit price.",
+          "Frequency: weekly customers cost less per visit than one-time jobs, because grass is shorter and routes are predictable.",
+          "Included services: edging, trimming, and blowing are often bundled; bagging, hauling, and leaf removal should be separate lines.",
+          "Location and season: prices differ between cities, and many areas mow less often in winter, so many pros bill a flat monthly amount for the season.",
+        ],
+      },
+      { type: "h2", text: "What does a lawn mowing invoice look like?" },
+      {
+        type: "p",
+        text: "Here is an example monthly invoice for a weekly customer with a 1/3-acre lot. The prices are illustrative, so use your own:",
+      },
+      {
+        type: "table",
+        head: ["Item", "Qty", "Rate", "Amount"],
+        rows: [
+          ["Weekly mow, edge, and blow – 123 Oak St (Nov 3, 10, 17, 24)", "4", "$60.00", "$240.00"],
+          ["Leaf cleanup – front and back yard", "1", "$85.00", "$85.00"],
+          ["Total due within 14 days", "", "", "$325.00"],
+        ],
+      },
+      {
+        type: "p",
+        text: "List each service date so the customer can see what they are paying for, and add sales tax only if your state taxes lawn services, which differs by state. Check with your state's tax agency.",
+      },
+      { type: "h2", text: "How do I quote a new lawn mowing customer?" },
+      {
+        type: "template",
+        label: "Lawn mowing quote message",
+        text: "Hi [Name], thanks for getting in touch. Based on the size of your lawn at [address], here is my quote:\n- Weekly mow, edge, trim, and blow clippings off paths and driveway: [$60] per visit\n- First cut if the grass is more than [6] inches tall: [$XX], quoted after I see it\n- Leaf cleanup in the fall: [$85] per visit\nI'd bill monthly, with payment due within [14] days. You can review and accept this quote here: [link]. Let me know if you have any questions!",
+      },
+      { type: "h2", text: "What should a lawn mowing invoice include?" },
+      {
+        type: "ul",
+        items: [
+          "Your business name, contact details, and a unique invoice number.",
+          "The customer's name and the property address.",
+          "Each service date and what was done (mow, edge, trim, blow).",
+          "Extras like leaf cleanup or bagging as separate lines.",
+          "Sales tax if your state requires it.",
+          "A due date and how the customer can pay.",
+        ],
+      },
+      { type: "h2", text: "How Invoiceflint helps with lawn mowing invoices" },
+      {
+        type: "p",
+        text: "In Invoiceflint, you can save your weekly mow, first cut, and leaf cleanup as items with your own rates, then build a quote or invoice from your phone in a few taps. Send it as a link, by email, or on WhatsApp; the customer can view or accept it in a web browser without installing an app, and you can convert an accepted estimate into an invoice with one tap. You get a notification when it is opened, and Invoiceflint Pro can send automatic email reminders when a payment runs late.",
       },
     ],
   },
