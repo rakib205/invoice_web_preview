@@ -1622,7 +1622,30 @@ export const TRADES: Trade[] = [
       },
     ],
     guides: ["how-to-ask-for-a-deposit", "how-to-write-an-estimate", "how-to-invoice-labor-and-materials"],
-    dateModified: "2026-10-31",
+    templateDetail: {
+      lineItems: [
+        { item: "Tear-off, by the square", note: "State how many layers came off and the number of squares (1 square = 100 sq ft), so the quantity matches the roof measurement." },
+        { item: "Shingles or roofing material", note: "Name the brand, line, and color, and whether the price covers supply and install or install only." },
+        { item: "Underlayment, flashing, and ice and water shield", note: "One line each, so the homeowner sees what protects the roof, not just the shingles." },
+        { item: "Replacement decking, per sheet", note: "Quantity of sheets actually replaced at the per-sheet price agreed on the estimate." },
+        { item: "Ventilation and accessories", note: "Ridge vent, pipe boots, and drip edge as separate lines with quantities." },
+        { item: "Dumpster, disposal, and permit", note: "List pass-through costs apart from labor. For a repair call, show the minimum service fee as its own line." },
+      ],
+      rates: {
+        summary:
+          "SquareDash's 2026 guide puts asphalt shingle roofing labor at about $150 to $300 per square (100 sq ft), averaging near $200, with simple gable roofs at the low end and complex roofs with dormers at the high end. Other published guides give wider or regional ranges, and repair calls are often priced with a minimum fee, so use your own local costs.",
+        asOf: "November 2026",
+        source: { label: "SquareDash: roofing labor cost per square", url: "https://www.squaredash.com/cost/labor/" },
+      },
+      mustShow: [
+        "The property address and the roof size in squares.",
+        "Your license and insurance details where your state requires them on paperwork.",
+        "Shingle brand, line, and color, with manufacturer and workmanship warranty terms.",
+        "Any decking or extra work beyond the estimate, with quantity, price, and the date the homeowner approved it.",
+        "The deposit received and the balance due.",
+      ],
+    },
+    dateModified: "2026-11-19",
   },
   {
     slug: "carpenters",
