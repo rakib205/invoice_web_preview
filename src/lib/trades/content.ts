@@ -1743,7 +1743,30 @@ export const TRADES: Trade[] = [
       },
     ],
     guides: ["how-to-invoice-labor-and-materials", "how-to-ask-for-a-deposit", "how-to-write-an-estimate"],
-    dateModified: "2026-10-31",
+    templateDetail: {
+      lineItems: [
+        { item: "Labor, by the hour, day, or fixed price", note: "Say which basis you used. For a fixed price, name the scope (for example, built-in bookcase, one wall) so extras are easy to tell apart." },
+        { item: "Lumber and sheet goods, by quantity", note: "Board feet, linear feet, or sheets, with the species or grade (3/4\" paint-grade plywood, poplar, pressure-treated)." },
+        { item: "Trim, molding, and millwork", note: "Linear feet per profile, so the client can match the quantity to the room." },
+        { item: "Hardware, fasteners, and finishes", note: "Hinges, slides, pulls, and adhesives on their own line, or one line if the amount is small." },
+        { item: "Materials pickup and delivery", note: "Show it apart from labor, as a flat fee or per trip." },
+        { item: "Demolition, haul-away, or disposal", note: "Include it as a line when you removed old cabinets, decking, or trim, and leave it off when it was excluded." },
+      ],
+      rates: {
+        summary:
+          "Angi's carpenter cost guide gives a national average of about $50 an hour, with most homeowners paying between $40 and $100 an hour. Finish carpenters and cabinetmakers sit at the higher end, and custom work is often priced per project instead. Rates vary by region, so use your own local costs.",
+        asOf: "November 2026",
+        source: { label: "Angi: how much does a carpenter cost", url: "https://www.angi.com/articles/carpenter-cost.htm" },
+      },
+      mustShow: [
+        "The job address and what was built, installed, or repaired.",
+        "Whether labor was billed hourly, daily, or as a fixed price for the job.",
+        "Lumber and sheet goods by quantity, so materials are easy to check.",
+        "What is not included, such as painting, staining, or removing the old unit.",
+        "The deposit received and the balance due.",
+      ],
+    },
+    dateModified: "2026-11-20",
   },
   {
     slug: "movers",
