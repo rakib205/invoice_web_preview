@@ -1984,7 +1984,32 @@ export const TRADES: Trade[] = [
       },
     ],
     guides: ["how-to-number-invoices", "invoice-payment-terms", "how-to-follow-up-on-unpaid-invoice"],
-    dateModified: "2026-10-31",
+    templateDetail: {
+      lineItems: [
+        { item: "Initial inspection", note: "Billed on its own line, since it takes more time than a routine visit and often comes with a written findings report." },
+        { item: "General pest treatment", note: "Name the scope, such as interior and exterior perimeter, and the pests targeted." },
+        { item: "Recurring plan visit", note: "Say which visit this invoice covers, for example quarterly visit 2 of 4, and when the next one is." },
+        { item: "Rodent exclusion labor", note: "Hours spent sealing entry points, billed apart from routine treatment." },
+        { item: "Bait stations and traps, by quantity", note: "Count each station or trap installed so the customer can see what was placed." },
+        { item: "Targeted treatments", note: "Bed bugs, wasps, or termites on separate lines, since they are priced differently from general service." },
+        { item: "Re-treatment or follow-up visit", note: "Mark it as covered by your guarantee, or bill it, so it is clear which." },
+      ],
+      rates: {
+        summary:
+          "Pest Watchdog's 2026 price guide puts a one-time general pest visit at about $171 on average, with most homes between $100 and $300, and quarterly plans at about $150 a visit on average (range $100 to $300). Monthly plans run lower per visit, and an initial visit usually costs more than later ones. Urban markets can run 20 to 40 percent above national averages, so use your own local rates.",
+        asOf: "November 2026",
+        source: { label: "Pest Watchdog: pest control cost in 2026", url: "https://pestwatchdog.com/guides/pest-control-cost/" },
+      },
+      mustShow: [
+        "Your pest control license number where your state requires it.",
+        "Service address, with unit numbers for multi-unit properties, and the date of service.",
+        "The pests targeted and the areas treated.",
+        "Products applied, since many states require a written record for the customer.",
+        "For plans, which visit this is and the date of the next one.",
+        "Any re-treatment guarantee and how long it lasts.",
+      ],
+    },
+    dateModified: "2026-11-22",
   },
   {
     slug: "tutors",
