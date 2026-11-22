@@ -1865,7 +1865,32 @@ export const TRADES: Trade[] = [
       },
     ],
     guides: ["how-to-write-an-estimate", "how-to-ask-for-a-deposit", "invoice-vs-receipt"],
-    dateModified: "2026-10-31",
+    templateDetail: {
+      lineItems: [
+        { item: "Crew and truck, by the hour", note: "Show crew size, truck size, and hours, for example 3 movers and a 26' truck at 6.5 hours, so the rate and the time are both visible." },
+        { item: "Travel fee or drive time", note: "Its own line, separate from loading and unloading, matching the policy on your estimate." },
+        { item: "Packing materials, by quantity", note: "Boxes, wardrobe boxes, paper, tape, and mattress covers with counts, so the customer can check them against what was used." },
+        { item: "Packing labor", note: "Bill it separately when your crew packed, so it is not confused with moving hours." },
+        { item: "Specialty and heavy items", note: "Pianos, safes, and gun safes on a line each, as quoted on the estimate." },
+        { item: "Stairs, long carries, and elevator fees", note: "Name the location, such as third-floor walk-up at the destination, so the extra charge is not a surprise." },
+        { item: "Valuation coverage or storage", note: "List the coverage level chosen, and any storage days, as their own lines." },
+      ],
+      rates: {
+        summary:
+          "Thumbtack reports a national average of roughly $108 to $125 an hour for movers, with a typical local move totaling about $266 to $640. TaskRabbit puts local moving companies at about $50 to $150 an hour. Rates depend mostly on crew size and market, and many companies set a two- to four-hour minimum, so use your own local rates and minimums.",
+        asOf: "November 2026",
+        source: { label: "Thumbtack: how much do movers cost", url: "https://www.thumbtack.com/p/moving-companies-prices" },
+      },
+      mustShow: [
+        "Origin and destination addresses and the move date.",
+        "Crew size, truck, hourly rate, and your minimum hours if you have one.",
+        "Start and finish times, so the billed hours can be checked.",
+        "Travel charges and extras (stairs, heavy items) as separate lines.",
+        "Your USDOT or state license number where required, and the valuation coverage selected.",
+        "The deposit received and the balance due.",
+      ],
+    },
+    dateModified: "2026-11-21",
   },
   {
     slug: "pest-control",
