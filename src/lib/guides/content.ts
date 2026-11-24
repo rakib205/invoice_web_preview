@@ -477,7 +477,7 @@ export const GUIDES: Guide[] = [
       "A simple follow-up schedule for unpaid invoices, plus copy-and-paste reminder messages for email, text, and WhatsApp that stay polite and get results.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
-    related: ["invoice-payment-terms", "how-to-charge-late-fees", "get-paid-faster-as-a-freelancer"],
+    related: ["invoice-payment-terms", "how-to-charge-late-fees", "get-paid-faster-as-a-freelancer", "how-to-send-an-invoice-on-paypal"],
     trades: ["freelancers", "contractors", "consultants"],
     body: [
       {
@@ -697,7 +697,7 @@ export const GUIDES: Guide[] = [
       "How to add a late payment fee to your invoices, how much to charge, the wording to use, and how to enforce it without losing the client.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
-    related: ["invoice-payment-terms", "how-to-follow-up-on-unpaid-invoice", "get-paid-faster-as-a-freelancer"],
+    related: ["invoice-payment-terms", "how-to-follow-up-on-unpaid-invoice", "get-paid-faster-as-a-freelancer", "how-to-send-an-invoice-on-paypal"],
     trades: ["consultants", "contractors", "cleaners"],
     body: [
       {
@@ -985,7 +985,7 @@ export const GUIDES: Guide[] = [
       "Zelle, Cash App, and Chime can't send invoices, and Venmo only can from a business profile. Here's how to invoice clients who pay with these apps.",
     datePublished: "2026-11-02",
     dateModified: "2026-11-02",
-    related: ["how-to-invoice-a-client", "get-paid-faster-as-a-freelancer", "how-to-send-an-invoice-on-whatsapp"],
+    related: ["how-to-invoice-a-client", "get-paid-faster-as-a-freelancer", "how-to-send-an-invoice-on-whatsapp", "how-to-send-an-invoice-on-paypal"],
     trades: ["cleaners", "handymen", "tutors"],
     body: [
       {
@@ -1715,6 +1715,152 @@ export const GUIDES: Guide[] = [
       {
         type: "p",
         text: "In Invoiceflint, you can save your weekly mow, first cut, and leaf cleanup as items with your own rates, then build a quote or invoice from your phone in a few taps. Send it as a link, by email, or on WhatsApp; the customer can view or accept it in a web browser without installing an app, and you can convert an accepted estimate into an invoice with one tap. You get a notification when it is opened, and Invoiceflint Pro can send automatic email reminders when a payment runs late.",
+      },
+    ],
+  },
+  {
+    slug: "how-to-send-an-invoice-on-paypal",
+    title: "How to Send an Invoice on PayPal (Steps, Fees, Tips)",
+    description:
+      "How to send an invoice on PayPal in 6 steps, what it costs (3.49% + $0.49 per paid invoice), and what to add so clients pay faster. Includes a sample.",
+    datePublished: "2026-11-23",
+    dateModified: "2026-11-23",
+    related: ["can-you-send-an-invoice-through-zelle-venmo-cash-app", "how-to-invoice-a-client", "invoice-payment-terms"],
+    trades: ["freelancers", "handymen", "cleaners"],
+    body: [
+      {
+        type: "p",
+        text: "To send an invoice on PayPal, log in, choose Send and Request, then Send an invoice (on the website), or tap Request, then Send an invoice in the mobile app. Add your customer's email, the line items and a due date, then press Send and PayPal emails them a link to view and pay.",
+      },
+      {
+        type: "p",
+        text: "Sending is free; PayPal takes its fee only when the invoice gets paid. This guide covers the steps, what the fees look like in dollars as of November 2026, how to handle partial payments, reminders and cash, and what to add so the invoice actually gets paid.",
+      },
+      { type: "h2", text: "How do you send an invoice on PayPal, step by step?" },
+      {
+        type: "p",
+        text: "PayPal's menu names have changed over the years and differ slightly between the website, the PayPal app, and the PayPal Business app, so look for the closest match if a label is different on your screen.",
+      },
+      {
+        type: "ol",
+        items: [
+          "Log in to your PayPal account on the website, or open the app.",
+          "On the website, click Send and Request, then Send an invoice. In the app, tap Request, then Send an invoice. The PayPal Business app puts it under its menu as Create an Invoice.",
+          "Enter the customer's email address and name.",
+          "Add each item or service with a description, quantity and price, plus any discount or tax.",
+          "Set the invoice date and due date, add notes (your payment terms and any instructions), and attach files if needed.",
+          "Preview the invoice, then press Send. The customer gets an email with a link to view and pay it.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "PayPal also has a quick invoice option on mobile for fast, simple requests. The customer still receives a full invoice with your default business information.",
+      },
+      { type: "h2", text: "How much does it cost to send a PayPal invoice?" },
+      {
+        type: "p",
+        text: "PayPal says sending an invoice costs nothing. You pay only when a customer pays it, and the rate depends on how they pay. For US dollar invoices, PayPal's fee schedule lists these rates as of November 2026:",
+      },
+      {
+        type: "table",
+        head: ["How the customer pays", "Fee on a paid invoice", "You keep on a $400 invoice"],
+        rows: [
+          ["PayPal, Venmo, or PayPal guest checkout", "3.49% + $0.49", "$385.55"],
+          ["Debit or credit card, Apple Pay, other wallets", "2.99% + $0.49", "$387.55"],
+        ],
+      },
+      {
+        type: "p",
+        text: "Fees change and vary by country, so confirm the current rates on PayPal's fee page before you price a job. Compared with Zelle, which typically has no consumer fee, a PayPal invoice costs you roughly 3 percent. That is the price of letting a client pay by card without having to message you for your details.",
+      },
+      { type: "h2", text: "Does the customer need a PayPal account to pay?" },
+      {
+        type: "p",
+        text: "Generally no. PayPal's help describes the flow for a customer without an account: open the email, select View and Pay Invoice, then choose Pay with Debit or Credit Card. Some regions or payment methods may still ask the customer to register, so don't promise a client it will always work.",
+      },
+      { type: "h2", text: "What should you put on a PayPal invoice?" },
+      {
+        type: "p",
+        text: "PayPal's form is quick, but it doesn't force you to be specific. Fill in the optional parts, because a vague invoice is the one that sits unpaid.",
+      },
+      {
+        type: "ul",
+        items: [
+          "A specific due date, not just 'due on receipt' (see our guide to invoice payment terms).",
+          "Line items with real descriptions, such as 'Replace kitchen faucet, 3 hrs at $85', instead of 'Plumbing'.",
+          "Your legal or business name, so the client recognizes who is billing them.",
+          "Notes with your late-fee policy or deposit terms, if you have them.",
+          "A job reference or PO number if the client's accounts payable team asks for one.",
+        ],
+      },
+      { type: "h2", text: "Example: a plumber's PayPal invoice" },
+      {
+        type: "p",
+        text: "Here is what a finished invoice might contain before you press Send. The total is the amount the client sees; the fee comes out of your side after they pay.",
+      },
+      {
+        type: "table",
+        head: ["Item", "Qty", "Rate", "Amount"],
+        rows: [
+          ["Labor: replace kitchen faucet", "3 hrs", "$85.00", "$255.00"],
+          ["Faucet (customer-approved model)", "1", "$119.00", "$119.00"],
+          ["Supply lines, plumber's putty, disposal", "1", "$26.00", "$26.00"],
+          ["Total due by Dec 7, 2026", "", "", "$400.00"],
+        ],
+      },
+      {
+        type: "p",
+        text: "If the client pays by debit card, PayPal's 2.99% + $0.49 comes to $12.45 and you keep $387.55. If they pay with their PayPal balance, 3.49% + $0.49 comes to $14.45 and you keep $385.55. Some people add a card-fee line to cover this, but check local rules and tell the client before the job, not after.",
+      },
+      { type: "h2", text: "Can you accept partial payments or deposits?" },
+      {
+        type: "p",
+        text: "Yes. When you create the invoice, tick Allow partial payment under the payment options, and you can set a minimum amount for each payment. The invoice shows as Partially Paid until the full amount arrives. If a customer pays you in cash or by check, you can record that offline payment on the invoice's details page, including a deposit.",
+      },
+      { type: "h2", text: "How do you send a reminder or cancel a PayPal invoice?" },
+      {
+        type: "ul",
+        items: [
+          "Reminder: find the unpaid invoice in your list and choose Remind (on desktop it is in the three-dot menu; on mobile, use the invoice's details page). PayPal's help says you can send up to two manual reminders per invoice in 24 hours.",
+          "Cancel: on desktop, open the invoice and choose Cancel invoice. Once cancelled, the customer can no longer pay it and is notified by email.",
+        ],
+      },
+      {
+        type: "template",
+        label: "Message to send with your PayPal invoice",
+        text: "Hi [Name], thanks again for choosing [Your Business]. I've just sent invoice [INV-0042] for [$400] through PayPal, due [Dec 7]. You can pay with PayPal or a card from the link in the email, and you don't need a PayPal account. If it doesn't show up, check your spam folder and let me know. Thank you!",
+      },
+      { type: "h2", text: "How can you get a PayPal invoice paid faster?" },
+      {
+        type: "ul",
+        items: [
+          "Send it the same day as the work, while the job is fresh in the client's mind.",
+          "Text the client right after sending, so they know to look for the email and check spam.",
+          "Keep the due date short and clear: 7 to 14 days works for most small jobs.",
+          "Use a reminder two or three days before the due date rather than waiting until it is late.",
+          "Keep the same email address on every invoice so your messages never look like a stranger's.",
+          "For larger jobs, invoice a deposit first, then the balance when the work is finished.",
+        ],
+      },
+      { type: "h2", text: "When is PayPal not the best way to invoice?" },
+      {
+        type: "p",
+        text: "PayPal is convenient when your client wants to pay by card, but it isn't ideal for everyone.",
+      },
+      {
+        type: "table",
+        head: ["Situation", "What works better"],
+        rows: [
+          ["Client prefers Zelle or Venmo and won't pay a card fee", "Send your own invoice with your Zelle or Venmo details in the payment instructions"],
+          ["You want to see when the client opened the invoice", "An invoice app that shows a viewed status"],
+          ["You need estimates the client can approve first", "Estimate software that converts to an invoice"],
+          ["Your clients love paying by card and you want it fast", "PayPal invoicing is a good fit"],
+        ],
+      },
+      { type: "h2", text: "How Invoiceflint fits alongside PayPal" },
+      {
+        type: "p",
+        text: "Invoiceflint doesn't process payments, so it never takes a fee. You can create the invoice on your phone, add your PayPal email or any other payment instructions in the notes, and send it by link, email, WhatsApp or PDF. You get a notification when the client opens it, and when the money arrives you mark it paid. Clients view it in a browser without installing anything. Invoiceflint is free to download; sending requires Pro, which starts with a free trial.",
       },
     ],
   },
