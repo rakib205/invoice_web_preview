@@ -96,7 +96,7 @@ export const GUIDES: Guide[] = [
       "Estimate vs. invoice: an estimate proposes a price before work starts, an invoice asks for payment. See a side-by-side example and when to send each.",
     datePublished: "2026-06-01",
     dateModified: "2026-11-07",
-    related: ["how-to-write-an-estimate", "how-to-ask-for-a-deposit", "invoice-vs-receipt", "invoice-vs-bill"],
+    related: ["how-to-write-an-estimate", "invoice-vs-purchase-order", "invoice-vs-receipt", "invoice-vs-bill"],
     trades: ["contractors", "painters", "electricians"],
     body: [
       {
@@ -748,7 +748,7 @@ export const GUIDES: Guide[] = [
       "An invoice asks for payment; a receipt confirms it. See what each one includes, when to send it, and whether your business needs both documents.",
     datePublished: "2026-10-31",
     dateModified: "2026-10-31",
-    related: ["estimate-vs-invoice", "invoice-vs-bill", "how-to-number-invoices", "how-to-invoice-a-client"],
+    related: ["estimate-vs-invoice", "invoice-vs-bill", "how-to-number-invoices", "invoice-vs-purchase-order"],
     trades: ["cleaners", "handymen", "pet-groomers", "auto-mechanics"],
     body: [
       {
@@ -1431,7 +1431,7 @@ export const GUIDES: Guide[] = [
       "Invoice vs. bill: same request for payment, seen from two sides. Learn how bills, statements, and purchase orders differ, with an example of each.",
     datePublished: "2026-11-11",
     dateModified: "2026-11-11",
-    related: ["invoice-vs-receipt", "estimate-vs-invoice", "how-to-invoice-a-client"],
+    related: ["invoice-vs-receipt", "estimate-vs-invoice", "how-to-invoice-a-client", "invoice-vs-purchase-order"],
     trades: ["freelancers", "contractors", "consultants"],
     body: [
       {
@@ -1861,6 +1861,139 @@ export const GUIDES: Guide[] = [
       {
         type: "p",
         text: "Invoiceflint doesn't process payments, so it never takes a fee. You can create the invoice on your phone, add your PayPal email or any other payment instructions in the notes, and send it by link, email, WhatsApp or PDF. You get a notification when the client opens it, and when the money arrives you mark it paid. Clients view it in a browser without installing anything. Invoiceflint is free to download; sending requires Pro, which starts with a free trial.",
+      },
+    ],
+  },
+  {
+    slug: "invoice-vs-purchase-order",
+    title: "Invoice vs. Purchase Order: What's the Difference?",
+    description:
+      "An invoice asks for payment; a purchase order authorizes a purchase. See who sends each, when, what goes on them, and how a PO number gets you paid.",
+    datePublished: "2026-11-25",
+    dateModified: "2026-11-25",
+    related: ["invoice-vs-bill", "estimate-vs-invoice", "invoice-vs-receipt"],
+    trades: ["contractors", "caterers", "movers"],
+    body: [
+      {
+        type: "p",
+        text: "An invoice is a request for payment that the seller sends after delivering goods or services. A purchase order (PO) is the opposite end of the deal: the buyer sends it before the work starts, to authorize a purchase at agreed quantities and prices.",
+      },
+      {
+        type: "p",
+        text: "If you run a service business, you will mostly send invoices and occasionally receive POs from bigger clients. Below is how the two documents fit together, where statements and quotes fit in, and how to handle a client who says, \"Put our PO number on the invoice.\"",
+      },
+      { type: "h2", text: "What is the difference between an invoice and a purchase order?" },
+      {
+        type: "table",
+        head: ["", "Purchase order", "Invoice"],
+        rows: [
+          ["Who creates it", "The buyer (your client)", "The seller (you)"],
+          ["When", "Before the work or delivery", "After the work or delivery (or at an agreed milestone)"],
+          ["Purpose", "Authorizes a purchase and sets price, quantity, and terms", "Requests payment for what was delivered"],
+          ["Key identifier", "PO number, issued by the buyer", "Invoice number, issued by you"],
+          ["Who it helps", "The buyer's budget and approvals", "Your cash flow and the buyer's accounts payable team"],
+          ["Binding?", "Typically becomes a binding agreement once the seller accepts it", "A legal request for the amount owed under the agreement"],
+        ],
+      },
+      { type: "h2", text: "How do a quote, a purchase order, and an invoice work together?" },
+      {
+        type: "p",
+        text: "On a larger job the documents usually arrive in this order. You may not see every step on small jobs, but this is the sequence a bigger client's accounting team expects.",
+      },
+      {
+        type: "ol",
+        items: [
+          "You send an estimate or quote with the scope and price.",
+          "The client approves it and sends a purchase order with a PO number that matches what you quoted.",
+          "You do the work or deliver the goods.",
+          "You send an invoice that shows the PO number, the line items, and the total.",
+          "The client's accounts payable team matches your invoice against the PO and pays it.",
+          "You send a receipt or mark the invoice paid.",
+        ],
+      },
+      {
+        type: "p",
+        text: "That matching step is why POs matter to you. Many companies will not pay an invoice that lacks a valid PO number, even when the work was done and approved. The invoice sits in a queue until someone asks you to resend it.",
+      },
+      { type: "h2", text: "Do I need a purchase order to send an invoice?" },
+      {
+        type: "p",
+        text: "No. Homeowners and small clients rarely issue POs, and you can invoice them directly. You only need one when the client's policy requires it, which is common with property managers, schools, government agencies, and larger companies. If you are not sure, ask a new business client before you start: \"Do you need a PO number on the invoice?\"",
+      },
+      { type: "h2", text: "What should I put on an invoice for a purchase order?" },
+      {
+        type: "ul",
+        items: [
+          "The client's PO number, near the top so it is easy to find, and again in the notes if your layout allows.",
+          "Line items that match the PO: same descriptions, quantities, and prices where possible.",
+          "Your own invoice number and the invoice date.",
+          "The total, any tax, and the payment terms and due date.",
+          "Your business name, address, and payment instructions.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "If your final price differs from the PO, ask the client for a revised PO or a written change order before invoicing. An invoice that does not match the PO is the most common reason business invoices get held.",
+      },
+      { type: "h3", text: "Example: invoice that references a PO" },
+      {
+        type: "table",
+        head: ["Item", "Qty", "Rate", "Amount"],
+        rows: [
+          ["Install 4 exterior light fixtures (PO 48213)", "4", "$85.00", "$340.00"],
+          ["Light fixtures (materials)", "4", "$62.00", "$248.00"],
+          ["Disposal of old fixtures", "1", "$35.00", "$35.00"],
+          ["Subtotal", "", "", "$623.00"],
+          ["Sales tax on materials (example rate 7%)", "", "", "$17.36"],
+          ["Total due, net 30", "", "", "$640.36"],
+        ],
+      },
+      { type: "h2", text: "What about statements and bills?" },
+      {
+        type: "p",
+        text: "A statement of account is a summary, not a request for one specific payment. It lists a client's invoices, payments, and credits over a period and shows the balance due. Sellers send them to repeat clients who have several open invoices. An invoice is a single, numbered request for payment. For the difference between an invoice and a bill, which is mostly a matter of which side of the deal you sit on, see our guide on invoices vs. bills.",
+      },
+      {
+        type: "table",
+        head: ["Document", "Sent by", "Use it when"],
+        rows: [
+          ["Estimate or quote", "Seller", "You are pricing the job before it starts"],
+          ["Purchase order", "Buyer", "The client wants to authorize and track the spend"],
+          ["Invoice", "Seller", "The work is done or a milestone is reached"],
+          ["Statement", "Seller", "A repeat client has several open invoices"],
+          ["Receipt", "Seller", "Payment has arrived and the client wants proof"],
+        ],
+      },
+      { type: "h2", text: "Is a purchase order the same as an estimate?" },
+      {
+        type: "p",
+        text: "No, and mixing them up causes confusion. An estimate or quote comes from you and says what you propose to charge. A purchase order comes from the client and says what they have agreed to buy. If the PO total is lower than your estimate, the two sides have not actually agreed yet. Sort out the difference in writing before you start work, not after you send the invoice.",
+      },
+      { type: "h2", text: "Common mistakes when invoicing against a PO" },
+      {
+        type: "ul",
+        items: [
+          "Leaving the PO number off the invoice, so accounts payable cannot match it.",
+          "Invoicing more than the PO covers without a revised PO or change order.",
+          "Sending one invoice for several POs. Send one invoice per PO unless the client asks otherwise.",
+          "Reusing an old PO number for new work. Each job should have its own PO.",
+          "Sending the invoice to the person who ordered the work instead of the accounts payable address the client gave you.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Keep a copy of each PO with the job. If a payment is ever disputed, the PO, your approved estimate, and your invoice together show exactly what both sides agreed to and when.",
+      },
+      { type: "h2", text: "Message to send a client who needs a PO" },
+      {
+        type: "template",
+        label: "Email or message",
+        text: "Hi [Name], thanks for approving the estimate. Before I start, could you send over a purchase order and let me know the PO number? I'll include it on the invoice so your accounts team can pay it without delay. Estimated total: [amount]. Thanks!",
+      },
+      { type: "h2", text: "How Invoiceflint handles this" },
+      {
+        type: "p",
+        text: "Invoiceflint covers the seller's side of the paperwork. You can send the estimate, let the client accept it online, and convert it to an invoice in one tap so the line items and totals carry over. Add the client's PO number in the invoice notes or in a line item description so it travels with the invoice. You send it by link, email, WhatsApp, or PDF, get a notification when the client opens it, and mark it paid when the money arrives. Invoiceflint doesn't create purchase orders, since those come from your client. It is free to download; sending requires Pro, which starts with a free trial.",
       },
     ],
   },
