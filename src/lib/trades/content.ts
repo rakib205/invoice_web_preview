@@ -1121,7 +1121,33 @@ export const TRADES: Trade[] = [
       },
     ],
     guides: ["how-to-ask-for-a-deposit", "how-to-follow-up-on-unpaid-invoice", "invoice-payment-terms"],
-    dateModified: "2026-10-31",
+    templateDetail: {
+      lineItems: [
+        { item: "Collection or package", note: "Name the package booked, with coverage hours and what is included, so the total ties back to your quote." },
+        { item: "Additional coverage hours", note: "Overtime or extra hours on their own line, with the hourly rate, for example 2 extra hours at your add-on rate." },
+        { item: "Second shooter or assistant", note: "Hours and rate, kept separate from your own coverage." },
+        { item: "Engagement or portrait session", note: "A separate line if it is not bundled, with the session date." },
+        { item: "Prints, albums, and products", note: "Size, quantity, and unit price, such as one 20-spread album, so the client can see what they are buying." },
+        { item: "Travel and location fees", note: "Mileage, parking, or lodging for destination work, itemized instead of folded into the package price." },
+        { item: "Licensing or usage fee", note: "For commercial shoots, a line stating where the images may be used and for how long." },
+        { item: "Retainer received", note: "A negative line showing the retainer already paid, with its invoice number, so the balance due is clear." },
+      ],
+      rates: {
+        summary:
+          "Thumbtack reports a national average of about $150 an hour for wedding photographers, with most prices between roughly $122 and $450 an hour. The Knot's Real Weddings Study puts the average spend on a wedding photographer at about $3,000. Most photographers sell packages rather than hourly time, so treat these as rough benchmarks and price from your own market, experience, and deliverables.",
+        asOf: "November 2026",
+        source: { label: "Thumbtack: wedding and event photography prices", url: "https://www.thumbtack.com/p/wedding-photographer-prices" },
+      },
+      mustShow: [
+        "The event or session date and location.",
+        "The package name, coverage hours, and a list of deliverables (edited images, gallery, albums, prints).",
+        "The retainer received and whether it is refundable, plus the balance and its due date.",
+        "Usage or licensing terms for commercial work, including duration.",
+        "Your delivery timeline, such as the gallery within 6 weeks.",
+        "Travel, second-shooter, and add-on charges as separate lines.",
+      ],
+    },
+    dateModified: "2026-11-26",
   },
   {
     slug: "graphic-designers",
