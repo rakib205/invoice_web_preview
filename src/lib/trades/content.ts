@@ -1241,7 +1241,33 @@ export const TRADES: Trade[] = [
       },
     ],
     guides: ["how-to-ask-for-a-deposit", "get-paid-faster-as-a-freelancer", "how-to-follow-up-on-unpaid-invoice"],
-    dateModified: "2026-10-31",
+    templateDetail: {
+      lineItems: [
+        { item: "Project fee by deliverable", note: "List each deliverable on its own line, such as logo and mark, business card, or social template set, so the total ties back to your proposal." },
+        { item: "Included revision rounds", note: "State how many rounds the fee covers, for example 2 rounds included, so extra rounds are not a surprise." },
+        { item: "Additional revision rounds", note: "Extra rounds as hours at your hourly rate, with the quantity, once the included rounds are used." },
+        { item: "Rush fee", note: "A separate line when the deadline is shorter than your normal turnaround." },
+        { item: "Stock images, fonts, and licenses", note: "Pass-through costs at cost or with your stated markup, with the item named." },
+        { item: "Print management or production files", note: "Preparing press-ready files or managing a printer, billed apart from the design work." },
+        { item: "Extended usage rights", note: "For broader or longer use than agreed, a line stating the media, territory, and term." },
+        { item: "Deposit received", note: "A negative line showing the deposit already paid, with its invoice number, so the balance due is clear." },
+      ],
+      rates: {
+        summary:
+          "The U.S. Bureau of Labor Statistics reports a median wage of $62,960 a year, about $30.27 an hour, for graphic designers, with the lowest 10 percent earning under $39,520 and the highest 10 percent over $104,910. That data covers employees and excludes self-employed workers, so it is a salary benchmark, not a freelance rate. Freelancers also cover their own taxes, software, and unbilled time, so price from your market, experience, and project scope.",
+        asOf: "November 2026",
+        source: { label: "U.S. Bureau of Labor Statistics: Graphic Designers", url: "https://www.bls.gov/ooh/arts-and-design/graphic-designers.htm" },
+      },
+      mustShow: [
+        "The project name and each deliverable completed.",
+        "How many revision rounds were included and how many extra rounds are billed.",
+        "The deposit received and the balance due, with its due date.",
+        "When final source files and usage rights transfer, such as on full payment.",
+        "Pass-through costs like stock images and fonts as separate lines.",
+        "Rush or extended-usage fees as their own lines.",
+      ],
+    },
+    dateModified: "2026-11-27",
   },
   {
     slug: "consultants",
