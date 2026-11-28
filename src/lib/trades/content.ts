@@ -1335,7 +1335,33 @@ export const TRADES: Trade[] = [
       },
     ],
     guides: ["invoice-payment-terms", "how-to-follow-up-on-unpaid-invoice", "how-to-number-invoices"],
-    dateModified: "2026-10-31",
+    templateDetail: {
+      lineItems: [
+        { item: "Hourly advisory time", note: "Hours worked in the billing period with a short description, at your hourly rate." },
+        { item: "Day rate engagements", note: "Full or half days for workshops and on-site work, with the dates listed." },
+        { item: "Fixed-fee deliverable", note: "Each deliverable on its own line, such as a market analysis report or a strategy document, so the total ties back to your proposal." },
+        { item: "Monthly retainer", note: "The agreed retainer for the month, with a note on what it covers and how many hours it includes." },
+        { item: "Hours beyond the retainer", note: "Extra hours as a separate line at the agreed overage rate." },
+        { item: "Travel and expenses at cost", note: "Flights, lodging, and mileage on their own lines with receipts attached." },
+        { item: "Milestone payment", note: "A line naming the milestone reached and the percentage of the project fee it represents." },
+        { item: "Late fee, if your contract allows it", note: "Only when it is in your agreement; show it on its own line with the rule it comes from." },
+      ],
+      rates: {
+        summary:
+          "The U.S. Bureau of Labor Statistics reports a median wage of $101,860 a year, about $48.97 an hour, for management analysts, with the lowest 10 percent earning under $60,640 and the highest 10 percent over $171,640 (May 2025 wages). That is a salary benchmark for the occupation, not an independent consulting rate: independent consultants cover their own taxes, benefits, and unbilled time, and rates vary widely by specialty and client, so set yours from your market and the value you deliver.",
+        asOf: "November 2026",
+        source: { label: "U.S. Bureau of Labor Statistics: Management Analysts", url: "https://www.bls.gov/ooh/business-and-financial/management-analysts.htm" },
+      },
+      mustShow: [
+        "The client's purchase order number, if they use one.",
+        "The billing period and the dates of any day-rate work.",
+        "Hours or days worked, with a short description of the work.",
+        "Fixed-fee deliverables and milestones as separate lines.",
+        "Expenses at cost, listed apart from fees, with receipts attached.",
+        "Payment terms and due date that match your agreement, plus your tax ID if required.",
+      ],
+    },
+    dateModified: "2026-11-28",
   },
   {
     slug: "freelancers",
